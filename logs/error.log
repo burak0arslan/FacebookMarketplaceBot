@@ -1,0 +1,4 @@
+2025-06-16 09:06:24 | utils.browser_utils  | ERROR    | setup_driver:102 | Failed to setup WebDriver: [WinError 193] %1 is not a valid Win32 application
+2025-06-16 09:07:28 | utils.browser_utils  | ERROR    | setup_driver:102 | Failed to setup WebDriver: [WinError 193] %1 is not a valid Win32 application
+2025-06-16 09:08:17 | utils.browser_utils  | ERROR    | setup_driver:109 | Failed to setup WebDriver: [WinError 193] %1 is not a valid Win32 application
+2025-06-16 09:09:36 | utils.browser_utils  | ERROR    | setup_driver:109 | Failed to setup WebDriver: [WinError 193] %1 is not a valid Win32 application

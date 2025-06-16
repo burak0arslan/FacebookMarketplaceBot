@@ -7,3 +7,46 @@
 2025-06-15 21:55:49 | services.excel_handler | INFO     | Found 3 rows in accounts file
 2025-06-15 21:55:49 | services.excel_handler | INFO     | Successfully loaded 3 accounts
 2025-06-15 21:55:49 | integration_test     | INFO     | Excel handler working: 3 products, 3 accounts
+2025-06-16 09:06:20 | utils.browser_utils  | INFO     | BrowserManager initialized
+2025-06-16 09:06:20 | utils.browser_utils  | INFO     | Setting up Chrome WebDriver (profile: test)
+2025-06-16 09:06:20 | WDM                  | INFO     | ====== WebDriver manager ======
+2025-06-16 09:06:23 | WDM                  | INFO     | Get LATEST chromedriver version for google-chrome
+2025-06-16 09:06:23 | WDM                  | INFO     | Get LATEST chromedriver version for google-chrome
+2025-06-16 09:06:23 | WDM                  | INFO     | There is no [win64] chromedriver "137.0.7151.70" for browser google-chrome "137.0.7151" in cache
+2025-06-16 09:06:23 | WDM                  | INFO     | Get LATEST chromedriver version for google-chrome
+2025-06-16 09:06:23 | WDM                  | INFO     | WebDriver version 137.0.7151.70 selected
+2025-06-16 09:06:23 | WDM                  | INFO     | Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/137.0.7151.70/win32/chromedriver-win32.zip
+2025-06-16 09:06:23 | WDM                  | INFO     | About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/137.0.7151.70/win32/chromedriver-win32.zip
+2025-06-16 09:06:23 | WDM                  | INFO     | Driver downloading response is 200
+2025-06-16 09:06:24 | WDM                  | INFO     | Get LATEST chromedriver version for google-chrome
+2025-06-16 09:06:24 | WDM                  | INFO     | Driver has been saved in cache [C:\Users\burak\.wdm\drivers\chromedriver\win64\137.0.7151.70]
+2025-06-16 09:06:24 | utils.browser_utils  | ERROR    | Failed to setup WebDriver: [WinError 193] %1 is not a valid Win32 application
+2025-06-16 09:07:26 | utils.browser_utils  | INFO     | BrowserManager initialized
+2025-06-16 09:07:26 | utils.browser_utils  | INFO     | Setting up Chrome WebDriver (profile: test)
+2025-06-16 09:07:26 | WDM                  | INFO     | ====== WebDriver manager ======
+2025-06-16 09:07:28 | WDM                  | INFO     | Get LATEST chromedriver version for google-chrome
+2025-06-16 09:07:28 | WDM                  | INFO     | Get LATEST chromedriver version for google-chrome
+2025-06-16 09:07:28 | WDM                  | INFO     | Driver [C:\Users\burak\.wdm\drivers\chromedriver\win64\137.0.7151.70\chromedriver-win32/THIRD_PARTY_NOTICES.chromedriver] found in cache
+2025-06-16 09:07:28 | utils.browser_utils  | ERROR    | Failed to setup WebDriver: [WinError 193] %1 is not a valid Win32 application
+2025-06-16 09:08:15 | utils.browser_utils  | INFO     | BrowserManager initialized
+2025-06-16 09:08:15 | utils.browser_utils  | INFO     | Setting up Chrome WebDriver (profile: test)
+2025-06-16 09:08:15 | WDM                  | INFO     | ====== WebDriver manager ======
+2025-06-16 09:08:16 | WDM                  | INFO     | Get LATEST chromedriver version for google-chrome
+2025-06-16 09:08:16 | WDM                  | INFO     | Get LATEST chromedriver version for google-chrome
+2025-06-16 09:08:17 | WDM                  | INFO     | Driver [C:\Users\burak\.wdm\drivers\chromedriver\win64\137.0.7151.70\chromedriver-win32/THIRD_PARTY_NOTICES.chromedriver] found in cache
+2025-06-16 09:08:17 | utils.browser_utils  | ERROR    | Failed to setup WebDriver: [WinError 193] %1 is not a valid Win32 application
+2025-06-16 09:09:34 | utils.browser_utils  | INFO     | BrowserManager initialized
+2025-06-16 09:09:34 | utils.browser_utils  | INFO     | Setting up Chrome WebDriver (profile: test)
+2025-06-16 09:09:34 | WDM                  | INFO     | ====== WebDriver manager ======
+2025-06-16 09:09:36 | WDM                  | INFO     | Get LATEST chromedriver version for google-chrome
+2025-06-16 09:09:36 | WDM                  | INFO     | Get LATEST chromedriver version for google-chrome
+2025-06-16 09:09:36 | WDM                  | INFO     | Driver [C:\Users\burak\.wdm\drivers\chromedriver\win64\137.0.7151.70\chromedriver-win32/THIRD_PARTY_NOTICES.chromedriver] found in cache
+2025-06-16 09:09:36 | utils.browser_utils  | ERROR    | Failed to setup WebDriver: [WinError 193] %1 is not a valid Win32 application
+2025-06-16 09:11:06 | utils.browser_utils  | INFO     | BrowserManager initialized
+2025-06-16 09:11:06 | utils.browser_utils  | INFO     | Setting up Chrome WebDriver (profile: test)
+2025-06-16 09:11:07 | root                 | INFO     | Chromedriver is already installed.
+2025-06-16 09:11:07 | utils.browser_utils  | INFO     | Using ChromeDriver from: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\venv\Lib\site-packages\chromedriver_autoinstaller\137\chromedriver.exe
+2025-06-16 09:11:08 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-16 09:11:08 | utils.browser_utils  | INFO     | Navigating to: https://www.google.com
+2025-06-16 09:11:09 | utils.browser_utils  | INFO     | Page loaded in 1.67s
+2025-06-16 09:11:13 | utils.browser_utils  | INFO     | Browser cleanup completed

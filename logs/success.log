@@ -2,3 +2,6 @@
 2025-06-15 21:55:49 | services.excel_handler | INFO     | Successfully loaded 3 products
 2025-06-15 21:55:49 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
 2025-06-15 21:55:49 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-16 09:11:08 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-16 09:11:09 | utils.browser_utils  | INFO     | Page loaded in 1.67s
+2025-06-16 09:11:13 | utils.browser_utils  | INFO     | Browser cleanup completed
