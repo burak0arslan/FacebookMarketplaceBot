@@ -1,0 +1,4 @@
+2025-06-15 21:55:49 | services.excel_handler | INFO     | Loaded products Excel file: data\sample_products.xlsx
+2025-06-15 21:55:49 | services.excel_handler | INFO     | Successfully loaded 3 products
+2025-06-15 21:55:49 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-15 21:55:49 | services.excel_handler | INFO     | Successfully loaded 3 accounts
