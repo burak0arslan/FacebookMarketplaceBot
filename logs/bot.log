@@ -50,3 +50,225 @@
 2025-06-16 09:11:08 | utils.browser_utils  | INFO     | Navigating to: https://www.google.com
 2025-06-16 09:11:09 | utils.browser_utils  | INFO     | Page loaded in 1.67s
 2025-06-16 09:11:13 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-16 09:15:03 | services.facebook_bot | INFO     | FacebookBot initialized
+2025-06-16 09:15:03 | utils.browser_utils  | INFO     | BrowserManager initialized
+2025-06-16 09:15:03 | utils.browser_utils  | INFO     | Setting up Chrome WebDriver (profile: test_profile)
+2025-06-16 09:15:03 | utils.browser_utils  | INFO     | Using user data directory: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\browser_profiles\test_profile
+2025-06-16 09:15:04 | root                 | INFO     | Chromedriver is already installed.
+2025-06-16 09:15:04 | utils.browser_utils  | INFO     | Using ChromeDriver from: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\venv\Lib\site-packages\chromedriver_autoinstaller\137\chromedriver.exe
+2025-06-16 09:15:05 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-16 09:15:05 | services.facebook_bot | INFO     | Browser setup successful for profile: test_profile
+2025-06-16 09:15:34 | services.facebook_bot | INFO     | FacebookBot initialized
+2025-06-16 09:15:34 | utils.browser_utils  | INFO     | BrowserManager initialized
+2025-06-16 09:15:34 | utils.browser_utils  | INFO     | Setting up Chrome WebDriver (profile: test_profile)
+2025-06-16 09:15:34 | utils.browser_utils  | INFO     | Using user data directory: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\browser_profiles\test_profile
+2025-06-16 09:15:34 | root                 | INFO     | Chromedriver is already installed.
+2025-06-16 09:15:34 | utils.browser_utils  | INFO     | Using ChromeDriver from: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\venv\Lib\site-packages\chromedriver_autoinstaller\137\chromedriver.exe
+2025-06-16 09:15:35 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-16 09:15:35 | services.facebook_bot | INFO     | Browser setup successful for profile: test_profile
+2025-06-16 09:15:35 | utils.browser_utils  | INFO     | Navigating to: https://www.facebook.com
+2025-06-16 09:15:37 | utils.browser_utils  | INFO     | Page loaded in 1.93s
+2025-06-16 09:15:39 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-16 09:15:44 | services.facebook_bot | INFO     | FacebookBot cleanup completed
+2025-06-17 20:57:29 | environment_check    | INFO     | Environment check logging test
+2025-06-17 20:58:45 | test                 | INFO     | Info message test
+2025-06-17 20:58:45 | test                 | WARNING  | Warning message test
+2025-06-17 20:58:45 | test                 | ERROR    | Error message test
+2025-06-17 20:58:45 | performance          | INFO     | PERFORMANCE | test_operation | 1.50s
+2025-06-17 20:58:45 | facebook             | INFO     | FB_ACTION | test_login | t**t@example.com | SUCCESS | Test login successful
+2025-06-17 20:58:45 | services.excel_handler | INFO     | Loaded products Excel file: data\sample_products.xlsx
+2025-06-17 20:58:45 | services.excel_handler | INFO     | Found 3 rows in products file
+2025-06-17 20:58:45 | services.excel_handler | INFO     | Successfully loaded 3 products
+2025-06-17 20:58:45 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-17 20:58:45 | services.excel_handler | INFO     | Found 3 rows in accounts file
+2025-06-17 20:58:45 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-17 20:58:45 | utils.browser_utils  | INFO     | BrowserManager initialized
+2025-06-17 20:58:45 | utils.browser_utils  | INFO     | Running in headless mode
+2025-06-17 20:58:45 | integration_test     | INFO     | Models working: Test iPhone, t**t@email.com
+2025-06-17 20:58:45 | services.excel_handler | INFO     | Loaded products Excel file: data\sample_products.xlsx
+2025-06-17 20:58:45 | services.excel_handler | INFO     | Found 3 rows in products file
+2025-06-17 20:58:45 | services.excel_handler | INFO     | Successfully loaded 3 products
+2025-06-17 20:58:45 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-17 20:58:45 | services.excel_handler | INFO     | Found 3 rows in accounts file
+2025-06-17 20:58:45 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-17 20:58:45 | integration_test     | INFO     | Excel handler working: 3 products, 3 accounts
+2025-06-17 21:00:25 | test                 | INFO     | Info message test
+2025-06-17 21:00:25 | test                 | WARNING  | Warning message test
+2025-06-17 21:00:25 | test                 | ERROR    | Error message test
+2025-06-17 21:00:25 | performance          | INFO     | PERFORMANCE | test_operation | 1.50s
+2025-06-17 21:00:25 | facebook             | INFO     | FB_ACTION | test_login | t**t@example.com | SUCCESS | Test login successful
+2025-06-17 21:00:25 | services.excel_handler | INFO     | Loaded products Excel file: data\sample_products.xlsx
+2025-06-17 21:00:25 | services.excel_handler | INFO     | Found 3 rows in products file
+2025-06-17 21:00:25 | services.excel_handler | INFO     | Successfully loaded 3 products
+2025-06-17 21:00:25 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-17 21:00:25 | services.excel_handler | INFO     | Found 3 rows in accounts file
+2025-06-17 21:00:25 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-17 21:00:25 | utils.browser_utils  | INFO     | BrowserManager initialized
+2025-06-17 21:00:25 | utils.browser_utils  | INFO     | Running in headless mode
+2025-06-17 21:00:25 | integration_test     | INFO     | Models working: Test iPhone, t**t@email.com
+2025-06-17 21:00:25 | services.excel_handler | INFO     | Loaded products Excel file: data\sample_products.xlsx
+2025-06-17 21:00:25 | services.excel_handler | INFO     | Found 3 rows in products file
+2025-06-17 21:00:25 | services.excel_handler | INFO     | Successfully loaded 3 products
+2025-06-17 21:00:25 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-17 21:00:25 | services.excel_handler | INFO     | Found 3 rows in accounts file
+2025-06-17 21:00:25 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-17 21:00:25 | integration_test     | INFO     | Excel handler working: 3 products, 3 accounts
+2025-06-17 21:00:25 | performance          | INFO     | PERFORMANCE | create_100_products | 0.00s
+2025-06-17 21:00:25 | services.excel_handler | INFO     | Loaded products Excel file: data\sample_products.xlsx
+2025-06-17 21:00:25 | services.excel_handler | INFO     | Found 3 rows in products file
+2025-06-17 21:00:25 | services.excel_handler | INFO     | Successfully loaded 3 products
+2025-06-17 21:00:25 | performance          | INFO     | PERFORMANCE | load_sample_products | 0.01s
+2025-06-17 21:09:39 | facebook_bot_s*****1@gmail.com | INFO     | FacebookBot initialized for s*****1@gmail.com
+2025-06-17 21:09:39 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-17 21:09:39 | services.excel_handler | INFO     | Found 3 rows in accounts file
+2025-06-17 21:09:39 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-17 21:09:39 | facebook_bot_s*****1@gmail.com | INFO     | FacebookBot initialized for s*****1@gmail.com
+2025-06-17 21:09:39 | utils.browser_utils  | INFO     | BrowserManager initialized
+2025-06-17 21:09:39 | utils.browser_utils  | INFO     | Setting up Chrome WebDriver (profile: fb_s*****1_at_gmail_com)
+2025-06-17 21:09:39 | utils.browser_utils  | INFO     | Running in headless mode
+2025-06-17 21:09:39 | utils.browser_utils  | ERROR    | Failed to setup WebDriver: [WinError 123] The filename, directory name, or volume label syntax is incorrect: 'C:\\Users\\burak\\PycharmProjects\\FacebookMarketplaceBot\\drivers\\profiles\\fb_s*****1_at_gmail_com'
+2025-06-17 21:09:39 | facebook_bot_s*****1@gmail.com | ERROR    | Failed to setup browser driver
+2025-06-17 21:09:39 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-17 21:09:39 | services.excel_handler | INFO     | Found 3 rows in accounts file
+2025-06-17 21:09:39 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-17 21:09:39 | facebook_bot_s*****1@gmail.com | INFO     | FacebookBot initialized for s*****1@gmail.com
+2025-06-17 21:09:39 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-17 21:09:39 | services.excel_handler | INFO     | Found 3 rows in accounts file
+2025-06-17 21:09:39 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-17 21:09:39 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-17 21:09:39 | services.excel_handler | INFO     | Found 3 rows in accounts file
+2025-06-17 21:09:39 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-17 21:09:39 | facebook_bot_s*****1@gmail.com | INFO     | FacebookBot initialized for s*****1@gmail.com
+2025-06-17 21:09:39 | utils.browser_utils  | INFO     | BrowserManager initialized
+2025-06-17 21:09:39 | utils.browser_utils  | INFO     | Setting up Chrome WebDriver (profile: fb_s*****1_at_gmail_com)
+2025-06-17 21:09:39 | utils.browser_utils  | INFO     | Running in headless mode
+2025-06-17 21:09:39 | utils.browser_utils  | ERROR    | Failed to setup WebDriver: [WinError 123] The filename, directory name, or volume label syntax is incorrect: 'C:\\Users\\burak\\PycharmProjects\\FacebookMarketplaceBot\\drivers\\profiles\\fb_s*****1_at_gmail_com'
+2025-06-17 21:09:39 | facebook_bot_s*****1@gmail.com | ERROR    | Failed to setup browser driver
+2025-06-17 21:13:12 | facebook_bot_s*****1@gmail.com | INFO     | FacebookBot initialized for s*****1@gmail.com
+2025-06-17 21:13:12 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-17 21:13:12 | services.excel_handler | INFO     | Found 3 rows in accounts file
+2025-06-17 21:13:12 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-17 21:13:12 | facebook_bot_s*****1@gmail.com | INFO     | FacebookBot initialized for s*****1@gmail.com
+2025-06-17 21:13:12 | utils.browser_utils  | INFO     | BrowserManager initialized
+2025-06-17 21:13:12 | utils.browser_utils  | INFO     | Setting up Chrome WebDriver (profile: fb_seller1_at_gmail_dot_com)
+2025-06-17 21:13:12 | utils.browser_utils  | INFO     | Running in headless mode
+2025-06-17 21:13:12 | utils.browser_utils  | INFO     | Using user data directory: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\drivers\profiles\fb_seller1_at_gmail_dot_com
+2025-06-17 21:13:12 | root                 | INFO     | Downloading chromedriver (137.0.7151.119)...
+2025-06-17 21:13:13 | utils.browser_utils  | INFO     | Using ChromeDriver from: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\venv\Lib\site-packages\chromedriver_autoinstaller\137\chromedriver.exe
+2025-06-17 21:13:14 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-17 21:13:14 | facebook_bot_s*****1@gmail.com | INFO     | Browser setup completed
+2025-06-17 21:13:14 | utils.browser_utils  | INFO     | Navigating to: https://www.google.com
+2025-06-17 21:13:16 | utils.browser_utils  | INFO     | Page loaded in 2.32s
+2025-06-17 21:13:19 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-17 21:13:23 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-17 21:13:23 | services.excel_handler | INFO     | Found 3 rows in accounts file
+2025-06-17 21:13:23 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-17 21:13:23 | facebook_bot_s*****1@gmail.com | INFO     | FacebookBot initialized for s*****1@gmail.com
+2025-06-17 21:13:23 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-17 21:13:23 | services.excel_handler | INFO     | Found 3 rows in accounts file
+2025-06-17 21:13:23 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-17 21:13:23 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-17 21:13:23 | services.excel_handler | INFO     | Found 3 rows in accounts file
+2025-06-17 21:13:23 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-17 21:13:23 | facebook_bot_s*****1@gmail.com | INFO     | FacebookBot initialized for s*****1@gmail.com
+2025-06-17 21:13:23 | utils.browser_utils  | INFO     | BrowserManager initialized
+2025-06-17 21:13:23 | utils.browser_utils  | INFO     | Setting up Chrome WebDriver (profile: fb_seller1_at_gmail_dot_com)
+2025-06-17 21:13:23 | utils.browser_utils  | INFO     | Running in headless mode
+2025-06-17 21:13:23 | utils.browser_utils  | INFO     | Using user data directory: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\drivers\profiles\fb_seller1_at_gmail_dot_com
+2025-06-17 21:13:23 | root                 | INFO     | Chromedriver is already installed.
+2025-06-17 21:13:23 | utils.browser_utils  | INFO     | Using ChromeDriver from: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\venv\Lib\site-packages\chromedriver_autoinstaller\137\chromedriver.exe
+2025-06-17 21:13:24 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-17 21:13:24 | facebook_bot_s*****1@gmail.com | INFO     | Browser setup completed
+2025-06-17 21:13:24 | utils.browser_utils  | INFO     | Navigating to: https://www.facebook.com
+2025-06-17 21:13:26 | utils.browser_utils  | INFO     | Page loaded in 1.67s
+2025-06-17 21:13:26 | utils.browser_utils  | ERROR    | Error finding element css_selector=input[name="email"]: Message: invalid argument: invalid locator
+  (Session info: chrome=137.0.7151.104)
+Stacktrace:
+	GetHandleVerifier [0x0x9d3b03+62899]
+	GetHandleVerifier [0x0x9d3b44+62964]
+	(No symbol) [0x0x8010f3]
+	(No symbol) [0x0x849349]
+	(No symbol) [0x0x849bab]
+	(No symbol) [0x0x8925c2]
+	(No symbol) [0x0x86e554]
+	(No symbol) [0x0x88fd81]
+	(No symbol) [0x0x86e306]
+	(No symbol) [0x0x83d670]
+	(No symbol) [0x0x83e4e4]
+	GetHandleVerifier [0x0xc34793+2556483]
+	GetHandleVerifier [0x0xc2fd02+2537394]
+	GetHandleVerifier [0x0x9fa2fa+220586]
+	GetHandleVerifier [0x0x9eaae8+157080]
+	GetHandleVerifier [0x0x9f141d+184013]
+	GetHandleVerifier [0x0x9dba68+95512]
+	GetHandleVerifier [0x0x9dbc10+95936]
+	GetHandleVerifier [0x0x9c6b5a+9738]
+	BaseThreadInitThunk [0x0x75cf5d49+25]
+	RtlInitializeExceptionChain [0x0x7714d09b+107]
+	RtlGetAppContainerNamedObjectPath [0x0x7714d021+561]
+
+2025-06-17 21:13:28 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-17 21:13:41 | facebook_bot_s*****1@gmail.com | INFO     | FacebookBot initialized for s*****1@gmail.com
+2025-06-17 21:13:41 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-17 21:13:41 | services.excel_handler | INFO     | Found 3 rows in accounts file
+2025-06-17 21:13:41 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-17 21:13:41 | facebook_bot_s*****1@gmail.com | INFO     | FacebookBot initialized for s*****1@gmail.com
+2025-06-17 21:13:41 | utils.browser_utils  | INFO     | BrowserManager initialized
+2025-06-17 21:13:41 | utils.browser_utils  | INFO     | Setting up Chrome WebDriver (profile: fb_seller1_at_gmail_dot_com)
+2025-06-17 21:13:41 | utils.browser_utils  | INFO     | Running in headless mode
+2025-06-17 21:13:41 | utils.browser_utils  | INFO     | Using user data directory: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\drivers\profiles\fb_seller1_at_gmail_dot_com
+2025-06-17 21:13:41 | root                 | INFO     | Chromedriver is already installed.
+2025-06-17 21:13:41 | utils.browser_utils  | INFO     | Using ChromeDriver from: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\venv\Lib\site-packages\chromedriver_autoinstaller\137\chromedriver.exe
+2025-06-17 21:13:42 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-17 21:13:42 | facebook_bot_s*****1@gmail.com | INFO     | Browser setup completed
+2025-06-17 21:13:42 | utils.browser_utils  | INFO     | Navigating to: https://www.google.com
+2025-06-17 21:13:44 | utils.browser_utils  | INFO     | Page loaded in 2.14s
+2025-06-17 21:13:46 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-17 21:13:50 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-17 21:13:50 | services.excel_handler | INFO     | Found 3 rows in accounts file
+2025-06-17 21:13:50 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-17 21:13:50 | facebook_bot_s*****1@gmail.com | INFO     | FacebookBot initialized for s*****1@gmail.com
+2025-06-17 21:13:50 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-17 21:13:50 | services.excel_handler | INFO     | Found 3 rows in accounts file
+2025-06-17 21:13:50 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-17 21:13:50 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-17 21:13:50 | services.excel_handler | INFO     | Found 3 rows in accounts file
+2025-06-17 21:13:50 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-17 21:13:50 | facebook_bot_s*****1@gmail.com | INFO     | FacebookBot initialized for s*****1@gmail.com
+2025-06-17 21:13:50 | utils.browser_utils  | INFO     | BrowserManager initialized
+2025-06-17 21:13:50 | utils.browser_utils  | INFO     | Setting up Chrome WebDriver (profile: fb_seller1_at_gmail_dot_com)
+2025-06-17 21:13:50 | utils.browser_utils  | INFO     | Running in headless mode
+2025-06-17 21:13:50 | utils.browser_utils  | INFO     | Using user data directory: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\drivers\profiles\fb_seller1_at_gmail_dot_com
+2025-06-17 21:13:51 | root                 | INFO     | Chromedriver is already installed.
+2025-06-17 21:13:51 | utils.browser_utils  | INFO     | Using ChromeDriver from: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\venv\Lib\site-packages\chromedriver_autoinstaller\137\chromedriver.exe
+2025-06-17 21:13:52 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-17 21:13:52 | facebook_bot_s*****1@gmail.com | INFO     | Browser setup completed
+2025-06-17 21:13:52 | utils.browser_utils  | INFO     | Navigating to: https://www.facebook.com
+2025-06-17 21:13:54 | utils.browser_utils  | INFO     | Page loaded in 2.06s
+2025-06-17 21:13:54 | utils.browser_utils  | ERROR    | Error finding element css_selector=input[name="email"]: Message: invalid argument: invalid locator
+  (Session info: chrome=137.0.7151.104)
+Stacktrace:
+	GetHandleVerifier [0x0x9d3b03+62899]
+	GetHandleVerifier [0x0x9d3b44+62964]
+	(No symbol) [0x0x8010f3]
+	(No symbol) [0x0x849349]
+	(No symbol) [0x0x849bab]
+	(No symbol) [0x0x8925c2]
+	(No symbol) [0x0x86e554]
+	(No symbol) [0x0x88fd81]
+	(No symbol) [0x0x86e306]
+	(No symbol) [0x0x83d670]
+	(No symbol) [0x0x83e4e4]
+	GetHandleVerifier [0x0xc34793+2556483]
+	GetHandleVerifier [0x0xc2fd02+2537394]
+	GetHandleVerifier [0x0x9fa2fa+220586]
+	GetHandleVerifier [0x0x9eaae8+157080]
+	GetHandleVerifier [0x0x9f141d+184013]
+	GetHandleVerifier [0x0x9dba68+95512]
+	GetHandleVerifier [0x0x9dbc10+95936]
+	GetHandleVerifier [0x0x9c6b5a+9738]
+	BaseThreadInitThunk [0x0x75cf5d49+25]
+	RtlInitializeExceptionChain [0x0x7714d09b+107]
+	RtlGetAppContainerNamedObjectPath [0x0x7714d021+561]
+
+2025-06-17 21:13:56 | utils.browser_utils  | INFO     | Browser cleanup completed
