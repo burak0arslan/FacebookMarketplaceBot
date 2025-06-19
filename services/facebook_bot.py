@@ -25,7 +25,9 @@ from models.account import Account
 from models.product import Product
 from models.message import Message
 from config import Config
-
+from typing import Optional, Callable
+from services.message_monitor import MessageMonitor, AsyncMessageMonitor
+from models.message import Message
 
 class FacebookBot:
     """
@@ -510,6 +512,283 @@ class FacebookBot:
             return self.start_session()
 
         return True
+
+    def start_message_monitoring(self, check_interval: int = None) -> bool:
+        """
+        Start message monitoring for this bot's account
+
+        Args:
+            check_interval: Seconds between message checks (uses config default if None)
+
+        Returns:
+            True if monitoring started successfully
+        """
+        try:
+            if not self.is_logged_in:
+                self.logger.error("Must be logged in to monitor messages")
+                return False
+
+            self.logger.info("Starting message monitoring...")
+
+            # Create message monitor
+            self.message_monitor = MessageMonitor(self.browser, self.account)
+
+            # Start monitoring
+            if self.message_monitor.start_monitoring(check_interval):
+                self.logger.info("✅ Message monitoring started successfully")
+                return True
+            else:
+                self.logger.error("Failed to start message monitoring")
+                return False
+
+        except Exception as e:
+            self.logger.error(f"Failed to start message monitoring: {e}")
+            return False
+
+    def stop_message_monitoring(self):
+        """Stop message monitoring"""
+        try:
+            if hasattr(self, 'message_monitor') and self.message_monitor:
+                self.message_monitor.stop_monitoring()
+                self.message_monitor = None
+                self.logger.info("Message monitoring stopped")
+            else:
+                self.logger.warning("Message monitoring was not running")
+        except Exception as e:
+            self.logger.error(f"Error stopping message monitoring: {e}")
+
+    def process_new_messages(self, processor_callback: Callable[[Message], bool] = None) -> dict:
+        """
+        Process new messages in one cycle
+
+        Args:
+            processor_callback: Function to process each message
+
+        Returns:
+            Dictionary with processing statistics
+        """
+        if not hasattr(self, 'message_monitor') or not self.message_monitor:
+            self.logger.warning("Message monitoring not started")
+            return {'error': 'Message monitoring not started'}
+
+        try:
+            # Run one monitoring cycle
+            stats = self.message_monitor.run_monitoring_cycle(processor_callback)
+
+            if stats.get('new_messages', 0) > 0:
+                self.logger.info(f"Processed {stats['new_messages']} new messages")
+
+            return stats
+
+        except Exception as e:
+            self.logger.error(f"Error processing messages: {e}")
+            return {'error': str(e)}
+
+    def get_message_stats(self) -> dict:
+        """Get message monitoring statistics"""
+        if not hasattr(self, 'message_monitor') or not self.message_monitor:
+            return {'monitoring': False, 'error': 'Message monitoring not started'}
+
+        try:
+            stats = self.message_monitor.get_monitoring_stats()
+            return stats
+        except Exception as e:
+            self.logger.error(f"Error getting message stats: {e}")
+            return {'error': str(e)}
+
+    def create_message_processor(self) -> Callable[[Message], bool]:
+        """
+        Create a default message processor for this bot
+
+        Returns:
+            Message processor function
+        """
+
+        def default_processor(message: Message) -> bool:
+            try:
+                self.logger.info(f"Processing message from {message.sender_name}")
+                self.logger.info(f"Content: {message.get_short_content()}")
+
+                # Log message details
+                self.logger.info(f"  Priority: {message.get_priority_score()}")
+                self.logger.info(f"  Contains question: {message.contains_question}")
+                self.logger.info(f"  Price inquiry: {message.contains_price_inquiry}")
+                self.logger.info(f"  Requires human attention: {message.requires_human_attention}")
+
+                # Handle escalation
+                if message.requires_human_attention:
+                    self.logger.warning("⚠️ Message requires human attention - escalating")
+                    message.mark_as_escalated()
+
+                    # You can add notification logic here
+                    # self.notify_human_operator(message)
+
+                    return True
+
+                # Handle questions (Phase 5 will add AI responses here)
+                if message.contains_question:
+                    self.logger.info("❓ Message contains question - ready for AI response")
+
+                    # Phase 5 integration point:
+                    # response = self.generate_ai_response(message)
+                    # if response:
+                    #     self.send_response(message.conversation_id, response)
+                    #     message.mark_as_processed()
+                    #     return True
+
+                # For now, just mark as processed
+                message.mark_as_processed()
+                self.logger.info("✅ Message processed successfully")
+
+                return True
+
+            except Exception as e:
+                self.logger.error(f"Error in message processor: {e}")
+                message.mark_as_error(str(e))
+                return False
+
+        return default_processor
+
+    def start_continuous_monitoring(self, check_interval: int = None,
+                                    processor_callback: Callable[[Message], bool] = None):
+        """
+        Start continuous message monitoring (async)
+
+        Args:
+            check_interval: Seconds between checks
+            processor_callback: Function to process messages
+
+        Returns:
+            AsyncMessageMonitor instance
+        """
+        try:
+            if not hasattr(self, 'message_monitor') or not self.message_monitor:
+                if not self.start_message_monitoring(check_interval):
+                    return None
+
+            # Create async monitor
+            self.async_monitor = AsyncMessageMonitor(self.message_monitor)
+
+            # Use default processor if none provided
+            if not processor_callback:
+                processor_callback = self.create_message_processor()
+
+            self.logger.info("Starting continuous message monitoring...")
+            return self.async_monitor
+
+        except Exception as e:
+            self.logger.error(f"Failed to start continuous monitoring: {e}")
+            return None
+
+    def stop_continuous_monitoring(self):
+        """Stop continuous message monitoring"""
+        try:
+            if hasattr(self, 'async_monitor') and self.async_monitor:
+                self.async_monitor.stop_continuous_monitoring()
+                self.async_monitor = None
+                self.logger.info("Continuous monitoring stopped")
+
+            self.stop_message_monitoring()
+
+        except Exception as e:
+            self.logger.error(f"Error stopping continuous monitoring: {e}")
+
+    # Update the end_session method to include cleanup:
+    def end_session(self):
+        """End the Facebook session and cleanup (UPDATE EXISTING METHOD)"""
+        try:
+            # Stop message monitoring if running
+            if hasattr(self, 'message_monitor') and self.message_monitor:
+                self.stop_message_monitoring()
+
+            if hasattr(self, 'async_monitor') and self.async_monitor:
+                self.stop_continuous_monitoring()
+
+            # ... rest of existing end_session code ...
+
+            if self.browser:
+                # Take final screenshot if enabled
+                if Config.TAKE_SCREENSHOTS and self.is_logged_in:
+                    self.browser.take_screenshot("session_end")
+
+                # Cleanup browser
+                self.browser.cleanup()
+                self.browser = None
+
+            # Log session info
+            session_info = self.get_session_info()
+            self.logger.info(f"Session ended: {session_info}")
+
+            log_facebook_action("session_end", self.account.get_masked_email(), True,
+                                f"Actions: {self.action_count}, Duration: {session_info.get('session_duration', 0):.2f}s")
+
+            # Reset state
+            self.is_logged_in = False
+            self.current_url = ""
+            self.session_start_time = None
+
+            self.logger.info("Facebook session ended successfully")
+
+        except Exception as e:
+            self.logger.error(f"Session cleanup error: {e}")
+
+    # Example usage:
+    """
+    # Basic message monitoring
+    bot = FacebookBot(account)
+    if bot.start_session():
+        # Start monitoring
+        if bot.start_message_monitoring(check_interval=30):
+            # Process messages manually
+            stats = bot.process_new_messages()
+            print(f"Processed {stats.get('new_messages', 0)} messages")
+
+            # Stop monitoring
+            bot.stop_message_monitoring()
+
+    # Continuous monitoring
+    bot = FacebookBot(account)
+    if bot.start_session():
+        # Start continuous monitoring
+        async_monitor = bot.start_continuous_monitoring(check_interval=30)
+
+        if async_monitor:
+            # This will run continuously until stopped
+            import asyncio
+
+            async def run_monitoring():
+                await async_monitor.start_continuous_monitoring(
+                    check_interval=30,
+                    processor_callback=bot.create_message_processor()
+                )
+
+            # Run for 5 minutes then stop
+            async def stop_after_delay():
+                await asyncio.sleep(300)  # 5 minutes
+                bot.stop_continuous_monitoring()
+
+            # Run both tasks
+            asyncio.run(asyncio.gather(
+                run_monitoring(),
+                stop_after_delay()
+            ))
+
+    # Custom message processor
+    def custom_processor(message):
+        print(f"Custom processing: {message.sender_name}")
+
+        if "urgent" in message.content.lower():
+            print("URGENT MESSAGE!")
+            message.mark_as_escalated()
+            return True
+
+        message.mark_as_processed()
+        return True
+
+    # Use custom processor
+    bot.start_message_monitoring()
+    bot.process_new_messages(custom_processor)
+    """
 
     def _wait_for_page_stability(self, timeout: int = 10):
         """Wait for page to be stable and fully loaded"""
