@@ -60,3 +60,118 @@ Stacktrace:
 	RtlInitializeExceptionChain [0x0x7714d09b+107]
 	RtlGetAppContainerNamedObjectPath [0x0x7714d021+561]
 
+2025-06-17 21:38:19 | services.excel_handler | ERROR    | load_products:89 | Error loading products from C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_products.xlsx: Excel file format cannot be determined, you must specify an engine manually.
+2025-06-17 21:38:19 | __main__             | ERROR    | test_data_loading:185 | Data loading test error: Error loading products from C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_products.xlsx: Excel file format cannot be determined, you must specify an engine manually.
+2025-06-17 21:38:19 | __main__             | ERROR    | run_all_tests:82 | ❌ Data loading test failed
+2025-06-17 21:38:23 | __main__             | ERROR    | test_browser_setup:215 | Browser setup test error: 'BrowserManager' object has no attribute 'get_masked_email'
+2025-06-17 21:38:23 | __main__             | ERROR    | run_all_tests:90 | ❌ Browser setup test failed
+2025-06-18 09:23:07 | utils.browser_utils  | ERROR    | find_element_safe:292 | Error finding element css_selector=input[name="email"]: Message: invalid argument: invalid locator
+  (Session info: chrome=137.0.7151.104)
+Stacktrace:
+	GetHandleVerifier [0x0x9d3b03+62899]
+	GetHandleVerifier [0x0x9d3b44+62964]
+	(No symbol) [0x0x8010f3]
+	(No symbol) [0x0x849349]
+	(No symbol) [0x0x849bab]
+	(No symbol) [0x0x8925c2]
+	(No symbol) [0x0x86e554]
+	(No symbol) [0x0x88fd81]
+	(No symbol) [0x0x86e306]
+	(No symbol) [0x0x83d670]
+	(No symbol) [0x0x83e4e4]
+	GetHandleVerifier [0x0xc34793+2556483]
+	GetHandleVerifier [0x0xc2fd02+2537394]
+	GetHandleVerifier [0x0x9fa2fa+220586]
+	GetHandleVerifier [0x0x9eaae8+157080]
+	GetHandleVerifier [0x0x9f141d+184013]
+	GetHandleVerifier [0x0x9dba68+95512]
+	GetHandleVerifier [0x0x9dbc10+95936]
+	GetHandleVerifier [0x0x9c6b5a+9738]
+	BaseThreadInitThunk [0x0x75cf5d49+25]
+	RtlInitializeExceptionChain [0x0x7714d09b+107]
+	RtlGetAppContainerNamedObjectPath [0x0x7714d021+561]
+
+2025-06-18 09:28:25 | utils.browser_utils  | ERROR    | find_element_safe:292 | Error finding element css_selector=input[name="email"]: Message: invalid argument: invalid locator
+  (Session info: chrome=137.0.7151.104)
+Stacktrace:
+	GetHandleVerifier [0x0x9d3b03+62899]
+	GetHandleVerifier [0x0x9d3b44+62964]
+	(No symbol) [0x0x8010f3]
+	(No symbol) [0x0x849349]
+	(No symbol) [0x0x849bab]
+	(No symbol) [0x0x8925c2]
+	(No symbol) [0x0x86e554]
+	(No symbol) [0x0x88fd81]
+	(No symbol) [0x0x86e306]
+	(No symbol) [0x0x83d670]
+	(No symbol) [0x0x83e4e4]
+	GetHandleVerifier [0x0xc34793+2556483]
+	GetHandleVerifier [0x0xc2fd02+2537394]
+	GetHandleVerifier [0x0x9fa2fa+220586]
+	GetHandleVerifier [0x0x9eaae8+157080]
+	GetHandleVerifier [0x0x9f141d+184013]
+	GetHandleVerifier [0x0x9dba68+95512]
+	GetHandleVerifier [0x0x9dbc10+95936]
+	GetHandleVerifier [0x0x9c6b5a+9738]
+	BaseThreadInitThunk [0x0x75cf5d49+25]
+	RtlInitializeExceptionChain [0x0x7714d09b+107]
+	RtlGetAppContainerNamedObjectPath [0x0x7714d021+561]
+
+2025-06-18 09:30:12 | utils.browser_utils  | ERROR    | find_element_safe:292 | Error finding element css_selector=input[name="email"]: Message: invalid argument: invalid locator
+  (Session info: chrome=137.0.7151.104)
+Stacktrace:
+	GetHandleVerifier [0x0x9d3b03+62899]
+	GetHandleVerifier [0x0x9d3b44+62964]
+	(No symbol) [0x0x8010f3]
+	(No symbol) [0x0x849349]
+	(No symbol) [0x0x849bab]
+	(No symbol) [0x0x8925c2]
+	(No symbol) [0x0x86e554]
+	(No symbol) [0x0x88fd81]
+	(No symbol) [0x0x86e306]
+	(No symbol) [0x0x83d670]
+	(No symbol) [0x0x83e4e4]
+	GetHandleVerifier [0x0xc34793+2556483]
+	GetHandleVerifier [0x0xc2fd02+2537394]
+	GetHandleVerifier [0x0x9fa2fa+220586]
+	GetHandleVerifier [0x0x9eaae8+157080]
+	GetHandleVerifier [0x0x9f141d+184013]
+	GetHandleVerifier [0x0x9dba68+95512]
+	GetHandleVerifier [0x0x9dbc10+95936]
+	GetHandleVerifier [0x0x9c6b5a+9738]
+	BaseThreadInitThunk [0x0x75cf5d49+25]
+	RtlInitializeExceptionChain [0x0x7714d09b+107]
+	RtlGetAppContainerNamedObjectPath [0x0x7714d021+561]
+
+2025-06-19 09:10:53 | utils.browser_utils  | ERROR    | find_element_safe:292 | Error finding element css_selector=input[name="email"]: Message: invalid argument: invalid locator
+  (Session info: chrome=137.0.7151.104)
+Stacktrace:
+	GetHandleVerifier [0x0x10d3b03+62899]
+	GetHandleVerifier [0x0x10d3b44+62964]
+	(No symbol) [0x0xf010f3]
+	(No symbol) [0x0xf49349]
+	(No symbol) [0x0xf49bab]
+	(No symbol) [0x0xf925c2]
+	(No symbol) [0x0xf6e554]
+	(No symbol) [0x0xf8fd81]
+	(No symbol) [0x0xf6e306]
+	(No symbol) [0x0xf3d670]
+	(No symbol) [0x0xf3e4e4]
+	GetHandleVerifier [0x0x1334793+2556483]
+	GetHandleVerifier [0x0x132fd02+2537394]
+	GetHandleVerifier [0x0x10fa2fa+220586]
+	GetHandleVerifier [0x0x10eaae8+157080]
+	GetHandleVerifier [0x0x10f141d+184013]
+	GetHandleVerifier [0x0x10dba68+95512]
+	GetHandleVerifier [0x0x10dbc10+95936]
+	GetHandleVerifier [0x0x10c6b5a+9738]
+	BaseThreadInitThunk [0x0x75cf5d49+25]
+	RtlInitializeExceptionChain [0x0x7714d09b+107]
+	RtlGetAppContainerNamedObjectPath [0x0x7714d021+561]
+
+2025-06-19 09:25:54 | services.excel_handler | ERROR    | load_products:89 | Error loading products from data\sample_data\sample_products.xlsx: Excel file format cannot be determined, you must specify an engine manually.
+2025-06-19 09:26:06 | services.excel_handler | ERROR    | load_products:89 | Error loading products from data\sample_data\sample_products.xlsx: Excel file format cannot be determined, you must specify an engine manually.
+2025-06-19 09:28:12 | services.excel_handler | ERROR    | load_products:89 | Error loading products from data\sample_data\sample_products.xlsx: File is not a zip file
+2025-06-19 09:28:53 | services.excel_handler | ERROR    | load_products:89 | Error loading products from data\sample_data\sample_products.xlsx: File is not a zip file
+2025-06-19 09:30:58 | services.excel_handler | ERROR    | load_products:89 | Error loading products from data\sample_data\sample_products.xlsx: File is not a zip file
+2025-06-19 09:31:07 | services.excel_handler | ERROR    | load_products:89 | Error loading products from data\sample_data\sample_products.xlsx: File is not a zip file

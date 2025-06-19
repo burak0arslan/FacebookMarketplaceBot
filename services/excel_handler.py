@@ -64,7 +64,7 @@ class ExcelHandler:
 
         try:
             # Read Excel file
-            df = pd.read_excel(excel_path)
+            df = pd.read_excel(excel_path, engine='openpyxl')
             self.logger.info(f"Loaded products Excel file: {excel_path}")
             self.logger.info(f"Found {len(df)} rows in products file")
 
@@ -111,7 +111,7 @@ class ExcelHandler:
 
         try:
             # Read Excel file
-            df = pd.read_excel(excel_path)
+            df = pd.read_excel(excel_path, engine='openpyxl')
             self.logger.info(f"Loaded accounts Excel file: {excel_path}")
             self.logger.info(f"Found {len(df)} rows in accounts file")
 

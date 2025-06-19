@@ -463,6 +463,16 @@ class FacebookBot:
             log_facebook_action("marketplace_navigation", self.account.get_masked_email(), False, str(e))
             return False
 
+    def create_marketplace_listing(self, product: Product) -> bool:
+        """Create a marketplace listing"""
+        if not self.logged_in or not self.current_account:
+            self.logger.error("Must be logged in to create listings")
+            return False
+
+        from services.marketplace_listing import MarketplaceListing
+        listing_service = MarketplaceListing(self.browser, self.current_account)
+        return listing_service.create_listing(product)
+
     def navigate_to_messages(self) -> bool:
         """Navigate to Facebook Messages"""
         if not self._ensure_logged_in():
@@ -668,3 +678,4 @@ if __name__ == "__main__":
 
     except Exception as e:
         logger.error(f"FacebookBot test error: {e}")
+

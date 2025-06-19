@@ -72,3 +72,105 @@
 2025-06-17 21:13:52 | facebook_bot_s*****1@gmail.com | INFO     | Browser setup completed
 2025-06-17 21:13:54 | utils.browser_utils  | INFO     | Page loaded in 2.06s
 2025-06-17 21:13:56 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-17 21:38:20 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-17 21:38:20 | __main__             | INFO     | Browser driver created successfully
+2025-06-17 21:38:23 | utils.browser_utils  | INFO     | Page loaded in 2.39s
+2025-06-17 21:38:23 | __main__             | INFO     | Basic navigation test successful
+2025-06-17 21:38:25 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-18 09:22:54 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-18 09:22:54 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-18 09:22:55 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-18 09:22:55 | facebook_bot_s*****1@gmail.com | INFO     | Browser setup completed
+2025-06-18 09:22:57 | utils.browser_utils  | INFO     | Page loaded in 2.10s
+2025-06-18 09:23:00 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-18 09:23:04 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-18 09:23:04 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-18 09:23:04 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-18 09:23:04 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-18 09:23:04 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-18 09:23:04 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-18 09:23:05 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-18 09:23:05 | facebook_bot_s*****1@gmail.com | INFO     | Browser setup completed
+2025-06-18 09:23:07 | utils.browser_utils  | INFO     | Page loaded in 1.97s
+2025-06-18 09:23:10 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-18 09:28:01 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-18 09:28:01 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-18 09:28:02 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-18 09:28:02 | facebook_bot_s*****1@gmail.com | INFO     | Browser setup completed
+2025-06-18 09:28:13 | utils.browser_utils  | INFO     | Page loaded in 10.15s
+2025-06-18 09:28:15 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-18 09:28:19 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-18 09:28:19 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-18 09:28:20 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-18 09:28:20 | facebook_bot_s*****1@gmail.com | INFO     | Browser setup completed
+2025-06-18 09:28:22 | utils.browser_utils  | INFO     | Page loaded in 1.75s
+2025-06-18 09:28:27 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-18 09:28:32 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-18 09:28:32 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-18 09:28:32 | facebook_bot_i*****d@test.com | WARNING  | Not logged in - attempting to log in
+2025-06-18 09:28:33 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-18 09:28:33 | facebook_bot_i*****d@test.com | INFO     | Browser setup completed
+2025-06-18 09:28:35 | utils.browser_utils  | INFO     | Page loaded in 1.87s
+2025-06-18 09:28:59 | facebook_bot_i*****d@test.com | INFO     | Found login indicator - already logged in
+2025-06-18 09:28:59 | facebook_bot_i*****d@test.com | INFO     | Already logged in to Facebook
+2025-06-18 09:29:21 | facebook_bot_i*****d@test.com | INFO     | Found login indicator - already logged in
+2025-06-18 09:29:21 | facebook_bot_i*****d@test.com | INFO     | Login verification successful
+2025-06-18 09:29:21 | facebook             | INFO     | FB_ACTION | session_start | i*****d@test.com | SUCCESS | Session started in 49.06s
+2025-06-18 09:29:21 | facebook_bot_i*****d@test.com | INFO     | Facebook session started successfully in 49.06s
+2025-06-18 09:29:59 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-18 09:29:59 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-18 09:30:00 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-18 09:30:00 | facebook_bot_s*****1@gmail.com | INFO     | Browser setup completed
+2025-06-18 09:30:02 | utils.browser_utils  | INFO     | Page loaded in 1.39s
+2025-06-18 09:30:04 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-18 09:30:08 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-18 09:30:08 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-18 09:30:08 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-18 09:30:08 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-18 09:30:08 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-18 09:30:08 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-18 09:30:10 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-18 09:30:10 | facebook_bot_s*****1@gmail.com | INFO     | Browser setup completed
+2025-06-18 09:30:12 | utils.browser_utils  | INFO     | Page loaded in 1.93s
+2025-06-18 09:30:14 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-19 09:10:40 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-19 09:10:40 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-19 09:10:41 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-19 09:10:41 | facebook_bot_s*****1@gmail.com | INFO     | Browser setup completed
+2025-06-19 09:10:43 | utils.browser_utils  | INFO     | Page loaded in 1.77s
+2025-06-19 09:10:45 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-19 09:10:50 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-19 09:10:50 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-19 09:10:50 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-19 09:10:50 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-19 09:10:50 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-19 09:10:50 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-19 09:10:51 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-19 09:10:51 | facebook_bot_s*****1@gmail.com | INFO     | Browser setup completed
+2025-06-19 09:10:53 | utils.browser_utils  | INFO     | Page loaded in 2.28s
+2025-06-19 09:10:56 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-19 09:31:54 | services.excel_handler | INFO     | Created sample products file: data\sample_data\sample_products.xlsx
+2025-06-19 09:31:54 | services.excel_handler | INFO     | Created sample accounts file: data\sample_data\sample_accounts.xlsx
+2025-06-19 09:31:54 | services.excel_handler | INFO     | Loaded products Excel file: data\sample_data\sample_products.xlsx
+2025-06-19 09:31:54 | services.excel_handler | INFO     | Successfully loaded 3 products
+2025-06-19 09:31:54 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_data\sample_accounts.xlsx
+2025-06-19 09:31:54 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-19 09:31:54 | __main__             | INFO     | Loaded 3 products and 3 accounts
+2025-06-19 09:32:34 | services.excel_handler | INFO     | Created sample products file: data\sample_data\sample_products.xlsx
+2025-06-19 09:32:34 | services.excel_handler | INFO     | Created sample accounts file: data\sample_data\sample_accounts.xlsx
+2025-06-19 09:32:34 | services.excel_handler | INFO     | Loaded products Excel file: data\sample_data\sample_products.xlsx
+2025-06-19 09:32:34 | services.excel_handler | INFO     | Successfully loaded 3 products
+2025-06-19 09:32:34 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_data\sample_accounts.xlsx
+2025-06-19 09:32:34 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-19 09:32:34 | __main__             | INFO     | Loaded 3 products and 3 accounts
+2025-06-19 09:32:35 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-19 09:32:37 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-19 09:33:07 | services.excel_handler | INFO     | Created sample products file: data\sample_data\sample_products.xlsx
+2025-06-19 09:33:07 | services.excel_handler | INFO     | Created sample accounts file: data\sample_data\sample_accounts.xlsx
+2025-06-19 09:33:07 | services.excel_handler | INFO     | Loaded products Excel file: data\sample_data\sample_products.xlsx
+2025-06-19 09:33:07 | services.excel_handler | INFO     | Successfully loaded 3 products
+2025-06-19 09:33:07 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_data\sample_accounts.xlsx
+2025-06-19 09:33:07 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-19 09:33:07 | __main__             | INFO     | Loaded 3 products and 3 accounts
+2025-06-19 09:33:08 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-19 09:33:10 | utils.browser_utils  | INFO     | Browser cleanup completed
