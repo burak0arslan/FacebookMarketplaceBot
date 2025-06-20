@@ -175,3 +175,79 @@ Stacktrace:
 2025-06-19 09:28:53 | services.excel_handler | ERROR    | load_products:89 | Error loading products from data\sample_data\sample_products.xlsx: File is not a zip file
 2025-06-19 09:30:58 | services.excel_handler | ERROR    | load_products:89 | Error loading products from data\sample_data\sample_products.xlsx: File is not a zip file
 2025-06-19 09:31:07 | services.excel_handler | ERROR    | load_products:89 | Error loading products from data\sample_data\sample_products.xlsx: File is not a zip file
+2025-06-19 21:26:22 | utils.browser_utils  | ERROR    | find_element_safe:292 | Error finding element css selector=a[href*="/me"]: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=137.0.7151.104)
+Stacktrace:
+	GetHandleVerifier [0x0xd63b03+62899]
+	GetHandleVerifier [0x0xd63b44+62964]
+	(No symbol) [0x0xb910f3]
+	(No symbol) [0x0xb808c0]
+	(No symbol) [0x0xb9e87f]
+	(No symbol) [0x0xc0514c]
+	(No symbol) [0x0xc1f6a9]
+	(No symbol) [0x0xbfe306]
+	(No symbol) [0x0xbcd670]
+	(No symbol) [0x0xbce4e4]
+	GetHandleVerifier [0x0xfc4793+2556483]
+	GetHandleVerifier [0x0xfbfd02+2537394]
+	GetHandleVerifier [0x0xd8a2fa+220586]
+	GetHandleVerifier [0x0xd7aae8+157080]
+	GetHandleVerifier [0x0xd8141d+184013]
+	GetHandleVerifier [0x0xd6ba68+95512]
+	GetHandleVerifier [0x0xd6bc10+95936]
+	GetHandleVerifier [0x0xd56b5a+9738]
+	BaseThreadInitThunk [0x0x75cf5d49+25]
+	RtlInitializeExceptionChain [0x0x7714d09b+107]
+	RtlGetAppContainerNamedObjectPath [0x0x7714d021+561]
+
+2025-06-19 21:26:22 | utils.browser_utils  | ERROR    | find_element_safe:292 | Error finding element css selector=[data-testid="left_nav_menu_item"]: Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0xd63b03+62899]
+	GetHandleVerifier [0x0xd63b44+62964]
+	(No symbol) [0x0xb90f50]
+	(No symbol) [0x0xbcc938]
+	(No symbol) [0x0xbfe3c6]
+	(No symbol) [0x0xbf9e72]
+	(No symbol) [0x0xbf9406]
+	(No symbol) [0x0xb63a05]
+	(No symbol) [0x0xb63f5e]
+	(No symbol) [0x0xb643fd]
+	GetHandleVerifier [0x0xfc4793+2556483]
+	GetHandleVerifier [0x0xfbfd02+2537394]
+	GetHandleVerifier [0x0xd8a2fa+220586]
+	GetHandleVerifier [0x0xd7aae8+157080]
+	GetHandleVerifier [0x0xd8141d+184013]
+	(No symbol) [0x0xb636d0]
+	(No symbol) [0x0xb62f47]
+	GetHandleVerifier [0x0x10faa2c+3826908]
+	BaseThreadInitThunk [0x0x75cf5d49+25]
+	RtlInitializeExceptionChain [0x0x7714d09b+107]
+	RtlGetAppContainerNamedObjectPath [0x0x7714d021+561]
+
+2025-06-19 21:26:22 | facebook_bot_s*****1@gmail.com | ERROR    | _verify_login:414 | Login verification failed - not logged in
+2025-06-19 21:26:22 | __main__             | ERROR    | run_intelligent_bot:113 | ❌ Failed to log into Facebook
+2025-06-19 21:26:22 | utils.browser_utils  | ERROR    | take_screenshot:418 | Screenshot error: Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0xd63b03+62899]
+	GetHandleVerifier [0x0xd63b44+62964]
+	(No symbol) [0x0xb90f50]
+	(No symbol) [0x0xbcc938]
+	(No symbol) [0x0xbfe3c6]
+	(No symbol) [0x0xbf9e72]
+	(No symbol) [0x0xbf9406]
+	(No symbol) [0x0xb63a05]
+	(No symbol) [0x0xb63f5e]
+	(No symbol) [0x0xb643fd]
+	GetHandleVerifier [0x0xfc4793+2556483]
+	GetHandleVerifier [0x0xfbfd02+2537394]
+	GetHandleVerifier [0x0xd8a2fa+220586]
+	GetHandleVerifier [0x0xd7aae8+157080]
+	GetHandleVerifier [0x0xd8141d+184013]
+	(No symbol) [0x0xb636d0]
+	(No symbol) [0x0xb62f47]
+	GetHandleVerifier [0x0x10faa2c+3826908]
+	BaseThreadInitThunk [0x0x75cf5d49+25]
+	RtlInitializeExceptionChain [0x0x7714d09b+107]
+	RtlGetAppContainerNamedObjectPath [0x0x7714d021+561]
+

@@ -209,3 +209,20 @@
 2025-06-19 21:06:59 | services.excel_handler | INFO     | Successfully loaded 3 accounts
 2025-06-19 21:06:59 | __main__             | INFO     | ✓ FacebookBot instance created successfully
 2025-06-19 21:06:59 | __main__             | INFO     | Success Rate: 100.0%
+2025-06-19 21:23:13 | services.llama_ai    | INFO     | ✅ Llama server connected successfully
+2025-06-19 21:23:31 | __main__             | INFO     | 
+🎉 Demo completed! Your AI is working perfectly!
+2025-06-19 21:25:33 | services.excel_handler | INFO     | Loaded products Excel file: data\sample_data\sample_products.xlsx
+2025-06-19 21:25:33 | services.excel_handler | INFO     | Successfully loaded 3 products
+2025-06-19 21:25:33 | __main__             | INFO     | 📦 Loaded 3 products for AI context
+2025-06-19 21:25:33 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_data\sample_accounts.xlsx
+2025-06-19 21:25:33 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-19 21:25:34 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-19 21:25:34 | facebook_bot_s*****1@gmail.com | INFO     | Browser setup completed
+2025-06-19 21:25:37 | utils.browser_utils  | INFO     | Page loaded in 2.32s
+2025-06-19 21:26:01 | facebook_bot_s*****1@gmail.com | INFO     | Found login indicator - already logged in
+2025-06-19 21:26:01 | facebook_bot_s*****1@gmail.com | INFO     | Already logged in to Facebook
+2025-06-19 21:26:22 | facebook_bot_s*****1@gmail.com | ERROR    | Login verification failed - not logged in
+2025-06-19 21:26:24 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-19 21:26:28 | facebook             | INFO     | FB_ACTION | session_end | s*****1@gmail.com | SUCCESS | Actions: 0, Duration: 0.00s
+2025-06-19 21:26:28 | facebook_bot_s*****1@gmail.com | INFO     | Facebook session ended successfully

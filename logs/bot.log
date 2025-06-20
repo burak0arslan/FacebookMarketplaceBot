@@ -968,3 +968,196 @@ Detailed Results:
 📋 NEXT STEPS:
 2025-06-19 21:06:59 | __main__             | INFO     | 🚀 Ready for production testing with real Facebook accounts!
 2025-06-19 21:06:59 | __main__             | INFO     | 🤖 Your bot is becoming truly intelligent!
+2025-06-19 21:23:11 | __main__             | INFO     | 🎬 DEMO: AI Response Capabilities
+2025-06-19 21:23:11 | __main__             | INFO     | ==================================================
+2025-06-19 21:23:11 | services.llama_ai    | INFO     | LlamaAI initialized - Server: http://localhost:11434, Model: llama2
+2025-06-19 21:23:11 | services.llama_ai    | INFO     | Testing Llama server connection...
+2025-06-19 21:23:13 | services.llama_ai    | INFO     | ✅ Llama server connected successfully
+2025-06-19 21:23:13 | services.llama_ai    | INFO     | Available models: ['llama2:latest']
+2025-06-19 21:23:13 | services.llama_ai    | INFO     | ✅ Model 'llama2' is available
+2025-06-19 21:23:13 | services.ai_message_processor | INFO     | AIMessageProcessor initialized with 1 products
+2025-06-19 21:23:13 | __main__             | INFO     | 🤖 Demonstrating AI responses:
+2025-06-19 21:23:13 | __main__             | INFO     | ==================================================
+2025-06-19 21:23:13 | __main__             | INFO     | 
+💬 Demo 1: Customer says: 'Hi! Is this iPhone still available?'
+2025-06-19 21:23:13 | services.ai_message_processor | INFO     | Processing message from Demo Customer 1: Hi! Is this iPhone still available?
+2025-06-19 21:23:13 | services.ai_message_processor | INFO     | Found relevant product: iPhone 13 Pro - Excellent Condition
+2025-06-19 21:23:13 | services.llama_ai    | INFO     | Generating AI response for message from Demo Customer 1
+2025-06-19 21:23:18 | ai                   | INFO     | AI_INTERACTION | prompt:712chars | response:133chars | confidence:0.80 | time:5.43s
+2025-06-19 21:23:18 | services.llama_ai    | INFO     | ✅ AI response generated in 5.43s (confidence: 0.80)
+2025-06-19 21:23:18 | services.ai_message_processor | INFO     | ✅ AI response generated: Hi there! Yes, the iPhone 13 Pro is still availabl...
+2025-06-19 21:23:18 | messages             | INFO     | MESSAGE_PROCESSED | Demo Customer 1 | 35chars | question:True | priority:18 | action:ai_response
+2025-06-19 21:23:18 | services.ai_message_processor | INFO     | Message processed in 5.43s
+2025-06-19 21:23:18 | __main__             | INFO     | 🤖 AI Response: Hi there! Yes, the iPhone 13 Pro is still available.  It's in excellent condition and has only been used lightly.  The price is $650.
+2025-06-19 21:23:18 | __main__             | INFO     | 
+💬 Demo 2: Customer says: 'What's your best price on this?'
+2025-06-19 21:23:18 | services.ai_message_processor | INFO     | Processing message from Demo Customer 2: What's your best price on this?
+2025-06-19 21:23:18 | services.ai_message_processor | INFO     | Found relevant product: iPhone 13 Pro - Excellent Condition
+2025-06-19 21:23:18 | services.llama_ai    | INFO     | Generating AI response for message from Demo Customer 2
+2025-06-19 21:23:22 | ai                   | INFO     | AI_INTERACTION | prompt:708chars | response:148chars | confidence:0.90 | time:3.42s
+2025-06-19 21:23:22 | services.llama_ai    | INFO     | ✅ AI response generated in 3.42s (confidence: 0.90)
+2025-06-19 21:23:22 | services.ai_message_processor | INFO     | ✅ AI response generated: Hi there! Thank you for reaching out to me about t...
+2025-06-19 21:23:22 | messages             | INFO     | MESSAGE_PROCESSED | Demo Customer 2 | 31chars | question:True | priority:18 | action:ai_response
+2025-06-19 21:23:22 | services.ai_message_processor | INFO     | Message processed in 3.42s
+2025-06-19 21:23:22 | __main__             | INFO     | 🤖 AI Response: Hi there! Thank you for reaching out to me about the iPhone 13 Pro.  I'm happy to help you find the best price.  As of now, my asking price is $650.
+2025-06-19 21:23:22 | __main__             | INFO     | 
+💬 Demo 3: Customer says: 'Can I see it today?'
+2025-06-19 21:23:22 | services.ai_message_processor | INFO     | Processing message from Demo Customer 3: Can I see it today?
+2025-06-19 21:23:22 | services.ai_message_processor | INFO     | Found relevant product: iPhone 13 Pro - Excellent Condition
+2025-06-19 21:23:22 | services.llama_ai    | INFO     | Generating AI response for message from Demo Customer 3
+2025-06-19 21:23:25 | ai                   | INFO     | AI_INTERACTION | prompt:696chars | response:173chars | confidence:0.80 | time:2.93s
+2025-06-19 21:23:25 | services.llama_ai    | INFO     | ✅ AI response generated in 2.93s (confidence: 0.80)
+2025-06-19 21:23:25 | services.ai_message_processor | INFO     | ✅ AI response generated: Of course! The iPhone 13 Pro is available for view...
+2025-06-19 21:23:25 | messages             | INFO     | MESSAGE_PROCESSED | Demo Customer 3 | 19chars | question:True | priority:15 | action:ai_response
+2025-06-19 21:23:25 | services.ai_message_processor | INFO     | Message processed in 2.93s
+2025-06-19 21:23:25 | __main__             | INFO     | 🤖 AI Response: Of course! The iPhone 13 Pro is available for viewing today at the listed location. Please let me know if you'd like to schedule a time to come by and take a look in person.
+2025-06-19 21:23:25 | __main__             | INFO     | 
+💬 Demo 4: Customer says: 'What condition is it in?'
+2025-06-19 21:23:25 | services.ai_message_processor | INFO     | Processing message from Demo Customer 4: What condition is it in?
+2025-06-19 21:23:25 | services.ai_message_processor | INFO     | Found relevant product: iPhone 13 Pro - Excellent Condition
+2025-06-19 21:23:25 | services.llama_ai    | INFO     | Generating AI response for message from Demo Customer 4
+2025-06-19 21:23:28 | ai                   | INFO     | AI_INTERACTION | prompt:701chars | response:194chars | confidence:0.70 | time:3.11s
+2025-06-19 21:23:28 | services.llama_ai    | INFO     | ✅ AI response generated in 3.11s (confidence: 0.70)
+2025-06-19 21:23:28 | services.ai_message_processor | INFO     | ✅ AI response generated: Thanks for reaching out! The iPhone 13 Pro is in e...
+2025-06-19 21:23:28 | messages             | INFO     | MESSAGE_PROCESSED | Demo Customer 4 | 24chars | question:True | priority:15 | action:ai_response
+2025-06-19 21:23:28 | services.ai_message_processor | INFO     | Message processed in 3.11s
+2025-06-19 21:23:28 | __main__             | INFO     | 🤖 AI Response: Thanks for reaching out! The iPhone 13 Pro is in excellent condition, almost like new.  It has been barely used and has a deep purple color with 256GB storage.  I'm located at [insert location].
+2025-06-19 21:23:28 | __main__             | INFO     | 
+💬 Demo 5: Customer says: 'This is a scam! I want my money back!'
+2025-06-19 21:23:28 | services.ai_message_processor | INFO     | Processing message from Demo Customer 5: This is a scam! I want my money back!
+2025-06-19 21:23:28 | services.ai_message_processor | WARNING  | Escalation keyword detected in message from Demo Customer 5
+2025-06-19 21:23:28 | services.ai_message_processor | WARNING  | ⚠️ Message escalated to human: This is a scam! I want my money back!
+2025-06-19 21:23:28 | __main__             | WARNING  | 🚨 ESCALATED: This message has been escalated to a human representative.
+2025-06-19 21:23:28 | __main__             | INFO     | 
+💬 Demo 6: Customer says: 'Does it come with a charger?'
+2025-06-19 21:23:28 | services.ai_message_processor | INFO     | Processing message from Demo Customer 6: Does it come with a charger?
+2025-06-19 21:23:28 | services.ai_message_processor | INFO     | Found relevant product: iPhone 13 Pro - Excellent Condition
+2025-06-19 21:23:28 | services.llama_ai    | INFO     | Generating AI response for message from Demo Customer 6
+2025-06-19 21:23:31 | ai                   | INFO     | AI_INTERACTION | prompt:705chars | response:220chars | confidence:0.70 | time:3.08s
+2025-06-19 21:23:31 | services.llama_ai    | INFO     | ✅ AI response generated in 3.08s (confidence: 0.70)
+2025-06-19 21:23:31 | services.ai_message_processor | INFO     | ✅ AI response generated: Hi there! Thank you for reaching out! Yes, the iPh...
+2025-06-19 21:23:31 | messages             | INFO     | MESSAGE_PROCESSED | Demo Customer 6 | 28chars | question:True | priority:15 | action:ai_response
+2025-06-19 21:23:31 | services.ai_message_processor | INFO     | Message processed in 3.08s
+2025-06-19 21:23:31 | __main__             | INFO     | 🤖 AI Response: Hi there! Thank you for reaching out! Yes, the iPhone 13 Pro comes with a charging cable and adapter. The item is in excellent condition, as described, and has been barely used. Is there anything else you'd like to know?
+2025-06-19 21:23:31 | __main__             | INFO     | 
+📊 Demo Statistics:
+2025-06-19 21:23:31 | __main__             | INFO     | Messages processed: 5
+2025-06-19 21:23:31 | __main__             | INFO     | AI responses: 5
+2025-06-19 21:23:31 | __main__             | INFO     | Escalations: 1
+2025-06-19 21:23:31 | __main__             | INFO     | Fallbacks: 0
+2025-06-19 21:23:31 | __main__             | INFO     | 
+🎉 Demo completed! Your AI is working perfectly!
+2025-06-19 21:25:33 | __main__             | INFO     | 🚀 Starting AI-Powered Facebook Marketplace Bot
+2025-06-19 21:25:33 | __main__             | INFO     | ============================================================
+2025-06-19 21:25:33 | services.excel_handler | INFO     | Loaded products Excel file: data\sample_data\sample_products.xlsx
+2025-06-19 21:25:33 | services.excel_handler | INFO     | Found 3 rows in products file
+2025-06-19 21:25:33 | services.excel_handler | INFO     | Successfully loaded 3 products
+2025-06-19 21:25:33 | __main__             | INFO     | 📦 Loaded 3 products for AI context
+2025-06-19 21:25:33 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_data\sample_accounts.xlsx
+2025-06-19 21:25:33 | services.excel_handler | INFO     | Found 3 rows in accounts file
+2025-06-19 21:25:33 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-19 21:25:33 | __main__             | INFO     | 👤 Found 2 usable accounts
+2025-06-19 21:25:33 | __main__             | INFO     | 🤖 Creating AI bot for s*****1@gmail.com
+2025-06-19 21:25:33 | facebook_bot_s*****1@gmail.com | INFO     | FacebookBot initialized for s*****1@gmail.com
+2025-06-19 21:25:33 | __main__             | INFO     | 🌐 Starting Facebook session...
+2025-06-19 21:25:33 | facebook_bot_s*****1@gmail.com | INFO     | Starting Facebook session...
+2025-06-19 21:25:33 | utils.browser_utils  | INFO     | BrowserManager initialized
+2025-06-19 21:25:33 | utils.browser_utils  | INFO     | Setting up Chrome WebDriver (profile: fb_seller1_at_gmail_dot_com)
+2025-06-19 21:25:33 | utils.browser_utils  | INFO     | Using user data directory: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\drivers\profiles\fb_seller1_at_gmail_dot_com
+2025-06-19 21:25:33 | root                 | INFO     | Chromedriver is already installed.
+2025-06-19 21:25:33 | utils.browser_utils  | INFO     | Using ChromeDriver from: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\venv\Lib\site-packages\chromedriver_autoinstaller\137\chromedriver.exe
+2025-06-19 21:25:34 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-19 21:25:34 | facebook_bot_s*****1@gmail.com | INFO     | Browser setup completed
+2025-06-19 21:25:34 | facebook_bot_s*****1@gmail.com | INFO     | Navigating to Facebook...
+2025-06-19 21:25:34 | utils.browser_utils  | INFO     | Navigating to: https://www.facebook.com/login
+2025-06-19 21:25:37 | utils.browser_utils  | INFO     | Page loaded in 2.32s
+2025-06-19 21:25:50 | utils.browser_utils  | WARNING  | Element not found: css selector=[data-testid="user_menu"]
+2025-06-19 21:26:01 | utils.browser_utils  | WARNING  | Element not found: css selector=[aria-label="Account"]
+2025-06-19 21:26:01 | facebook_bot_s*****1@gmail.com | INFO     | Found login indicator - already logged in
+2025-06-19 21:26:01 | facebook_bot_s*****1@gmail.com | INFO     | Already logged in to Facebook
+2025-06-19 21:26:12 | utils.browser_utils  | WARNING  | Element not found: css selector=[data-testid="user_menu"]
+2025-06-19 21:26:22 | utils.browser_utils  | WARNING  | Element not found: css selector=[aria-label="Account"]
+2025-06-19 21:26:22 | utils.browser_utils  | ERROR    | Error finding element css selector=a[href*="/me"]: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=137.0.7151.104)
+Stacktrace:
+	GetHandleVerifier [0x0xd63b03+62899]
+	GetHandleVerifier [0x0xd63b44+62964]
+	(No symbol) [0x0xb910f3]
+	(No symbol) [0x0xb808c0]
+	(No symbol) [0x0xb9e87f]
+	(No symbol) [0x0xc0514c]
+	(No symbol) [0x0xc1f6a9]
+	(No symbol) [0x0xbfe306]
+	(No symbol) [0x0xbcd670]
+	(No symbol) [0x0xbce4e4]
+	GetHandleVerifier [0x0xfc4793+2556483]
+	GetHandleVerifier [0x0xfbfd02+2537394]
+	GetHandleVerifier [0x0xd8a2fa+220586]
+	GetHandleVerifier [0x0xd7aae8+157080]
+	GetHandleVerifier [0x0xd8141d+184013]
+	GetHandleVerifier [0x0xd6ba68+95512]
+	GetHandleVerifier [0x0xd6bc10+95936]
+	GetHandleVerifier [0x0xd56b5a+9738]
+	BaseThreadInitThunk [0x0x75cf5d49+25]
+	RtlInitializeExceptionChain [0x0x7714d09b+107]
+	RtlGetAppContainerNamedObjectPath [0x0x7714d021+561]
+
+2025-06-19 21:26:22 | utils.browser_utils  | ERROR    | Error finding element css selector=[data-testid="left_nav_menu_item"]: Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0xd63b03+62899]
+	GetHandleVerifier [0x0xd63b44+62964]
+	(No symbol) [0x0xb90f50]
+	(No symbol) [0x0xbcc938]
+	(No symbol) [0x0xbfe3c6]
+	(No symbol) [0x0xbf9e72]
+	(No symbol) [0x0xbf9406]
+	(No symbol) [0x0xb63a05]
+	(No symbol) [0x0xb63f5e]
+	(No symbol) [0x0xb643fd]
+	GetHandleVerifier [0x0xfc4793+2556483]
+	GetHandleVerifier [0x0xfbfd02+2537394]
+	GetHandleVerifier [0x0xd8a2fa+220586]
+	GetHandleVerifier [0x0xd7aae8+157080]
+	GetHandleVerifier [0x0xd8141d+184013]
+	(No symbol) [0x0xb636d0]
+	(No symbol) [0x0xb62f47]
+	GetHandleVerifier [0x0x10faa2c+3826908]
+	BaseThreadInitThunk [0x0x75cf5d49+25]
+	RtlInitializeExceptionChain [0x0x7714d09b+107]
+	RtlGetAppContainerNamedObjectPath [0x0x7714d021+561]
+
+2025-06-19 21:26:22 | facebook_bot_s*****1@gmail.com | ERROR    | Login verification failed - not logged in
+2025-06-19 21:26:22 | __main__             | ERROR    | ❌ Failed to log into Facebook
+2025-06-19 21:26:22 | __main__             | INFO     | 💡 Make sure your account credentials are correct
+2025-06-19 21:26:22 | __main__             | INFO     | 🧹 Cleaning up...
+2025-06-19 21:26:22 | utils.browser_utils  | ERROR    | Screenshot error: Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0xd63b03+62899]
+	GetHandleVerifier [0x0xd63b44+62964]
+	(No symbol) [0x0xb90f50]
+	(No symbol) [0x0xbcc938]
+	(No symbol) [0x0xbfe3c6]
+	(No symbol) [0x0xbf9e72]
+	(No symbol) [0x0xbf9406]
+	(No symbol) [0x0xb63a05]
+	(No symbol) [0x0xb63f5e]
+	(No symbol) [0x0xb643fd]
+	GetHandleVerifier [0x0xfc4793+2556483]
+	GetHandleVerifier [0x0xfbfd02+2537394]
+	GetHandleVerifier [0x0xd8a2fa+220586]
+	GetHandleVerifier [0x0xd7aae8+157080]
+	GetHandleVerifier [0x0xd8141d+184013]
+	(No symbol) [0x0xb636d0]
+	(No symbol) [0x0xb62f47]
+	GetHandleVerifier [0x0x10faa2c+3826908]
+	BaseThreadInitThunk [0x0x75cf5d49+25]
+	RtlInitializeExceptionChain [0x0x7714d09b+107]
+	RtlGetAppContainerNamedObjectPath [0x0x7714d021+561]
+
+2025-06-19 21:26:24 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-19 21:26:28 | facebook_bot_s*****1@gmail.com | INFO     | Session ended: {'account': 's*****1@gmail.com', 'is_logged_in': True, 'current_url': '', 'session_duration': 0, 'last_activity': None, 'action_count': 0, 'hourly_actions': 0, 'daily_actions': 0, 'consecutive_errors': 0}
+2025-06-19 21:26:28 | facebook             | INFO     | FB_ACTION | session_end | s*****1@gmail.com | SUCCESS | Actions: 0, Duration: 0.00s
+2025-06-19 21:26:28 | facebook_bot_s*****1@gmail.com | INFO     | Facebook session ended successfully
+2025-06-19 21:26:28 | __main__             | INFO     | ✅ Bot session ended cleanly
+2025-06-19 21:26:28 | __main__             | INFO     | 🏁 AI-Powered Bot finished

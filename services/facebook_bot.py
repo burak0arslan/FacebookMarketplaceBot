@@ -584,6 +584,103 @@ class FacebookBot:
             self.logger.error(f"Error processing messages: {e}")
             return {'error': str(e)}
 
+    def start_ai_powered_monitoring(self, products: List[Product] = None) -> bool:
+        """
+        Start AI-powered message monitoring
+
+        Args:
+            products: List of products for AI context
+
+        Returns:
+            True if started successfully
+        """
+        try:
+            if not self.is_logged_in:
+                self.logger.error("Must be logged in to start AI monitoring")
+                return False
+
+            from services.llama_ai import create_llama_ai
+            from services.ai_message_processor import AIMessageProcessor
+
+            self.logger.info("Starting AI-powered message monitoring...")
+
+            # Create AI service
+            ai_service = create_llama_ai()
+            self.logger.info("✅ AI service connected")
+
+            # Create AI processor
+            self.ai_processor = AIMessageProcessor(ai_service, products or [])
+            self.logger.info(f"✅ AI processor created with {len(products or [])} products")
+
+            # Start message monitoring
+            if self.start_message_monitoring():
+                self.logger.info("✅ AI-powered monitoring started successfully")
+                return True
+            else:
+                self.logger.error("Failed to start message monitoring")
+                return False
+
+        except Exception as e:
+            self.logger.error(f"Failed to start AI monitoring: {e}")
+            return False
+
+    def process_messages_with_ai(self) -> dict:
+        """
+        Process messages using AI intelligence
+
+        Returns:
+            Processing statistics with AI insights
+        """
+        try:
+            if not hasattr(self, 'ai_processor'):
+                self.logger.error("AI processor not initialized - call start_ai_powered_monitoring() first")
+                return {'error': 'AI processor not initialized'}
+
+            # Create AI-powered processor function
+            def ai_processor_function(message) -> bool:  # Note: removed Message type hint for compatibility
+                try:
+                    result = self.ai_processor.process_message(message)
+                    success = result.get('processed', False)
+
+                    # Log AI processing results
+                    if result.get('response_generated'):
+                        self.logger.info(f"🤖 AI Response: {result['response_generated'][:50]}...")
+
+                    if result.get('escalated'):
+                        self.logger.warning(f"⚠️ Message escalated: {message.get_short_content()}")
+
+                    return success
+
+                except Exception as e:
+                    self.logger.error(f"AI processing error: {e}")
+                    return False
+
+            # Process messages with AI
+            monitoring_stats = self.process_new_messages(ai_processor_function)
+
+            # Get AI statistics
+            ai_stats = self.ai_processor.get_statistics()
+
+            # Combined results
+            results = {
+                'monitoring_stats': monitoring_stats,
+                'ai_stats': ai_stats,
+                'timestamp': datetime.now().isoformat()
+            }
+
+            # Log summary
+            if monitoring_stats.get('new_messages', 0) > 0:
+                self.logger.info(f"🤖 Processed {monitoring_stats.get('new_messages', 0)} messages with AI")
+                self.logger.info(f"📊 AI responses sent: {ai_stats.get('ai_responses_sent', 0)}")
+                self.logger.info(f"⚠️ Escalations: {ai_stats.get('escalations', 0)}")
+
+            return results
+
+        except Exception as e:
+            self.logger.error(f"AI message processing error: {e}")
+            return {'error': str(e)}
+
+
     def get_message_stats(self) -> dict:
         """Get message monitoring statistics"""
         if not hasattr(self, 'message_monitor') or not self.message_monitor:
