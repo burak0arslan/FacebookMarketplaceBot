@@ -196,3 +196,16 @@
 2025-06-19 20:12:04 | utils.browser_utils  | INFO     | Browser cleanup completed
 2025-06-19 20:12:08 | __main__             | INFO     | ✅ MessageMonitor tests completed successfully!
 2025-06-19 20:12:10 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-19 21:06:28 | services.llama_ai    | INFO     | ✅ Llama server connected successfully
+2025-06-19 21:06:28 | __main__             | INFO     | ✓ Ollama server connected successfully
+2025-06-19 21:06:30 | services.llama_ai    | INFO     | ✅ Llama server connected successfully
+2025-06-19 21:06:52 | services.excel_handler | INFO     | Loaded products Excel file: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_products.xlsx
+2025-06-19 21:06:52 | services.excel_handler | INFO     | Successfully loaded 3 products
+2025-06-19 21:06:52 | __main__             | INFO     | ✓ Loaded 3 products for context
+2025-06-19 21:06:52 | __main__             | INFO     | ✓ Processor created with 3 products
+2025-06-19 21:06:52 | __main__             | INFO     | ✓ Initial stats: {'messages_processed': 0, 'ai_responses_sent': 0, 'escalations': 0, 'fallback_responses': 0, 'ai_service_stats': {'responses_generated': 0, 'failed_generations': 0, 'success_rate': 0, 'average_response_time': 0, 'conversations_tracked': 0}, 'products_available': 3}
+2025-06-19 21:06:58 | __main__             | INFO     | ✓ Processing success rate: 100.0%
+2025-06-19 21:06:59 | services.excel_handler | INFO     | Loaded accounts Excel file: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_accounts.xlsx
+2025-06-19 21:06:59 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-19 21:06:59 | __main__             | INFO     | ✓ FacebookBot instance created successfully
+2025-06-19 21:06:59 | __main__             | INFO     | Success Rate: 100.0%

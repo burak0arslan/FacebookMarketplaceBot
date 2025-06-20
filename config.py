@@ -268,3 +268,18 @@ if __name__ == "__main__":
     print(f"🔧 Debug mode: {Config.DEBUG_MODE}")
     print(f"⏱️ Message check interval: {Config.MESSAGE_CHECK_INTERVAL}s")
     print(f"🎯 Auto-reply enabled: {Config.AUTO_REPLY_ENABLED}")
+
+    # AI Settings (add to your existing config.py)
+    LLAMA_SERVER_URL = os.getenv("LLAMA_SERVER_URL", "http://localhost:11434")
+    LLAMA_MODEL_NAME = os.getenv("LLAMA_MODEL_NAME", "llama2")
+    LLAMA_API_TIMEOUT = int(os.getenv("LLAMA_API_TIMEOUT", "30"))
+
+    # AI generation parameters
+    LLAMA_TEMPERATURE = float(os.getenv("LLAMA_TEMPERATURE", "0.7"))
+    LLAMA_MAX_TOKENS = int(os.getenv("LLAMA_MAX_TOKENS", "150"))
+    LLAMA_TOP_P = float(os.getenv("LLAMA_TOP_P", "0.9"))
+
+    # AI response settings
+    AI_CONFIDENCE_THRESHOLD = float(os.getenv("AI_CONFIDENCE_THRESHOLD", "0.7"))
+    AI_MAX_RESPONSE_TIME = int(os.getenv("AI_MAX_RESPONSE_TIME", "10"))
+    USE_FALLBACK_RESPONSES = os.getenv("USE_FALLBACK_RESPONSES", "True").lower() == "true"

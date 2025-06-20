@@ -805,3 +805,166 @@ Detailed Results:
 2025-06-19 20:12:08 | __main__             | INFO     | ✅ MessageMonitor tests completed successfully!
 2025-06-19 20:12:08 | __main__             | INFO     | Ready for Phase 4 and Phase 5 implementation
 2025-06-19 20:12:10 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-19 21:06:26 | __main__             | INFO     | 🚀 Facebook Marketplace Bot - Phase 5 AI Integration Tests
+2025-06-19 21:06:26 | __main__             | INFO     | ======================================================================
+2025-06-19 21:06:26 | __main__             | INFO     | Test 1: AI Service Connection
+2025-06-19 21:06:26 | __main__             | INFO     | Testing Ollama connection...
+2025-06-19 21:06:26 | services.llama_ai    | INFO     | LlamaAI initialized - Server: http://localhost:11434, Model: llama2
+2025-06-19 21:06:26 | services.llama_ai    | INFO     | Testing Llama server connection...
+2025-06-19 21:06:28 | services.llama_ai    | INFO     | ✅ Llama server connected successfully
+2025-06-19 21:06:28 | services.llama_ai    | INFO     | Available models: ['llama2:latest']
+2025-06-19 21:06:28 | services.llama_ai    | INFO     | ✅ Model 'llama2' is available
+2025-06-19 21:06:28 | __main__             | INFO     | ✓ Ollama server connected successfully
+2025-06-19 21:06:28 | __main__             | INFO     | ✓ Using model: llama2
+2025-06-19 21:06:28 | __main__             | INFO     | ✅ AI service connection test passed
+2025-06-19 21:06:28 | __main__             | INFO     | 
+Test 2: AI Response Generation
+2025-06-19 21:06:28 | services.llama_ai    | INFO     | LlamaAI initialized - Server: http://localhost:11434, Model: llama2
+2025-06-19 21:06:28 | __main__             | INFO     | Testing AI response generation...
+2025-06-19 21:06:28 | services.llama_ai    | INFO     | Testing Llama server connection...
+2025-06-19 21:06:30 | services.llama_ai    | INFO     | ✅ Llama server connected successfully
+2025-06-19 21:06:30 | services.llama_ai    | INFO     | Available models: ['llama2:latest']
+2025-06-19 21:06:30 | services.llama_ai    | INFO     | ✅ Model 'llama2' is available
+2025-06-19 21:06:30 | services.llama_ai    | INFO     | Generating AI response for message from Test Customer
+2025-06-19 21:06:52 | ai                   | INFO     | AI_INTERACTION | prompt:673chars | response:192chars | confidence:0.80 | time:21.73s
+2025-06-19 21:06:52 | services.llama_ai    | INFO     | ✅ AI response generated in 21.73s (confidence: 0.80)
+2025-06-19 21:06:52 | __main__             | INFO     | ✓ AI Response: Hi there! Yes, the iPhone 13 Pro is still available.  It's in excellent condition and was barely used.  Let me know if you have any other questions or if you'd like to proceed with purchasing.
+2025-06-19 21:06:52 | __main__             | INFO     | ✓ Fallback: Yes, this item is still available! Let me know if you'd like to arrange pickup or have any questions.
+2025-06-19 21:06:52 | __main__             | INFO     | ✅ AI response generation test passed
+2025-06-19 21:06:52 | __main__             | INFO     | 
+Test 3: Message Processor Creation
+2025-06-19 21:06:52 | __main__             | INFO     | Creating AI message processor...
+2025-06-19 21:06:52 | services.excel_handler | INFO     | Loaded products Excel file: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_products.xlsx
+2025-06-19 21:06:52 | services.excel_handler | INFO     | Found 3 rows in products file
+2025-06-19 21:06:52 | services.excel_handler | INFO     | Successfully loaded 3 products
+2025-06-19 21:06:52 | __main__             | INFO     | ✓ Loaded 3 products for context
+2025-06-19 21:06:52 | services.llama_ai    | INFO     | LlamaAI initialized - Server: http://localhost:11434, Model: llama2
+2025-06-19 21:06:52 | services.ai_message_processor | INFO     | AIMessageProcessor initialized with 3 products
+2025-06-19 21:06:52 | __main__             | INFO     | ✓ Processor created with 3 products
+2025-06-19 21:06:52 | __main__             | INFO     | ✓ Initial stats: {'messages_processed': 0, 'ai_responses_sent': 0, 'escalations': 0, 'fallback_responses': 0, 'ai_service_stats': {'responses_generated': 0, 'failed_generations': 0, 'success_rate': 0, 'average_response_time': 0, 'conversations_tracked': 0}, 'products_available': 3}
+2025-06-19 21:06:52 | __main__             | INFO     | ✅ Message processor creation test passed
+2025-06-19 21:06:52 | __main__             | INFO     | 
+Test 4: Intelligent Message Processing
+2025-06-19 21:06:52 | services.llama_ai    | INFO     | LlamaAI initialized - Server: http://localhost:11434, Model: llama2
+2025-06-19 21:06:52 | services.ai_message_processor | INFO     | AIMessageProcessor initialized with 0 products
+2025-06-19 21:06:52 | __main__             | INFO     | Testing intelligent processing...
+2025-06-19 21:06:52 | __main__             | INFO     | Processing message 1: Hi! Is this still available?
+2025-06-19 21:06:52 | services.ai_message_processor | INFO     | Processing message from John Customer: Hi! Is this still available?
+2025-06-19 21:06:52 | services.llama_ai    | INFO     | Generating AI response for message from John Customer
+2025-06-19 21:06:55 | ai                   | INFO     | AI_INTERACTION | prompt:457chars | response:118chars | confidence:0.80 | time:2.71s
+2025-06-19 21:06:55 | services.llama_ai    | INFO     | ✅ AI response generated in 2.71s (confidence: 0.80)
+2025-06-19 21:06:55 | services.ai_message_processor | INFO     | ✅ AI response generated: Hi there! Yes, the item is still available. Can yo...
+2025-06-19 21:06:55 | messages             | INFO     | MESSAGE_PROCESSED | John Customer | 28chars | question:True | priority:18 | action:ai_response
+2025-06-19 21:06:55 | services.ai_message_processor | INFO     | Message processed in 2.71s
+2025-06-19 21:06:55 | __main__             | INFO     |   Action taken: ai_response
+2025-06-19 21:06:55 | __main__             | INFO     |   Response: Hi there! Yes, the item is still available. Can yo...
+2025-06-19 21:06:55 | __main__             | INFO     |   ✓ Expected behavior
+2025-06-19 21:06:55 | __main__             | INFO     | Processing message 2: What's your best price?
+2025-06-19 21:06:55 | services.ai_message_processor | INFO     | Processing message from Jane Buyer: What's your best price?
+2025-06-19 21:06:55 | services.llama_ai    | INFO     | Generating AI response for message from Jane Buyer
+2025-06-19 21:06:58 | ai                   | INFO     | AI_INTERACTION | prompt:452chars | response:280chars | confidence:0.70 | time:3.51s
+2025-06-19 21:06:58 | services.llama_ai    | INFO     | ✅ AI response generated in 3.51s (confidence: 0.70)
+2025-06-19 21:06:58 | services.ai_message_processor | INFO     | ✅ AI response generated: Hi there! I appreciate your interest in purchasing...
+2025-06-19 21:06:58 | messages             | INFO     | MESSAGE_PROCESSED | Jane Buyer | 23chars | question:True | priority:18 | action:ai_response
+2025-06-19 21:06:58 | services.ai_message_processor | INFO     | Message processed in 3.51s
+2025-06-19 21:06:58 | __main__             | INFO     |   Action taken: ai_response
+2025-06-19 21:06:58 | __main__             | INFO     |   Response: Hi there! I appreciate your interest in purchasing...
+2025-06-19 21:06:58 | __main__             | INFO     |   ✓ Expected behavior
+2025-06-19 21:06:58 | __main__             | INFO     | Processing message 3: ok
+2025-06-19 21:06:58 | services.ai_message_processor | INFO     | Processing message from Short Message: ok
+2025-06-19 21:06:58 | __main__             | INFO     |   Action taken: ignored
+2025-06-19 21:06:58 | __main__             | INFO     |   ✓ Expected behavior
+2025-06-19 21:06:58 | __main__             | INFO     | ✓ Processing success rate: 100.0%
+2025-06-19 21:06:58 | __main__             | INFO     | ✅ Intelligent processing test passed
+2025-06-19 21:06:58 | __main__             | INFO     | 
+Test 5: Safety Filtering and Escalation
+2025-06-19 21:06:58 | services.llama_ai    | INFO     | LlamaAI initialized - Server: http://localhost:11434, Model: llama2
+2025-06-19 21:06:58 | services.ai_message_processor | INFO     | AIMessageProcessor initialized with 0 products
+2025-06-19 21:06:58 | __main__             | INFO     | Testing safety filtering...
+2025-06-19 21:06:58 | services.ai_message_processor | INFO     | Processing message from Angry Customer: This is a scam! I want my money back!
+2025-06-19 21:06:58 | services.ai_message_processor | WARNING  | Escalation keyword detected in message from Angry Customer
+2025-06-19 21:06:58 | services.ai_message_processor | WARNING  | ⚠️ Message escalated to human: This is a scam! I want my money back!
+2025-06-19 21:06:58 | __main__             | INFO     | Message: This is a scam! I want my mone...
+2025-06-19 21:06:58 | __main__             | INFO     |   Action: escalated
+2025-06-19 21:06:58 | __main__             | INFO     |   ✓ Correctly escalated
+2025-06-19 21:06:58 | services.ai_message_processor | INFO     | Processing message from Angry Customer: I'm going to call the police on you!
+2025-06-19 21:06:58 | services.ai_message_processor | WARNING  | Escalation keyword detected in message from Angry Customer
+2025-06-19 21:06:58 | services.ai_message_processor | WARNING  | ⚠️ Message escalated to human: I'm going to call the police on you!
+2025-06-19 21:06:58 | __main__             | INFO     | Message: I'm going to call the police o...
+2025-06-19 21:06:58 | __main__             | INFO     |   Action: escalated
+2025-06-19 21:06:58 | __main__             | INFO     |   ✓ Correctly escalated
+2025-06-19 21:06:58 | services.ai_message_processor | INFO     | Processing message from Angry Customer: You sold me a broken item and won't refund!
+2025-06-19 21:06:58 | services.ai_message_processor | WARNING  | Escalation keyword detected in message from Angry Customer
+2025-06-19 21:06:58 | services.ai_message_processor | WARNING  | ⚠️ Message escalated to human: You sold me a broken item and won't refund!
+2025-06-19 21:06:58 | __main__             | INFO     | Message: You sold me a broken item and ...
+2025-06-19 21:06:58 | __main__             | INFO     |   Action: escalated
+2025-06-19 21:06:58 | __main__             | INFO     |   ✓ Correctly escalated
+2025-06-19 21:06:58 | services.ai_message_processor | INFO     | Processing message from Angry Customer: GIVE ME MY MONEY BACK NOW!!!
+2025-06-19 21:06:58 | services.ai_message_processor | WARNING  | Excessive urgency detected in message from Angry Customer
+2025-06-19 21:06:58 | services.ai_message_processor | WARNING  | ⚠️ Message escalated to human: GIVE ME MY MONEY BACK NOW!!!
+2025-06-19 21:06:58 | __main__             | INFO     | Message: GIVE ME MY MONEY BACK NOW!!!...
+2025-06-19 21:06:58 | __main__             | INFO     |   Action: escalated
+2025-06-19 21:06:58 | __main__             | INFO     |   ✓ Correctly escalated
+2025-06-19 21:06:58 | __main__             | INFO     | ✓ Escalation rate: 100.0%
+2025-06-19 21:06:58 | __main__             | INFO     | ✅ Safety filtering test passed
+2025-06-19 21:06:58 | __main__             | INFO     | 
+Test 6: Fallback Response System
+2025-06-19 21:06:58 | services.llama_ai    | INFO     | LlamaAI initialized - Server: http://localhost:11434, Model: llama2
+2025-06-19 21:06:58 | __main__             | INFO     | Testing fallback responses...
+2025-06-19 21:06:58 | __main__             | INFO     | Message type: What's your best pri...
+2025-06-19 21:06:58 | __main__             | INFO     | Fallback: Thanks for your interest! The price is as listed, but feel free to ask if you have any other questions.
+2025-06-19 21:06:58 | __main__             | INFO     |   ✓ Appropriate fallback
+2025-06-19 21:06:58 | __main__             | INFO     | Message type: Is this still availa...
+2025-06-19 21:06:58 | __main__             | INFO     | Fallback: Yes, this item is still available! Let me know if you'd like to arrange pickup or have any questions.
+2025-06-19 21:06:58 | __main__             | INFO     |   ✓ Appropriate fallback
+2025-06-19 21:06:58 | __main__             | INFO     | Message type: Can I see more detai...
+2025-06-19 21:06:58 | __main__             | INFO     | Fallback: Thanks for your message! I'll get back to you with more details soon.
+2025-06-19 21:06:58 | __main__             | INFO     |   ✓ Appropriate fallback
+2025-06-19 21:06:58 | __main__             | INFO     | ✓ Fallback appropriateness: 100.0%
+2025-06-19 21:06:58 | __main__             | INFO     | ✅ Fallback response test passed
+2025-06-19 21:06:58 | __main__             | INFO     | 
+Test 7: Conversation Memory
+2025-06-19 21:06:58 | services.llama_ai    | INFO     | LlamaAI initialized - Server: http://localhost:11434, Model: llama2
+2025-06-19 21:06:58 | __main__             | INFO     | Testing conversation memory...
+2025-06-19 21:06:58 | __main__             | INFO     | ✓ Added 3 messages to conversation
+2025-06-19 21:06:58 | __main__             | INFO     | ✓ Retrieved 3 messages from context
+2025-06-19 21:06:58 | __main__             | INFO     | ✓ All messages preserved in context
+2025-06-19 21:06:58 | __main__             | INFO     | ✓ Message content preserved correctly
+2025-06-19 21:06:58 | __main__             | INFO     | ✅ Conversation memory test passed
+2025-06-19 21:06:58 | __main__             | INFO     | 
+Test 8: FacebookBot Integration
+2025-06-19 21:06:59 | services.excel_handler | INFO     | Loaded accounts Excel file: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_accounts.xlsx
+2025-06-19 21:06:59 | services.excel_handler | INFO     | Found 3 rows in accounts file
+2025-06-19 21:06:59 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-19 21:06:59 | __main__             | INFO     | Testing FacebookBot AI integration...
+2025-06-19 21:06:59 | facebook_bot_s*****1@gmail.com | INFO     | FacebookBot initialized for s*****1@gmail.com
+2025-06-19 21:06:59 | __main__             | INFO     | ℹ️  Method not found: start_ai_powered_monitoring (needs to be added)
+2025-06-19 21:06:59 | __main__             | INFO     | ℹ️  Method not found: process_messages_with_ai (needs to be added)
+2025-06-19 21:06:59 | __main__             | INFO     | ✓ Method found: create_message_processor
+2025-06-19 21:06:59 | __main__             | INFO     | ✓ FacebookBot instance created successfully
+2025-06-19 21:06:59 | __main__             | INFO     | ✓ Ready for AI integration
+2025-06-19 21:06:59 | __main__             | INFO     | ✅ Facebook integration test passed
+2025-06-19 21:06:59 | __main__             | INFO     | 
+======================================================================
+2025-06-19 21:06:59 | __main__             | INFO     | 📊 PHASE 5 AI INTEGRATION TEST RESULTS
+2025-06-19 21:06:59 | __main__             | INFO     | ======================================================================
+2025-06-19 21:06:59 | __main__             | INFO     | Total Tests: 8
+2025-06-19 21:06:59 | __main__             | INFO     | Passed: 8
+2025-06-19 21:06:59 | __main__             | INFO     | Failed: 0
+2025-06-19 21:06:59 | __main__             | INFO     | Success Rate: 100.0%
+2025-06-19 21:06:59 | __main__             | INFO     | 
+Detailed Results:
+2025-06-19 21:06:59 | __main__             | INFO     |   AI Service Connection: ✅ PASS
+2025-06-19 21:06:59 | __main__             | INFO     |   AI Response Generation: ✅ PASS
+2025-06-19 21:06:59 | __main__             | INFO     |   Message Processor Creation: ✅ PASS
+2025-06-19 21:06:59 | __main__             | INFO     |   Intelligent Processing: ✅ PASS
+2025-06-19 21:06:59 | __main__             | INFO     |   Safety Filtering: ✅ PASS
+2025-06-19 21:06:59 | __main__             | INFO     |   Fallback Responses: ✅ PASS
+2025-06-19 21:06:59 | __main__             | INFO     |   Conversation Memory: ✅ PASS
+2025-06-19 21:06:59 | __main__             | INFO     |   Facebook Integration: ✅ PASS
+2025-06-19 21:06:59 | __main__             | INFO     | 
+🎉 ALL TESTS PASSED! Phase 5 AI integration is complete!
+2025-06-19 21:06:59 | __main__             | INFO     | 
+📋 NEXT STEPS:
+2025-06-19 21:06:59 | __main__             | INFO     | 🚀 Ready for production testing with real Facebook accounts!
+2025-06-19 21:06:59 | __main__             | INFO     | 🤖 Your bot is becoming truly intelligent!
