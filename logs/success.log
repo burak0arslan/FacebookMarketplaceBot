@@ -174,3 +174,15 @@
 2025-06-19 09:33:07 | __main__             | INFO     | Loaded 3 products and 3 accounts
 2025-06-19 09:33:08 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
 2025-06-19 09:33:10 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-19 19:58:42 | __main__             | INFO     | ✓ Customer message created: John Buyer
+2025-06-19 19:58:42 | __main__             | INFO     | ✓ AI response created: 0.85 confidence
+2025-06-19 19:58:42 | services.excel_handler | INFO     | Loaded accounts Excel file: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_accounts.xlsx
+2025-06-19 19:58:42 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-19 19:58:42 | __main__             | INFO     | Loaded 3 test accounts
+2025-06-19 19:58:42 | __main__             | INFO     | ✅ Test data loaded successfully
+2025-06-19 19:58:43 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-19 19:58:43 | __main__             | INFO     | ✓ MessageMonitor created for s*****1@gmail.com
+2025-06-19 19:58:43 | __main__             | INFO     | ✓ Selectors loaded: 4 categories
+2025-06-19 19:58:43 | __main__             | INFO     | ✓ FacebookBot created for s*****1@gmail.com
+2025-06-19 19:58:46 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-19 19:58:50 | __main__             | INFO     | Success Rate: 83.3%

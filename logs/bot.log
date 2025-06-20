@@ -634,3 +634,130 @@ Stacktrace:
 2025-06-19 09:33:08 | __main__             | INFO     | ✅ create_marketplace_listing method found
 2025-06-19 09:33:08 | __main__             | INFO     | ✅ Marketplace listing integration ready!
 2025-06-19 09:33:10 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-19 19:58:42 | __main__             | INFO     | 🚀 Facebook Marketplace Bot - Phase 4 Message Monitoring Tests
+2025-06-19 19:58:42 | __main__             | INFO     | ============================================================
+2025-06-19 19:58:42 | __main__             | INFO     | Real Monitoring: Disabled
+2025-06-19 19:58:42 | __main__             | INFO     | ============================================================
+2025-06-19 19:58:42 | __main__             | INFO     | 🚀 Starting Phase 4 Message Monitoring Tests
+2025-06-19 19:58:42 | __main__             | INFO     | ==================================================
+2025-06-19 19:58:42 | __main__             | INFO     | Test 1: Message Models and Data Structures
+2025-06-19 19:58:42 | __main__             | INFO     | Testing Message model...
+2025-06-19 19:58:42 | __main__             | INFO     | ✓ Customer message created: John Buyer
+2025-06-19 19:58:42 | __main__             | INFO     |   Contains question: True
+2025-06-19 19:58:42 | __main__             | INFO     |   Contains price inquiry: True
+2025-06-19 19:58:42 | __main__             | INFO     |   Priority score: 18
+2025-06-19 19:58:42 | __main__             | INFO     | ✓ AI response created: 0.85 confidence
+2025-06-19 19:58:42 | __main__             | INFO     | ✓ Urgent message: priority=30, urgent=True
+2025-06-19 19:58:42 | __main__             | INFO     | ✓ Message status updated: MessageStatus.RESPONDED
+2025-06-19 19:58:42 | __main__             | INFO     | ✓ Message serialization: 19 fields
+2025-06-19 19:58:42 | __main__             | INFO     | ✅ Message models test passed
+2025-06-19 19:58:42 | __main__             | INFO     | 
+Test 2: Loading Test Data
+2025-06-19 19:58:42 | services.excel_handler | INFO     | Loaded accounts Excel file: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_accounts.xlsx
+2025-06-19 19:58:42 | services.excel_handler | INFO     | Found 3 rows in accounts file
+2025-06-19 19:58:42 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-19 19:58:42 | __main__             | INFO     | Loaded 3 test accounts
+2025-06-19 19:58:42 | __main__             | INFO     |   - s*****1@gmail.com: John Seller
+2025-06-19 19:58:42 | __main__             | INFO     |   - s*****2@yahoo.com: Jane Smith
+2025-06-19 19:58:42 | __main__             | INFO     |   - b****p@outlook.com: Mike Johnson
+2025-06-19 19:58:42 | __main__             | INFO     | ✅ Test data loaded successfully
+2025-06-19 19:58:42 | __main__             | INFO     | 
+Test 3: Message Monitor Initialization
+2025-06-19 19:58:42 | __main__             | INFO     | Testing MessageMonitor initialization...
+2025-06-19 19:58:42 | utils.browser_utils  | INFO     | BrowserManager initialized
+2025-06-19 19:58:42 | utils.browser_utils  | INFO     | Setting up Chrome WebDriver (profile: message_test)
+2025-06-19 19:58:42 | utils.browser_utils  | INFO     | Running in headless mode
+2025-06-19 19:58:42 | root                 | INFO     | Chromedriver is already installed.
+2025-06-19 19:58:42 | utils.browser_utils  | INFO     | Using ChromeDriver from: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\venv\Lib\site-packages\chromedriver_autoinstaller\137\chromedriver.exe
+2025-06-19 19:58:43 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-19 19:58:43 | message_monitor_s*****1@gmail.com | INFO     | MessageMonitor initialized for s*****1@gmail.com
+2025-06-19 19:58:43 | __main__             | INFO     | ✓ MessageMonitor created for s*****1@gmail.com
+2025-06-19 19:58:43 | __main__             | INFO     | ✓ Monitor stats: s*****1@gmail.com
+2025-06-19 19:58:43 | __main__             | INFO     |   Monitoring: False
+2025-06-19 19:58:43 | __main__             | INFO     |   Queue size: 0
+2025-06-19 19:58:43 | __main__             | INFO     | ✓ Selectors loaded: 4 categories
+2025-06-19 19:58:43 | __main__             | INFO     | ✅ Monitor initialization test passed
+2025-06-19 19:58:43 | __main__             | INFO     | 
+Test 4: Message Detection and Parsing
+2025-06-19 19:58:43 | __main__             | INFO     | Testing message detection (simulation)...
+2025-06-19 19:58:43 | __main__             | INFO     | ✓ Processed 3 simulated messages
+2025-06-19 19:58:43 | __main__             | INFO     |   Message from Sarah Johnson:
+2025-06-19 19:58:43 | __main__             | INFO     |     Content: Hi! Is this still available?
+2025-06-19 19:58:43 | __main__             | INFO     |     Priority: 18
+2025-06-19 19:58:43 | __main__             | INFO     |     Has question: True
+2025-06-19 19:58:43 | __main__             | INFO     |     Price inquiry: False
+2025-06-19 19:58:43 | __main__             | INFO     |   Message from Mike Wilson:
+2025-06-19 19:58:43 | __main__             | INFO     |     Content: What's the lowest price you can do?
+2025-06-19 19:58:43 | __main__             | INFO     |     Priority: 18
+2025-06-19 19:58:43 | __main__             | INFO     |     Has question: True
+2025-06-19 19:58:43 | __main__             | INFO     |     Price inquiry: True
+2025-06-19 19:58:43 | __main__             | INFO     |   Message from Emma Davis:
+2025-06-19 19:58:43 | __main__             | INFO     |     Content: Can I pick this up today?
+2025-06-19 19:58:43 | __main__             | INFO     |     Priority: 15
+2025-06-19 19:58:43 | __main__             | INFO     |     Has question: True
+2025-06-19 19:58:43 | __main__             | INFO     |     Price inquiry: False
+2025-06-19 19:58:43 | __main__             | INFO     | ✓ Added messages to monitor queue: 3
+2025-06-19 19:58:43 | __main__             | INFO     | ✅ Message detection test passed
+2025-06-19 19:58:43 | __main__             | INFO     | 
+Test 5: Message Queue Processing
+2025-06-19 19:58:43 | __main__             | INFO     | Testing message queue processing...
+2025-06-19 19:58:43 | messages             | INFO     | MESSAGE_PROCESSED | Sarah Johnson | 28chars | question:True | priority:18 | action:processing
+2025-06-19 19:58:43 | __main__             | INFO     | Processing message from Sarah Johnson
+2025-06-19 19:58:43 | __main__             | INFO     |   → Contains question, needs response
+2025-06-19 19:58:43 | __main__             | INFO     |   → Can be handled automatically
+2025-06-19 19:58:43 | messages             | INFO     | MESSAGE_PROCESSED | Mike Wilson | 35chars | question:True | priority:18 | action:processing
+2025-06-19 19:58:43 | __main__             | INFO     | Processing message from Mike Wilson
+2025-06-19 19:58:43 | __main__             | INFO     |   → Contains question, needs response
+2025-06-19 19:58:43 | __main__             | INFO     |   → Can be handled automatically
+2025-06-19 19:58:43 | messages             | INFO     | MESSAGE_PROCESSED | Emma Davis | 25chars | question:True | priority:15 | action:processing
+2025-06-19 19:58:43 | __main__             | INFO     | Processing message from Emma Davis
+2025-06-19 19:58:43 | __main__             | INFO     |   → Contains question, needs response
+2025-06-19 19:58:43 | __main__             | INFO     |   → Can be handled automatically
+2025-06-19 19:58:43 | __main__             | INFO     | ✓ Processed 3 messages from queue
+2025-06-19 19:58:43 | __main__             | INFO     | ✓ Queue size: 3 → 0
+2025-06-19 19:58:43 | __main__             | INFO     | ✓ Monitor stats after processing:
+2025-06-19 19:58:43 | __main__             | INFO     |   Messages processed: 3
+2025-06-19 19:58:43 | __main__             | INFO     |   Errors: 0
+2025-06-19 19:58:43 | __main__             | INFO     | ✅ Queue processing test passed
+2025-06-19 19:58:43 | __main__             | INFO     | 
+Test 6: Integration with FacebookBot
+2025-06-19 19:58:43 | __main__             | INFO     | Testing integration with FacebookBot...
+2025-06-19 19:58:43 | facebook_bot_s*****1@gmail.com | INFO     | FacebookBot initialized for s*****1@gmail.com
+2025-06-19 19:58:43 | __main__             | INFO     | ✓ FacebookBot created for s*****1@gmail.com
+2025-06-19 19:58:43 | __main__             | INFO     | ✓ Bot session info: s*****1@gmail.com
+2025-06-19 19:58:43 | __main__             | INFO     | ✓ Rate limits OK: True
+2025-06-19 19:58:43 | __main__             | INFO     | ✓ Activity tracking: 3 actions
+2025-06-19 19:58:43 | __main__             | INFO     | ✓ Integration points verified
+2025-06-19 19:58:43 | __main__             | INFO     |   - FacebookBot can be extended with message monitoring
+2025-06-19 19:58:43 | __main__             | INFO     |   - Rate limiting works with message processing
+2025-06-19 19:58:43 | __main__             | INFO     |   - Session management compatible
+2025-06-19 19:58:43 | __main__             | INFO     | ✅ Integration test passed
+2025-06-19 19:58:43 | message_monitor_s*****1@gmail.com | INFO     | Message monitoring stopped
+2025-06-19 19:58:46 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-19 19:58:50 | __main__             | INFO     | 
+==================================================
+2025-06-19 19:58:50 | __main__             | INFO     | 📊 PHASE 4 MESSAGE MONITORING TEST RESULTS
+2025-06-19 19:58:50 | __main__             | INFO     | ==================================================
+2025-06-19 19:58:50 | __main__             | INFO     | Total Tests: 6
+2025-06-19 19:58:50 | __main__             | INFO     | Passed: 5
+2025-06-19 19:58:50 | __main__             | INFO     | Failed: 1
+2025-06-19 19:58:50 | __main__             | INFO     | Success Rate: 83.3%
+2025-06-19 19:58:50 | __main__             | INFO     | 
+Detailed Results:
+2025-06-19 19:58:50 | __main__             | INFO     |   Message Models: ✅ PASS
+2025-06-19 19:58:50 | __main__             | INFO     |   Monitor Initialization: ✅ PASS
+2025-06-19 19:58:50 | __main__             | INFO     |   Message Detection: ✅ PASS
+2025-06-19 19:58:50 | __main__             | INFO     |   Queue Processing: ✅ PASS
+2025-06-19 19:58:50 | __main__             | INFO     |   Integration Test: ✅ PASS
+2025-06-19 19:58:50 | __main__             | INFO     |   Async Monitoring: ❌ FAIL
+2025-06-19 19:58:50 | __main__             | INFO     | 
+⚠️  Most tests passed. Minor issues to address.
+2025-06-19 19:58:50 | __main__             | INFO     | 
+📋 NEXT STEPS:
+2025-06-19 19:58:50 | __main__             | INFO     | ✓ Foundation is solid - message monitoring is working
+2025-06-19 19:58:50 | __main__             | INFO     | • Integrate with existing FacebookBot
+2025-06-19 19:58:50 | __main__             | INFO     | • Test with real Facebook accounts for full functionality
+2025-06-19 19:58:50 | __main__             | INFO     | • Proceed to Phase 5: AI Integration
+2025-06-19 19:58:50 | __main__             | INFO     | ==================================================
+2025-06-19 19:58:50 | __main__             | INFO     | 
+⚠️ Most tests passed with minor issues.
