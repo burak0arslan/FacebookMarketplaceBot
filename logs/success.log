@@ -186,3 +186,13 @@
 2025-06-19 19:58:43 | __main__             | INFO     | ✓ FacebookBot created for s*****1@gmail.com
 2025-06-19 19:58:46 | utils.browser_utils  | INFO     | Browser cleanup completed
 2025-06-19 19:58:50 | __main__             | INFO     | Success Rate: 83.3%
+2025-06-19 20:11:47 | services.excel_handler | INFO     | Loaded accounts Excel file: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_accounts.xlsx
+2025-06-19 20:11:47 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-19 20:11:48 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-19 20:11:48 | __main__             | INFO     | MessageMonitor created successfully
+2025-06-19 20:11:48 | services.excel_handler | INFO     | Loaded accounts Excel file: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_accounts.xlsx
+2025-06-19 20:11:48 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-19 20:11:49 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-19 20:12:04 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-19 20:12:08 | __main__             | INFO     | ✅ MessageMonitor tests completed successfully!
+2025-06-19 20:12:10 | utils.browser_utils  | INFO     | Browser cleanup completed

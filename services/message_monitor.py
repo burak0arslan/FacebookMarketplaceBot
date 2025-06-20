@@ -603,12 +603,15 @@ class MessageMonitor:
 
 
 # Async wrapper for continuous monitoring
+# Replace the existing AsyncMessageMonitor class in services/message_monitor.py
+# with this fixed version:
+
 class AsyncMessageMonitor:
     """
-    Asynchronous wrapper for continuous message monitoring
+    Fixed Asynchronous wrapper for continuous message monitoring
     """
 
-    def __init__(self, message_monitor: MessageMonitor):
+    def __init__(self, message_monitor):
         self.monitor = message_monitor
         self.running = False
         self.task = None
@@ -626,12 +629,17 @@ class AsyncMessageMonitor:
         check_interval = check_interval or Config.MESSAGE_CHECK_INTERVAL
         self.running = True
 
-        self.monitor.logger.info(f"Starting continuous monitoring (every {check_interval}s)")
+        self.monitor.logger.info(f"Starting continuous async monitoring (every {check_interval}s)")
 
         try:
             while self.running:
-                # Run monitoring cycle
-                self.monitor.run_monitoring_cycle(processor_callback)
+                # Run monitoring cycle in thread pool to avoid blocking
+                loop = asyncio.get_event_loop()
+                await loop.run_in_executor(
+                    None,
+                    self.monitor.run_monitoring_cycle,
+                    processor_callback
+                )
 
                 # Wait for next cycle
                 await asyncio.sleep(check_interval)
@@ -640,6 +648,12 @@ class AsyncMessageMonitor:
             self.monitor.logger.error(f"Error in continuous monitoring: {e}")
         finally:
             self.running = False
+            self.monitor.logger.info("Continuous monitoring stopped")
+
+    def stop_continuous_monitoring(self):
+        """Stop continuous monitoring"""
+        self.running = False
+        self.monitor.stop_monitoring()
 
     def stop_continuous_monitoring(self):
         """Stop continuous monitoring"""
@@ -775,7 +789,63 @@ def create_continuous_monitor(account: Account,
     return async_monitor
 
 
+# Add this function to services/message_monitor.py just before the "if __name__ == "__main__":" section:
+
+async def test_async_monitoring_fix():
+    """Test the fixed async monitoring"""
+    from services.excel_handler import ExcelHandler
+    from utils.browser_utils import create_browser_manager
+
+    try:
+        # Create test setup
+        excel_handler = ExcelHandler()
+
+        # Create sample accounts if they don't exist
+        sample_accounts_file = Config.DATA_DIR / "sample_data" / "sample_accounts.xlsx"
+        if not sample_accounts_file.exists():
+            excel_handler.create_sample_accounts_file(sample_accounts_file)
+
+        accounts = excel_handler.load_accounts(sample_accounts_file)
+
+        with create_browser_manager(headless=True) as browser:
+            monitor = MessageMonitor(browser, accounts[0])
+            async_monitor = AsyncMessageMonitor(monitor)
+
+            print("✅ Async monitor created successfully")
+
+            # Test processor
+            def test_processor(message):
+                print(f"Async processed: {message.sender_name}")
+                return True
+
+            # Start monitoring for 10 seconds
+            monitoring_task = asyncio.create_task(
+                async_monitor.start_continuous_monitoring(
+                    check_interval=2,
+                    processor_callback=test_processor
+                )
+            )
+
+            # Stop after 10 seconds
+            await asyncio.sleep(10)
+            async_monitor.stop_continuous_monitoring()
+
+            # Wait for task to complete
+            try:
+                await asyncio.wait_for(monitoring_task, timeout=5)
+            except asyncio.TimeoutError:
+                monitoring_task.cancel()
+
+            print("✅ Async monitoring test completed")
+            return True
+
+    except Exception as e:
+        print(f"❌ Async test error: {e}")
+        return False
+
 # Example usage and testing
+# Replace the existing "if __name__ == "__main__":" section in services/message_monitor.py with:
+
 if __name__ == "__main__":
     from utils.logger import setup_logging
     from services.excel_handler import ExcelHandler
@@ -804,8 +874,8 @@ if __name__ == "__main__":
         test_account = accounts[0]
         logger.info(f"Testing with account: {test_account.get_masked_email()}")
 
-        # Create browser manager
-        with create_browser_manager(headless=False) as browser:
+        # Test regular monitoring
+        with create_browser_manager(headless=True) as browser:
             # Create message monitor
             monitor = MessageMonitor(browser, test_account)
 
@@ -817,7 +887,7 @@ if __name__ == "__main__":
                 logger.info(f"Test processor: {message.sender_name} - {message.get_short_content()}")
                 return True
 
-            # Test monitoring initialization (will work without login)
+            # Test monitoring initialization
             logger.info("Testing monitor initialization...")
             stats = monitor.get_monitoring_stats()
             logger.info(f"Monitor stats: {stats}")
@@ -842,13 +912,14 @@ if __name__ == "__main__":
             processed = monitor.process_message_queue(test_processor)
             logger.info(f"✅ Processed {processed} test messages")
 
-            # Test async monitoring setup
-            logger.info("Testing async monitoring setup...")
-            async_monitor = AsyncMessageMonitor(monitor)
-            logger.info("✅ AsyncMessageMonitor created")
+            # Test async monitoring
+            logger.info("Testing async monitoring fix...")
+            import asyncio
+            async_result = asyncio.run(test_async_monitoring_fix())
+            logger.info(f"Async test result: {'PASSED' if async_result else 'FAILED'}")
 
             logger.info("✅ MessageMonitor tests completed successfully!")
-            logger.info("Ready for Phase 4 implementation")
+            logger.info("Ready for Phase 4 and Phase 5 implementation")
 
     except Exception as e:
         logger.error(f"MessageMonitor test error: {e}")

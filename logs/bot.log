@@ -761,3 +761,47 @@ Detailed Results:
 2025-06-19 19:58:50 | __main__             | INFO     | ==================================================
 2025-06-19 19:58:50 | __main__             | INFO     | 
 ⚠️ Most tests passed with minor issues.
+2025-06-19 20:11:47 | __main__             | INFO     | Testing MessageMonitor...
+2025-06-19 20:11:47 | services.excel_handler | INFO     | Loaded accounts Excel file: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_accounts.xlsx
+2025-06-19 20:11:47 | services.excel_handler | INFO     | Found 3 rows in accounts file
+2025-06-19 20:11:47 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-19 20:11:47 | __main__             | INFO     | Testing with account: s*****1@gmail.com
+2025-06-19 20:11:47 | utils.browser_utils  | INFO     | BrowserManager initialized
+2025-06-19 20:11:47 | utils.browser_utils  | INFO     | Setting up Chrome WebDriver (profile: default)
+2025-06-19 20:11:47 | utils.browser_utils  | INFO     | Running in headless mode
+2025-06-19 20:11:47 | root                 | INFO     | Chromedriver is already installed.
+2025-06-19 20:11:47 | utils.browser_utils  | INFO     | Using ChromeDriver from: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\venv\Lib\site-packages\chromedriver_autoinstaller\137\chromedriver.exe
+2025-06-19 20:11:48 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-19 20:11:48 | message_monitor_s*****1@gmail.com | INFO     | MessageMonitor initialized for s*****1@gmail.com
+2025-06-19 20:11:48 | __main__             | INFO     | MessageMonitor created successfully
+2025-06-19 20:11:48 | __main__             | INFO     | Note: Real Facebook login required for full message monitoring
+2025-06-19 20:11:48 | __main__             | INFO     | Testing monitor initialization...
+2025-06-19 20:11:48 | __main__             | INFO     | Monitor stats: {'account': 's*****1@gmail.com', 'is_monitoring': False, 'last_check': None, 'messages_detected': 0, 'messages_processed': 0, 'errors_count': 0, 'queue_size': 0, 'processed_message_ids': 0}
+2025-06-19 20:11:48 | __main__             | INFO     | Testing message processing...
+2025-06-19 20:11:48 | messages             | INFO     | MESSAGE_PROCESSED | Test User 1 | 28chars | question:True | priority:18 | action:processing
+2025-06-19 20:11:48 | __main__             | INFO     | Test processor: Test User 1 - Hi, is this still available?
+2025-06-19 20:11:48 | messages             | INFO     | MESSAGE_PROCESSED | Test User 2 | 23chars | question:True | priority:18 | action:processing
+2025-06-19 20:11:48 | __main__             | INFO     | Test processor: Test User 2 - What's your best price?
+2025-06-19 20:11:48 | __main__             | INFO     | ✅ Processed 2 test messages
+2025-06-19 20:11:48 | __main__             | INFO     | Testing async monitoring fix...
+2025-06-19 20:11:48 | services.excel_handler | INFO     | Loaded accounts Excel file: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_accounts.xlsx
+2025-06-19 20:11:48 | services.excel_handler | INFO     | Found 3 rows in accounts file
+2025-06-19 20:11:48 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-19 20:11:48 | utils.browser_utils  | INFO     | BrowserManager initialized
+2025-06-19 20:11:48 | utils.browser_utils  | INFO     | Setting up Chrome WebDriver (profile: default)
+2025-06-19 20:11:48 | utils.browser_utils  | INFO     | Running in headless mode
+2025-06-19 20:11:48 | root                 | INFO     | Chromedriver is already installed.
+2025-06-19 20:11:48 | utils.browser_utils  | INFO     | Using ChromeDriver from: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\venv\Lib\site-packages\chromedriver_autoinstaller\137\chromedriver.exe
+2025-06-19 20:11:49 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-19 20:11:49 | message_monitor_s*****1@gmail.com | INFO     | MessageMonitor initialized for s*****1@gmail.com
+2025-06-19 20:11:49 | message_monitor_s*****1@gmail.com | INFO     | Starting continuous async monitoring (every 2s)
+2025-06-19 20:11:59 | message_monitor_s*****1@gmail.com | INFO     | Message monitoring stopped
+2025-06-19 20:11:59 | utils.browser_utils  | WARNING  | Element not found: css selector=[role="grid"]
+2025-06-19 20:11:59 | message_monitor_s*****1@gmail.com | WARNING  | Conversation list not found
+2025-06-19 20:11:59 | performance          | INFO     | PERFORMANCE | message_monitoring_cycle | 10.55s
+2025-06-19 20:12:01 | message_monitor_s*****1@gmail.com | INFO     | Continuous monitoring stopped
+2025-06-19 20:12:04 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-19 20:12:08 | __main__             | INFO     | Async test result: PASSED
+2025-06-19 20:12:08 | __main__             | INFO     | ✅ MessageMonitor tests completed successfully!
+2025-06-19 20:12:08 | __main__             | INFO     | Ready for Phase 4 and Phase 5 implementation
+2025-06-19 20:12:10 | utils.browser_utils  | INFO     | Browser cleanup completed
