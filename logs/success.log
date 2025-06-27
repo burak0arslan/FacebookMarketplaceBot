@@ -226,3 +226,183 @@
 2025-06-19 21:26:24 | utils.browser_utils  | INFO     | Browser cleanup completed
 2025-06-19 21:26:28 | facebook             | INFO     | FB_ACTION | session_end | s*****1@gmail.com | SUCCESS | Actions: 0, Duration: 0.00s
 2025-06-19 21:26:28 | facebook_bot_s*****1@gmail.com | INFO     | Facebook session ended successfully
+2025-06-20 19:31:05 | services.llama_ai    | INFO     | ✅ Llama server connected successfully
+2025-06-20 19:32:00 | __main__             | INFO     | 
+🎉 Demo completed! Your AI is working perfectly!
+2025-06-20 19:33:32 | services.excel_handler | INFO     | Loaded products Excel file: data\sample_data\sample_products.xlsx
+2025-06-20 19:33:32 | services.excel_handler | INFO     | Successfully loaded 3 products
+2025-06-20 19:33:32 | __main__             | INFO     | 📦 Loaded 3 products for AI context
+2025-06-20 19:33:32 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_data\sample_accounts.xlsx
+2025-06-20 19:33:32 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-20 19:33:34 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-20 19:33:34 | facebook_bot_b***************8@gmail.com | INFO     | Browser setup completed
+2025-06-20 19:33:37 | utils.browser_utils  | INFO     | Page loaded in 2.43s
+2025-06-20 19:34:00 | facebook_bot_b***************8@gmail.com | INFO     | Found login indicator - already logged in
+2025-06-20 19:34:00 | facebook_bot_b***************8@gmail.com | INFO     | Already logged in to Facebook
+2025-06-20 19:34:21 | facebook_bot_b***************8@gmail.com | INFO     | Found login indicator - already logged in
+2025-06-20 19:34:22 | facebook_bot_b***************8@gmail.com | INFO     | Login verification successful
+2025-06-20 19:34:22 | facebook             | INFO     | FB_ACTION | session_start | b***************8@gmail.com | SUCCESS | Session started in 49.55s
+2025-06-20 19:34:22 | facebook_bot_b***************8@gmail.com | INFO     | Facebook session started successfully in 49.55s
+2025-06-20 19:34:22 | __main__             | INFO     | ✅ Successfully logged into Facebook!
+2025-06-20 19:34:43 | facebook_bot_b***************8@gmail.com | INFO     | Found login indicator - already logged in
+2025-06-20 19:34:49 | utils.browser_utils  | INFO     | Page loaded in 6.06s
+2025-06-20 19:34:52 | facebook_bot_b***************8@gmail.com | INFO     | Successfully navigated to Marketplace
+2025-06-20 19:34:54 | services.llama_ai    | INFO     | ✅ Llama server connected successfully
+2025-06-20 19:34:54 | facebook_bot_b***************8@gmail.com | INFO     | ✅ AI processor created with 3 products
+2025-06-20 19:34:56 | utils.browser_utils  | INFO     | Page loaded in 2.00s
+2025-06-20 19:34:58 | message_monitor_b***************8@gmail.com | INFO     | Successfully navigated to Messages
+2025-06-20 19:34:58 | message_monitor_b***************8@gmail.com | INFO     | ✅ Message monitoring started successfully
+2025-06-20 19:34:58 | facebook_bot_b***************8@gmail.com | INFO     | ✅ Message monitoring started successfully
+2025-06-20 19:34:58 | facebook_bot_b***************8@gmail.com | INFO     | ✅ AI-powered monitoring started successfully
+2025-06-20 19:39:13 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-20 19:39:13 | facebook             | INFO     | FB_ACTION | session_end | b***************8@gmail.com | SUCCESS | Actions: 1, Duration: 291.83s
+2025-06-20 19:39:13 | facebook_bot_b***************8@gmail.com | INFO     | Facebook session ended successfully
+2025-06-20 19:41:37 | services.excel_handler | INFO     | Loaded products Excel file: data\sample_data\sample_products.xlsx
+2025-06-20 19:41:37 | services.excel_handler | INFO     | Successfully loaded 3 products
+2025-06-20 19:41:37 | __main__             | INFO     | 📦 Loaded 3 products for AI context
+2025-06-20 19:41:37 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_data\sample_accounts.xlsx
+2025-06-20 19:41:37 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-20 19:41:39 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-20 19:41:39 | facebook_bot_b***************8@gmail.com | INFO     | Browser setup completed
+2025-06-20 19:41:41 | utils.browser_utils  | INFO     | Page loaded in 2.33s
+2025-06-20 19:42:06 | facebook_bot_b***************8@gmail.com | INFO     | Found login indicator - already logged in
+2025-06-20 19:42:06 | facebook_bot_b***************8@gmail.com | INFO     | Already logged in to Facebook
+2025-06-20 19:42:27 | facebook_bot_b***************8@gmail.com | INFO     | Found login indicator - already logged in
+2025-06-20 19:42:27 | facebook_bot_b***************8@gmail.com | INFO     | Login verification successful
+2025-06-20 19:42:27 | facebook             | INFO     | FB_ACTION | session_start | b***************8@gmail.com | SUCCESS | Session started in 49.75s
+2025-06-20 19:42:27 | facebook_bot_b***************8@gmail.com | INFO     | Facebook session started successfully in 49.75s
+2025-06-20 19:42:27 | __main__             | INFO     | ✅ Successfully logged into Facebook!
+2025-06-20 19:42:48 | facebook_bot_b***************8@gmail.com | INFO     | Found login indicator - already logged in
+2025-06-20 19:42:54 | utils.browser_utils  | INFO     | Page loaded in 6.06s
+2025-06-20 19:42:57 | facebook_bot_b***************8@gmail.com | INFO     | Successfully navigated to Marketplace
+2025-06-20 19:42:59 | services.llama_ai    | INFO     | ✅ Llama server connected successfully
+2025-06-20 19:42:59 | facebook_bot_b***************8@gmail.com | INFO     | ✅ AI processor created with 3 products
+2025-06-20 19:43:01 | utils.browser_utils  | INFO     | Page loaded in 2.37s
+2025-06-20 19:43:04 | message_monitor_b***************8@gmail.com | INFO     | Successfully navigated to Messages
+2025-06-20 19:43:04 | message_monitor_b***************8@gmail.com | INFO     | ✅ Message monitoring started successfully
+2025-06-20 19:43:04 | facebook_bot_b***************8@gmail.com | INFO     | ✅ Message monitoring started successfully
+2025-06-20 19:43:04 | facebook_bot_b***************8@gmail.com | INFO     | ✅ AI-powered monitoring started successfully
+2025-06-20 19:57:43 | services.excel_handler | INFO     | Loaded products Excel file: data\sample_data\sample_products.xlsx
+2025-06-20 19:57:43 | services.excel_handler | INFO     | Successfully loaded 3 products
+2025-06-20 19:57:43 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_data\sample_accounts.xlsx
+2025-06-20 19:57:43 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-20 19:57:46 | utils.browser_utils  | ERROR    | Failed to setup WebDriver: Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir
+Stacktrace:
+	GetHandleVerifier [0x0x503b03+62899]
+	GetHandleVerifier [0x0x503b44+62964]
+	(No symbol) [0x0x3310f3]
+	(No symbol) [0x0x3645d8]
+	(No symbol) [0x0x3603e9]
+	(No symbol) [0x0x3aa36a]
+	(No symbol) [0x0x3a9c0a]
+	(No symbol) [0x0x39e306]
+	(No symbol) [0x0x36d670]
+	(No symbol) [0x0x36e4e4]
+	GetHandleVerifier [0x0x764793+2556483]
+	GetHandleVerifier [0x0x75fd02+2537394]
+	GetHandleVerifier [0x0x52a2fa+220586]
+	GetHandleVerifier [0x0x51aae8+157080]
+	GetHandleVerifier [0x0x52141d+184013]
+	GetHandleVerifier [0x0x50ba68+95512]
+	GetHandleVerifier [0x0x50bc10+95936]
+	GetHandleVerifier [0x0x4f6b5a+9738]
+	BaseThreadInitThunk [0x0x75cf5d49+25]
+	RtlInitializeExceptionChain [0x0x7714d09b+107]
+	RtlGetAppContainerNamedObjectPath [0x0x7714d021+561]
+
+2025-06-20 19:58:06 | facebook             | INFO     | FB_ACTION | session_end | b***************8@gmail.com | SUCCESS | Actions: 0, Duration: 0.00s
+2025-06-20 19:58:06 | facebook_bot_b***************8@gmail.com | INFO     | Facebook session ended successfully
+2025-06-20 20:00:50 | services.excel_handler | INFO     | Loaded products Excel file: data\sample_data\sample_products.xlsx
+2025-06-20 20:00:50 | services.excel_handler | INFO     | Successfully loaded 3 products
+2025-06-20 20:00:50 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_data\sample_accounts.xlsx
+2025-06-20 20:00:50 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-20 20:02:56 | services.excel_handler | INFO     | Loaded products Excel file: data\sample_data\sample_products.xlsx
+2025-06-20 20:02:56 | services.excel_handler | INFO     | Successfully loaded 3 products
+2025-06-20 20:02:56 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_data\sample_accounts.xlsx
+2025-06-20 20:02:56 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-20 20:02:58 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-20 20:02:58 | facebook_bot_b***************8@gmail.com | INFO     | Browser setup completed
+2025-06-20 20:03:00 | utils.browser_utils  | INFO     | Page loaded in 1.78s
+2025-06-20 20:03:24 | facebook_bot_b***************8@gmail.com | INFO     | Found login indicator - already logged in
+2025-06-20 20:03:24 | facebook_bot_b***************8@gmail.com | INFO     | Already logged in to Facebook
+2025-06-20 20:03:45 | facebook_bot_b***************8@gmail.com | INFO     | Found login indicator - already logged in
+2025-06-20 20:03:45 | facebook_bot_b***************8@gmail.com | INFO     | Login verification successful
+2025-06-20 20:03:45 | facebook             | INFO     | FB_ACTION | session_start | b***************8@gmail.com | SUCCESS | Session started in 49.03s
+2025-06-20 20:03:45 | facebook_bot_b***************8@gmail.com | INFO     | Facebook session started successfully in 49.03s
+2025-06-20 20:05:27 | utils.browser_utils  | INFO     | Page loaded in 1.50s
+2025-06-26 19:35:20 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-26 19:35:20 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-26 19:35:21 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-26 19:35:21 | facebook_bot_b***************8@gmail.com | INFO     | Browser setup completed
+2025-06-26 19:35:23 | utils.browser_utils  | INFO     | Page loaded in 1.65s
+2025-06-26 19:35:25 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-26 19:35:29 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-26 19:35:29 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-26 19:35:29 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-26 19:35:29 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-26 19:35:29 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-26 19:35:29 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-26 19:35:31 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-26 19:35:31 | facebook_bot_b***************8@gmail.com | INFO     | Browser setup completed
+2025-06-26 19:35:32 | utils.browser_utils  | INFO     | Page loaded in 1.42s
+2025-06-26 19:35:34 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-26 19:43:35 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-26 19:43:35 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-26 19:43:36 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-26 19:43:36 | facebook_bot_b***************8@gmail.com | INFO     | Browser setup completed
+2025-06-26 19:43:38 | utils.browser_utils  | INFO     | Page loaded in 1.98s
+2025-06-26 19:43:40 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-26 19:43:44 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-26 19:43:44 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-26 19:43:44 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-26 19:43:44 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-26 19:43:44 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-26 19:43:44 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-26 19:43:45 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-26 19:43:45 | facebook_bot_b***************8@gmail.com | INFO     | Browser setup completed
+2025-06-26 19:43:48 | utils.browser_utils  | INFO     | Page loaded in 2.27s
+2025-06-26 19:43:50 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-26 19:54:21 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-26 19:54:21 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-26 19:54:22 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-26 19:54:22 | facebook_bot_b***************8@gmail.com | INFO     | Browser setup completed
+2025-06-26 19:54:24 | utils.browser_utils  | INFO     | Page loaded in 1.80s
+2025-06-26 19:54:26 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-26 19:54:31 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-26 19:54:31 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-26 19:54:31 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-26 19:54:31 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-26 19:54:31 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-26 19:54:31 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-26 19:54:32 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-26 19:54:32 | facebook_bot_b***************8@gmail.com | INFO     | Browser setup completed
+2025-06-26 19:54:34 | utils.browser_utils  | INFO     | Page loaded in 2.03s
+2025-06-26 19:54:36 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-26 19:57:38 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-26 19:57:38 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-26 19:57:39 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-26 19:57:39 | facebook_bot_b***************8@gmail.com | INFO     | Browser setup completed
+2025-06-26 19:57:40 | utils.browser_utils  | INFO     | Page loaded in 1.35s
+2025-06-26 19:57:43 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-26 19:57:47 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-26 19:57:47 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-26 19:57:47 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-26 19:57:47 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-26 19:57:47 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-26 19:57:47 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-26 19:57:48 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-26 19:57:48 | facebook_bot_b***************8@gmail.com | INFO     | Browser setup completed
+2025-06-26 19:57:50 | utils.browser_utils  | INFO     | Page loaded in 1.51s
+2025-06-26 19:57:52 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-26 20:02:35 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-26 20:02:35 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-26 20:02:36 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-26 20:02:36 | facebook_bot_b***************8@gmail.com | INFO     | Browser setup completed
+2025-06-26 20:02:38 | utils.browser_utils  | INFO     | Page loaded in 2.29s
+2025-06-26 20:02:40 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-26 20:02:45 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-26 20:02:45 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-26 20:02:45 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-26 20:02:45 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-26 20:02:45 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-26 20:02:45 | services.excel_handler | INFO     | Successfully loaded 3 accounts

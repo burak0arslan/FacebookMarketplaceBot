@@ -239,58 +239,209 @@ def manual_facebook_test():
         return False
 
 
+# Replace the safe_facebook_test function in your test_facebook_bot.py with this:
+
 def safe_facebook_test():
-    """Safe test that doesn't actually log into Facebook"""
+    """
+    Safe Facebook Test using robust selectors
+    Tests Facebook page loading and element detection without actual login
+    """
     print("\nSafe Facebook Test (No actual login)")
     print("=" * 40)
 
     try:
         from services.excel_handler import ExcelHandler
         from services.facebook_bot import FacebookBot
+        from utils.facebook_selectors import FacebookSelectors, find_element_safe_robust, test_facebook_selectors
+        from utils.browser_utils import create_browser_manager
 
-        # Load account
-        handler = ExcelHandler()
-        accounts = handler.load_accounts("data/sample_accounts.xlsx")
-        test_account = accounts[0]
+        # Load test account
+        excel_handler = ExcelHandler()
+        accounts = excel_handler.load_accounts("data/sample_accounts.xlsx")
 
-        # Create bot
-        bot = FacebookBot(test_account, headless=True)
+        if not accounts:
+            print("✗ No test accounts found")
+            return False
 
+        # Initialize bot
+        bot = FacebookBot(accounts[0])
         print("Testing browser setup...")
-        if bot._setup_browser():
+
+        # Test browser setup
+        with create_browser_manager(headless=True, profile="test_robust_selectors") as browser:
             print("✓ Browser setup successful")
 
+            # Navigate to Facebook
             print("Testing Facebook page load (login page only)...")
-            if bot.browser.navigate_to("https://www.facebook.com"):
+            if browser.navigate_to("https://www.facebook.com"):
                 print("✓ Facebook page loaded")
 
-                # Check for login form
-                email_field = bot.browser.find_element_safe("css_selector", 'input[name="email"]', timeout=5)
-                if email_field:
-                    print("✓ Login form detected")
-                else:
-                    print("⚠️ Login form not found (may be different layout)")
+                # Test robust selectors
+                print("Testing robust Facebook selectors...")
+                selector_results = test_facebook_selectors(browser)
 
-                # Take screenshot
-                screenshot_path = bot.browser.take_screenshot("facebook_login_page_test")
+                # Display results
+                elements_tested = {
+                    'page_loaded': 'Page loaded correctly',
+                    'email_field': 'Email field found',
+                    'password_field': 'Password field found',
+                    'login_button': 'Login button found'
+                }
+
+                found_elements = 0
+                for element_type, description in elements_tested.items():
+                    if element_type in selector_results:
+                        if selector_results[element_type]:
+                            print(f"✓ {description}")
+                            found_elements += 1
+                        else:
+                            print(f"⚠️ {description} - not found")
+                    else:
+                        print(f"⚠️ {description} - test error")
+
+                # Test individual robust selector methods
+                print("\nTesting individual robust selectors...")
+
+                # Test email field with multiple selectors
+                email_selectors = FacebookSelectors.get_email_selectors()
+                print(f"Trying {len(email_selectors)} different email selectors...")
+
+                email_found = False
+                working_email_selector = None
+
+                for by_type, selector in email_selectors[:5]:  # Test first 5
+                    try:
+                        element = browser.find_element_safe(by_type, selector, timeout=2)
+                        if element:
+                            email_found = True
+                            working_email_selector = f"{by_type.name}={selector}"
+                            break
+                    except Exception:
+                        continue
+
+                if email_found:
+                    print(f"✓ Email field found with: {working_email_selector}")
+                else:
+                    print("⚠️ Email field not found with any selector")
+
+                # Test robust helper function
+                print("\nTesting find_element_safe_robust function...")
+                robust_email = find_element_safe_robust(browser, 'email', timeout=3)
+                if robust_email:
+                    print("✓ Robust email finder working")
+                else:
+                    print("⚠️ Robust email finder failed")
+
+                # Take screenshot for debugging
+                screenshot_path = browser.take_screenshot("facebook_robust_test")
                 if screenshot_path:
                     print(f"✓ Screenshot saved: {screenshot_path}")
 
-            else:
-                print("✗ Facebook page load failed")
-                return False
+                # Summary
+                print(f"\nRobust Selector Test Summary:")
+                print(f"- Facebook page loaded: {'✓' if selector_results.get('page_loaded', False) else '✗'}")
+                print(f"- Elements found: {found_elements}/{len(elements_tested)}")
+                print(f"- Robust selectors working: {'✓' if robust_email or email_found else '✗'}")
 
-            # Cleanup
-            bot.browser.cleanup()
-            print("✓ Safe test completed successfully")
-            return True
-        else:
-            print("✗ Browser setup failed")
-            return False
+                # Return success if we can at least load the page
+                success = selector_results.get('page_loaded', False)
+                if success:
+                    print("✓ Safe test completed successfully")
+                else:
+                    print("⚠️ Safe test had issues but completed")
+
+                return success
+
+            else:
+                print("✗ Failed to load Facebook page")
+                return False
 
     except Exception as e:
         print(f"✗ Safe test error: {e}")
         return False
+
+
+def test_robust_selectors_standalone():
+    """
+    Standalone test for robust Facebook selectors
+    """
+    print("\n" + "=" * 50)
+    print("ROBUST FACEBOOK SELECTORS TEST")
+    print("=" * 50)
+
+    try:
+        from utils.facebook_selectors import FacebookSelectors, find_element_safe_robust
+        from utils.browser_utils import create_browser_manager
+
+        # Display available selectors
+        print("Available Email Selectors:")
+        email_selectors = FacebookSelectors.get_email_selectors()
+        for i, (by_type, selector) in enumerate(email_selectors[:5], 1):
+            by_name = getattr(by_type, 'name', str(by_type))  # Handle both By constants and strings
+            print(f"  {i}. {by_name}: {selector}")
+
+        print(f"\nTotal email selectors: {len(email_selectors)}")
+
+        # Test with real Facebook page
+        with create_browser_manager(headless=False, profile="selector_test") as browser:
+            print("\nNavigating to Facebook...")
+            if browser.navigate_to("https://www.facebook.com"):
+                print("✓ Facebook loaded")
+
+                # Test each selector type
+                selector_types = ['email', 'password', 'login_button']
+                results = {}
+
+                for selector_type in selector_types:
+                    print(f"\nTesting {selector_type} selectors...")
+                    element = find_element_safe_robust(browser, selector_type, timeout=5)
+                    results[selector_type] = element is not None
+
+                    if element:
+                        print(f"✓ {selector_type.title()} field found!")
+                        try:
+                            tag_name = element.tag_name
+                            element_type = element.get_attribute('type') or 'N/A'
+                            name_attr = element.get_attribute('name') or 'N/A'
+                            print(f"  Element: <{tag_name}> type='{element_type}' name='{name_attr}'")
+                        except:
+                            pass
+                    else:
+                        print(f"⚠️ {selector_type.title()} field not found")
+
+                # Summary
+                print(f"\n{'=' * 30}")
+                print("RESULTS SUMMARY")
+                print(f"{'=' * 30}")
+
+                for selector_type, found in results.items():
+                    status = "✓ FOUND" if found else "✗ NOT FOUND"
+                    print(f"{selector_type.title():12}: {status}")
+
+                success_count = sum(results.values())
+                print(f"\nSuccess Rate: {success_count}/{len(results)} elements found")
+
+                if success_count >= 2:  # At least email and password
+                    print("✓ Robust selectors are working well!")
+                    return True
+                else:
+                    print("⚠️ Robust selectors need adjustment")
+                    return False
+
+            else:
+                print("✗ Failed to load Facebook")
+                return False
+
+    except Exception as e:
+        print(f"✗ Robust selector test error: {e}")
+        return False
+
+
+if __name__ == "__main__":
+    # Run standalone robust selector test
+    print("Testing robust Facebook selectors...")
+    test_robust_selectors_standalone()
+
 
 
 def test_account_management():
