@@ -383,7 +383,7 @@ def test_robust_selectors_standalone():
         print(f"\nTotal email selectors: {len(email_selectors)}")
 
         # Test with real Facebook page
-        with create_browser_manager(headless=False, profile="selector_test") as browser:
+        with create_browser_manager(headless=False, profile_name="selector_test") as browser:
             print("\nNavigating to Facebook...")
             if browser.navigate_to("https://www.facebook.com"):
                 print("✓ Facebook loaded")
