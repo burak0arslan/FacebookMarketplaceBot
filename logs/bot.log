@@ -11312,3 +11312,35 @@ Stacktrace:
 2025-06-26 20:18:33 | performance          | INFO     | PERFORMANCE | message_monitoring_cycle | 0.00s
 2025-06-26 20:18:33 | __main__             | INFO     | 📭 No new messages
 2025-06-26 20:18:33 | __main__             | INFO     | 📊 Total processed: 0
+2025-06-26 20:18:33 | __main__             | INFO     | ⏳ Waiting 30 seconds for next cycle...
+2025-06-26 20:19:03 | __main__             | INFO     | 
+🔄 Monitoring Cycle #325
+2025-06-26 20:19:03 | utils.browser_utils  | ERROR    | Error finding element css selector=[role="grid"]: Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0x503b03+62899]
+	GetHandleVerifier [0x0x503b44+62964]
+	(No symbol) [0x0x330f50]
+	(No symbol) [0x0x36c938]
+	(No symbol) [0x0x39e3c6]
+	(No symbol) [0x0x399e72]
+	(No symbol) [0x0x399406]
+	(No symbol) [0x0x303a05]
+	(No symbol) [0x0x303f5e]
+	(No symbol) [0x0x3043fd]
+	GetHandleVerifier [0x0x764793+2556483]
+	GetHandleVerifier [0x0x75fd02+2537394]
+	GetHandleVerifier [0x0x52a2fa+220586]
+	GetHandleVerifier [0x0x51aae8+157080]
+	GetHandleVerifier [0x0x52141d+184013]
+	(No symbol) [0x0x3036d0]
+	(No symbol) [0x0x302f47]
+	GetHandleVerifier [0x0x89aa2c+3826908]
+	BaseThreadInitThunk [0x0x75cf5d49+25]
+	RtlInitializeExceptionChain [0x0x7714d09b+107]
+	RtlGetAppContainerNamedObjectPath [0x0x7714d021+561]
+
+2025-06-26 20:19:03 | message_monitor_b***************8@gmail.com | WARNING  | Conversation list not found
+2025-06-26 20:19:03 | performance          | INFO     | PERFORMANCE | message_monitoring_cycle | 0.00s
+2025-06-26 20:19:03 | __main__             | INFO     | 📭 No new messages
+2025-06-26 20:19:03 | __main__             | INFO     | 📊 Total processed: 0
+2025-06-26 20:19:03 | __main__             | INFO     | ⏳ Waiting 30 seconds for next cycle...
