@@ -268,7 +268,7 @@ def safe_facebook_test():
         print("Testing browser setup...")
 
         # Test browser setup
-        with create_browser_manager(headless=True, profile="test_robust_selectors") as browser:
+        with create_browser_manager(headless=True, profile_name="test_robust_selectors") as browser:
             print("✓ Browser setup successful")
 
             # Navigate to Facebook
