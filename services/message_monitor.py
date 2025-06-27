@@ -203,7 +203,7 @@ class MessageMonitor:
 
     def _get_conversation_list(self) -> List[Dict[str, Any]]:
         """
-        Get list of conversations from messenger
+        Get list of conversations from messenger with robust selectors
 
         Returns:
             List of conversation data dictionaries
@@ -211,42 +211,121 @@ class MessageMonitor:
         conversations = []
 
         try:
-            # Find conversation list container
-            conv_list = self.browser.find_element_safe(
-                By.CSS_SELECTOR,
-                self.selectors['conversations']['conversation_list'],
-                timeout=5
-            )
+            self.logger.debug("Scanning for conversation list...")
+
+            # Updated selectors for Facebook Messages (2025)
+            conversation_list_selectors = [
+                # Main conversation list selectors
+                '[role="main"] [role="grid"]',
+                '[data-pagelet="MessengerConversations"]',
+                '[aria-label*="Conversations"] [role="grid"]',
+                'div[role="grid"][aria-label*="Conversations"]',
+
+                # Alternative selectors
+                '[role="navigation"] + div [role="grid"]',
+                'div[role="grid"]:has([data-testid="conversation"])',
+                '[data-testid="conversation-list"]',
+
+                # Fallback selectors
+                'div[role="grid"]',
+                '[role="grid"]'
+            ]
+
+            # Try each selector until one works
+            conv_list = None
+            working_selector = None
+
+            for selector in conversation_list_selectors:
+                try:
+                    self.logger.debug(f"Trying selector: {selector}")
+                    conv_list = self.browser.find_element_safe(
+                        By.CSS_SELECTOR,
+                        selector,
+                        timeout=3
+                    )
+
+                    if conv_list:
+                        working_selector = selector
+                        self.logger.info(f"✅ Found conversation list with: {selector}")
+                        break
+                    else:
+                        self.logger.debug(f"❌ Selector failed: {selector}")
+
+                except Exception as e:
+                    self.logger.debug(f"❌ Selector error '{selector}': {e}")
+                    continue
 
             if not conv_list:
-                self.logger.warning("Conversation list not found")
+                self.logger.warning("❌ Could not find conversation list with any selector")
+
+                # Try to save page source for debugging
+                try:
+                    page_source = self.browser.driver.page_source
+                    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+                    debug_file = f"debug_messages_page_{timestamp}.html"
+
+                    with open(debug_file, "w", encoding="utf-8") as f:
+                        f.write(page_source)
+
+                    self.logger.info(f"📝 Page source saved to {debug_file} for debugging")
+
+                except Exception as debug_error:
+                    self.logger.debug(f"Could not save debug file: {debug_error}")
+
                 return []
 
-            # Find individual conversations
-            conv_items = self.browser.driver.find_elements(
-                By.CSS_SELECTOR,
-                self.selectors['conversations']['conversation_item']
-            )
+            # Now find individual conversations within the list
+            conversation_item_selectors = [
+                '[data-testid="conversation"]',
+                '[role="gridcell"]',
+                'div[role="gridcell"] a',
+                '[aria-describedby*="conversation"]',
+                'a[role="link"][href*="/t/"]',
+                'div[role="gridcell"]',
+                'a[href*="/messages/t/"]'
+            ]
 
-            for item in conv_items[:20]:  # Limit to first 20 conversations
+            conversation_elements = []
+            working_item_selector = None
+
+            for selector in conversation_item_selectors:
                 try:
-                    conv_data = self._extract_conversation_data(item)
+                    elements = conv_list.find_elements(By.CSS_SELECTOR, selector)
+                    if elements:
+                        conversation_elements = elements
+                        working_item_selector = selector
+                        self.logger.info(f"✅ Found {len(elements)} conversations with: {selector}")
+                        break
+
+                except Exception as e:
+                    self.logger.debug(f"Item selector error '{selector}': {e}")
+                    continue
+
+            if not conversation_elements:
+                self.logger.warning("❌ Could not find individual conversations")
+                return []
+
+            # Process each conversation (limit to first 15 to avoid overload)
+            for i, conv_element in enumerate(conversation_elements[:15]):
+                try:
+                    conv_data = self._extract_conversation_data_robust(conv_element)
                     if conv_data:
                         conversations.append(conv_data)
 
                 except Exception as e:
-                    self.logger.debug(f"Error extracting conversation data: {e}")
+                    self.logger.debug(f"Error processing conversation {i}: {e}")
                     continue
 
+            self.logger.info(f"✅ Successfully processed {len(conversations)} conversations")
             return conversations
 
         except Exception as e:
-            self.logger.error(f"Error getting conversation list: {e}")
+            self.logger.error(f"❌ Error getting conversation list: {e}")
             return []
 
-    def _extract_conversation_data(self, conv_element) -> Optional[Dict[str, Any]]:
+    def _extract_conversation_data_robust(self, conv_element) -> Optional[Dict[str, Any]]:
         """
-        Extract data from a conversation element
+        Extract data from a conversation element with robust selectors
 
         Args:
             conv_element: Selenium WebElement for conversation
@@ -255,36 +334,81 @@ class MessageMonitor:
             Dictionary with conversation data or None
         """
         try:
-            # Get conversation name
-            name_element = conv_element.find_element(
-                By.CSS_SELECTOR,
-                self.selectors['conversations']['conversation_name']
-            )
-            conv_name = name_element.text.strip() if name_element else "Unknown"
+            # Try multiple approaches to get conversation name
+            conv_name = "Unknown"
+            name_selectors = [
+                'span[dir="auto"]',
+                '[data-testid="conversation_name"]',
+                'h3 span',
+                'div[role="gridcell"] span[dir="auto"]',
+                'span:first-child',
+                'strong'
+            ]
 
-            # Check for unread indicator
-            unread_element = conv_element.find_elements(
-                By.CSS_SELECTOR,
-                self.selectors['conversations']['unread_indicator']
-            )
-            has_unread = len(unread_element) > 0
+            for selector in name_selectors:
+                try:
+                    name_element = conv_element.find_element(By.CSS_SELECTOR, selector)
+                    if name_element and name_element.text.strip():
+                        conv_name = name_element.text.strip()
+                        break
+                except:
+                    continue
 
-            # Get conversation link
-            link_element = conv_element.find_element(
-                By.CSS_SELECTOR,
-                self.selectors['conversations']['conversation_link']
-            )
-            conv_url = link_element.get_attribute('href') if link_element else None
+            # Check for unread indicators
+            has_unread = False
+            unread_selectors = [
+                '[data-testid="unread_indicator"]',
+                '[aria-label*="unread"]',
+                '.notification-dot',
+                '[data-testid="badge"]',
+                '[role="status"]',
+                'div[style*="background-color: rgb(24, 119, 242)"]',  # Facebook blue
+                'span[style*="background-color: #1877f2"]'
+            ]
 
-            return {
+            for selector in unread_selectors:
+                try:
+                    unread_element = conv_element.find_element(By.CSS_SELECTOR, selector)
+                    if unread_element:
+                        has_unread = True
+                        self.logger.debug(f"✅ Found unread indicator for {conv_name}")
+                        break
+                except:
+                    continue
+
+            # Get conversation URL
+            conv_url = None
+            try:
+                # Try to find link element
+                if conv_element.tag_name == 'a':
+                    conv_url = conv_element.get_attribute('href')
+                else:
+                    link_element = conv_element.find_element(By.TAG_NAME, 'a')
+                    conv_url = link_element.get_attribute('href')
+            except:
+                pass
+
+            # Extract conversation ID from URL if available
+            conv_id = None
+            if conv_url and '/t/' in conv_url:
+                try:
+                    conv_id = conv_url.split('/t/')[-1].split('/')[0]
+                except:
+                    pass
+
+            conversation_data = {
+                'id': conv_id,
                 'name': conv_name,
-                'has_unread': has_unread,
                 'url': conv_url,
+                'has_unread': has_unread,
                 'element': conv_element
             }
 
+            self.logger.debug(f"📋 Extracted conversation: {conv_name} (unread: {has_unread})")
+            return conversation_data
+
         except Exception as e:
-            self.logger.debug(f"Error extracting conversation data: {e}")
+            self.logger.debug(f"❌ Error extracting conversation data: {e}")
             return None
 
     def _scan_conversation(self, conv_data: Dict[str, Any]) -> List[Message]:

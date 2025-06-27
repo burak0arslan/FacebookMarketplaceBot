@@ -441,3 +441,67 @@ Stacktrace:
 2025-06-26 20:20:47 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
 2025-06-26 20:20:49 | utils.browser_utils  | INFO     | Page loaded in 2.45s
 2025-06-26 20:21:23 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-26 20:28:13 | services.excel_handler | INFO     | Loaded products Excel file: data\sample_data\sample_products.xlsx
+2025-06-26 20:28:13 | services.excel_handler | INFO     | Successfully loaded 3 products
+2025-06-26 20:28:13 | __main__             | INFO     | 📦 Loaded 3 products for AI context
+2025-06-26 20:28:13 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_data\sample_accounts.xlsx
+2025-06-26 20:28:13 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-26 20:28:14 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-26 20:28:14 | facebook_bot_b***************8@gmail.com | INFO     | Browser setup completed
+2025-06-26 20:28:16 | utils.browser_utils  | INFO     | Page loaded in 1.74s
+2025-06-26 20:28:40 | facebook_bot_b***************8@gmail.com | INFO     | Found login indicator - already logged in
+2025-06-26 20:28:40 | facebook_bot_b***************8@gmail.com | INFO     | Already logged in to Facebook
+2025-06-26 20:29:01 | facebook_bot_b***************8@gmail.com | INFO     | Found login indicator - already logged in
+2025-06-26 20:29:02 | facebook_bot_b***************8@gmail.com | INFO     | Login verification successful
+2025-06-26 20:29:02 | facebook             | INFO     | FB_ACTION | session_start | b***************8@gmail.com | SUCCESS | Session started in 49.02s
+2025-06-26 20:29:02 | facebook_bot_b***************8@gmail.com | INFO     | Facebook session started successfully in 49.02s
+2025-06-26 20:29:02 | __main__             | INFO     | ✅ Successfully logged into Facebook!
+2025-06-26 20:29:23 | facebook_bot_b***************8@gmail.com | INFO     | Found login indicator - already logged in
+2025-06-26 20:29:28 | utils.browser_utils  | INFO     | Page loaded in 5.13s
+2025-06-26 20:29:32 | facebook_bot_b***************8@gmail.com | INFO     | Successfully navigated to Marketplace
+2025-06-26 20:29:34 | services.llama_ai    | INFO     | ✅ Llama server connected successfully
+2025-06-26 20:29:34 | facebook_bot_b***************8@gmail.com | INFO     | ✅ AI processor created with 3 products
+2025-06-26 20:29:36 | utils.browser_utils  | INFO     | Page loaded in 1.87s
+2025-06-26 20:29:38 | message_monitor_b***************8@gmail.com | INFO     | Successfully navigated to Messages
+2025-06-26 20:29:38 | message_monitor_b***************8@gmail.com | INFO     | ✅ Message monitoring started successfully
+2025-06-26 20:29:38 | facebook_bot_b***************8@gmail.com | INFO     | ✅ Message monitoring started successfully
+2025-06-26 20:29:38 | facebook_bot_b***************8@gmail.com | INFO     | ✅ AI-powered monitoring started successfully
+2025-06-26 20:35:05 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-26 20:35:05 | facebook             | INFO     | FB_ACTION | session_end | b***************8@gmail.com | SUCCESS | Actions: 1, Duration: 363.24s
+2025-06-26 20:35:05 | facebook_bot_b***************8@gmail.com | INFO     | Facebook session ended successfully
+2025-06-26 21:00:14 | services.excel_handler | INFO     | Loaded products Excel file: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_products.xlsx
+2025-06-26 21:00:14 | services.excel_handler | INFO     | Successfully loaded 3 products
+2025-06-26 21:00:14 | __main__             | INFO     | Loaded 3 products for context
+2025-06-26 21:00:16 | services.llama_ai    | INFO     | ✅ Llama server connected successfully
+2025-06-26 21:00:33 | __main__             | INFO     | 
+✅ Processing statistics: {'messages_processed': 2, 'ai_responses_sent': 2, 'escalations': 1, 'fallback_responses': 0, 'ai_service_stats': {'responses_generated': 2, 'failed_generations': 0, 'success_rate': 100.0, 'average_response_time': 8.494680643081665, 'conversations_tracked': 2}, 'products_available': 3}
+2025-06-26 21:00:55 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-26 21:00:57 | utils.browser_utils  | INFO     | Page loaded in 2.22s
+2025-06-26 21:01:01 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-26 21:01:06 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-26 21:01:06 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-26 21:01:06 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-26 21:01:06 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-26 21:01:07 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-26 21:01:07 | facebook_bot_b***************8@gmail.com | INFO     | Browser setup completed
+2025-06-26 21:01:09 | utils.browser_utils  | INFO     | Page loaded in 1.80s
+2025-06-26 21:01:11 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-26 21:01:15 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-26 21:01:15 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-26 21:01:15 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-26 21:01:15 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-26 21:01:15 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_accounts.xlsx
+2025-06-26 21:01:15 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-26 21:01:16 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-26 21:01:18 | utils.browser_utils  | INFO     | Page loaded in 1.69s
+2025-06-26 21:01:52 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-26 21:16:26 | services.excel_handler | INFO     | Loaded accounts Excel file: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_accounts.xlsx
+2025-06-26 21:16:26 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-26 21:16:28 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-26 21:16:28 | __main__             | INFO     | MessageMonitor created successfully
+2025-06-26 21:16:28 | services.excel_handler | INFO     | Loaded accounts Excel file: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_accounts.xlsx
+2025-06-26 21:16:28 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-26 21:16:29 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-26 21:16:52 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-26 21:17:06 | __main__             | INFO     | ✅ MessageMonitor tests completed successfully!
+2025-06-26 21:17:08 | utils.browser_utils  | INFO     | Browser cleanup completed
