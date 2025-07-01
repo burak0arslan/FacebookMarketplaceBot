@@ -201,9 +201,13 @@ class MessageMonitor:
             self.errors_count += 1
             return []
 
+    # services/message_monitor.py
+    # Replace your existing _get_conversation_list method with this fixed version
+
     def _get_conversation_list(self) -> List[Dict[str, Any]]:
         """
         Get list of conversations from messenger with robust selectors
+        Fixed version that handles browser session properly
 
         Returns:
             List of conversation data dictionaries
@@ -211,22 +215,39 @@ class MessageMonitor:
         conversations = []
 
         try:
-            self.logger.debug("Scanning for conversation list...")
+            # Check if browser is still valid
+            if not self.browser or not self.browser.driver:
+                self.logger.warning("❌ Browser session not available")
+                return []
+
+            # Check if we're on the messages page
+            current_url = self.browser.driver.current_url
+            if "messages" not in current_url:
+                self.logger.info("📱 Navigating to messages page...")
+                if not self.browser.navigate_to("https://www.facebook.com/messages"):
+                    self.logger.warning("❌ Could not navigate to messages")
+                    return []
+                time.sleep(3)  # Wait for page load
+
+            self.logger.debug("🔍 Scanning for conversation list...")
 
             # Updated selectors for Facebook Messages (2025)
             conversation_list_selectors = [
-                # Main conversation list selectors
+                # Primary selectors for logged-in users
                 '[role="main"] [role="grid"]',
-                '[data-pagelet="MessengerConversations"]',
                 '[aria-label*="Conversations"] [role="grid"]',
                 'div[role="grid"][aria-label*="Conversations"]',
 
-                # Alternative selectors
-                '[role="navigation"] + div [role="grid"]',
-                'div[role="grid"]:has([data-testid="conversation"])',
-                '[data-testid="conversation-list"]',
+                # Alternative messenger selectors
+                '[data-pagelet="MessengerConversations"] [role="grid"]',
+                '[data-pagelet*="Messenger"] [role="grid"]',
 
                 # Fallback selectors
+                '[role="navigation"] + div [role="grid"]',
+                'div[role="grid"]:has([role="gridcell"])',
+                '[data-testid="conversation-list"]',
+
+                # Last resort
                 'div[role="grid"]',
                 '[role="grid"]'
             ]
@@ -235,13 +256,15 @@ class MessageMonitor:
             conv_list = None
             working_selector = None
 
-            for selector in conversation_list_selectors:
+            for i, selector in enumerate(conversation_list_selectors):
                 try:
-                    self.logger.debug(f"Trying selector: {selector}")
+                    self.logger.debug(f"🧪 Testing selector {i + 1}/{len(conversation_list_selectors)}: {selector}")
+
+                    # Try to find the element with short timeout
                     conv_list = self.browser.find_element_safe(
                         By.CSS_SELECTOR,
                         selector,
-                        timeout=3
+                        timeout=2
                     )
 
                     if conv_list:
@@ -252,37 +275,25 @@ class MessageMonitor:
                         self.logger.debug(f"❌ Selector failed: {selector}")
 
                 except Exception as e:
-                    self.logger.debug(f"❌ Selector error '{selector}': {e}")
+                    self.logger.debug(f"❌ Selector error '{selector}': {str(e)[:100]}")
                     continue
 
             if not conv_list:
                 self.logger.warning("❌ Could not find conversation list with any selector")
 
-                # Try to save page source for debugging
-                try:
-                    page_source = self.browser.driver.page_source
-                    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-                    debug_file = f"debug_messages_page_{timestamp}.html"
-
-                    with open(debug_file, "w", encoding="utf-8") as f:
-                        f.write(page_source)
-
-                    self.logger.info(f"📝 Page source saved to {debug_file} for debugging")
-
-                except Exception as debug_error:
-                    self.logger.debug(f"Could not save debug file: {debug_error}")
-
+                # Enhanced debugging
+                self._debug_conversation_detection()
                 return []
 
             # Now find individual conversations within the list
             conversation_item_selectors = [
+                '[role="gridcell"]',  # Most common
                 '[data-testid="conversation"]',
-                '[role="gridcell"]',
-                'div[role="gridcell"] a',
+                'div[role="gridcell"]',
                 '[aria-describedby*="conversation"]',
                 'a[role="link"][href*="/t/"]',
-                'div[role="gridcell"]',
-                'a[href*="/messages/t/"]'
+                'a[href*="/messages/t/"]',
+                'div[role="gridcell"] a'
             ]
 
             conversation_elements = []
@@ -303,25 +314,209 @@ class MessageMonitor:
 
             if not conversation_elements:
                 self.logger.warning("❌ Could not find individual conversations")
+                self._debug_conversation_structure(conv_list)
                 return []
 
-            # Process each conversation (limit to first 15 to avoid overload)
-            for i, conv_element in enumerate(conversation_elements[:15]):
+            # Process each conversation (limit to first 20 to avoid overload)
+            processed_count = 0
+            for i, conv_element in enumerate(conversation_elements[:20]):
                 try:
                     conv_data = self._extract_conversation_data_robust(conv_element)
                     if conv_data:
                         conversations.append(conv_data)
+                        processed_count += 1
 
                 except Exception as e:
                     self.logger.debug(f"Error processing conversation {i}: {e}")
                     continue
 
-            self.logger.info(f"✅ Successfully processed {len(conversations)} conversations")
+            self.logger.info(f"✅ Successfully processed {processed_count} conversations")
             return conversations
 
         except Exception as e:
             self.logger.error(f"❌ Error getting conversation list: {e}")
             return []
+
+    def _debug_conversation_detection(self):
+        """Enhanced debugging for conversation detection"""
+        try:
+            self.logger.info("🔍 Running conversation detection debug...")
+
+            # Check for any grid elements
+            grids = self.browser.driver.find_elements(By.CSS_SELECTOR, '[role="grid"]')
+            self.logger.info(f"   Found {len(grids)} elements with role='grid'")
+
+            # Check for main content area
+            main_elements = self.browser.driver.find_elements(By.CSS_SELECTOR, '[role="main"]')
+            self.logger.info(f"   Found {len(main_elements)} main content areas")
+
+            # Check for messenger-specific elements
+            messenger_elements = self.browser.driver.find_elements(By.CSS_SELECTOR, '[data-pagelet*="Messenger"]')
+            self.logger.info(f"   Found {len(messenger_elements)} messenger pagelets")
+
+            # Check current page title and URL
+            try:
+                page_title = self.browser.driver.title
+                current_url = self.browser.driver.current_url
+                self.logger.info(f"   Page title: {page_title[:50]}...")
+                self.logger.info(f"   Current URL: {current_url}")
+            except:
+                pass
+
+            # Save debug information
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            debug_file = f"debug_conversation_detection_{timestamp}.html"
+
+            try:
+                page_source = self.browser.driver.page_source
+                with open(debug_file, "w", encoding="utf-8") as f:
+                    f.write(page_source)
+
+                self.logger.info(f"📄 Debug page source saved to: {debug_file}")
+
+            except Exception as debug_error:
+                self.logger.debug(f"Could not save debug file: {debug_error}")
+
+        except Exception as e:
+            self.logger.debug(f"Debug function error: {e}")
+
+    def _debug_conversation_structure(self, conv_list_element):
+        """Debug the structure of found conversation list"""
+        try:
+            self.logger.info("🔍 Debugging conversation list structure...")
+
+            # Get all child elements
+            children = conv_list_element.find_elements(By.XPATH, "./*")
+            self.logger.info(f"   Conversation list has {len(children)} direct children")
+
+            # Look for any elements that might be conversations
+            potential_convs = conv_list_element.find_elements(By.XPATH, ".//*")
+            self.logger.info(f"   Found {len(potential_convs)} total descendant elements")
+
+            # Check for links (conversations are often links)
+            links = conv_list_element.find_elements(By.TAG_NAME, "a")
+            self.logger.info(f"   Found {len(links)} link elements")
+
+            # Check for specific attributes
+            with_testid = conv_list_element.find_elements(By.CSS_SELECTOR, "[data-testid]")
+            self.logger.info(f"   Found {len(with_testid)} elements with data-testid")
+
+            # Log first few element details
+            for i, child in enumerate(children[:3]):
+                try:
+                    tag_name = child.tag_name
+                    class_name = child.get_attribute("class")[:50] if child.get_attribute("class") else "None"
+                    testid = child.get_attribute("data-testid") or "None"
+
+                    self.logger.debug(f"   Child {i + 1}: <{tag_name}> class='{class_name}' testid='{testid}'")
+
+                except:
+                    continue
+
+        except Exception as e:
+            self.logger.debug(f"Structure debug error: {e}")
+
+    def _extract_conversation_data_robust(self, conv_element) -> Optional[Dict[str, Any]]:
+        """
+        Extract data from a conversation element with robust selectors
+        Enhanced version with better error handling
+        """
+        try:
+            # Get conversation name with multiple approaches
+            conv_name = "Unknown"
+            name_selectors = [
+                'span[dir="auto"]',
+                '[data-testid*="conversation"] span',
+                'h3 span',
+                'div[role="gridcell"] span[dir="auto"]',
+                'span[dir="auto"]:first-child',
+                'strong',
+                'span'  # Last resort
+            ]
+
+            for selector in name_selectors:
+                try:
+                    name_element = conv_element.find_element(By.CSS_SELECTOR, selector)
+                    if name_element and name_element.text.strip():
+                        conv_name = name_element.text.strip()
+                        self.logger.debug(f"📝 Found name '{conv_name}' with: {selector}")
+                        break
+                except:
+                    continue
+
+            # Check for unread indicators with comprehensive selectors
+            has_unread = False
+            unread_selectors = [
+                '[data-testid="unread_indicator"]',
+                '[aria-label*="unread"]',
+                '[aria-label*="Unread"]',
+                '.notification-dot',
+                '[data-testid="badge"]',
+                '[role="status"]',
+
+                # Visual indicators (Facebook blue)
+                'div[style*="background-color: rgb(24, 119, 242)"]',
+                'span[style*="background-color: #1877f2"]',
+                '[style*="background-color: #1877f2"]',
+
+                # Alternative patterns
+                '.unread',
+                '[class*="unread"]',
+                '[data-testid*="unread"]'
+            ]
+
+            for selector in unread_selectors:
+                try:
+                    unread_element = conv_element.find_element(By.CSS_SELECTOR, selector)
+                    if unread_element:
+                        has_unread = True
+                        self.logger.debug(f"🔴 Found unread indicator for '{conv_name}' with: {selector}")
+                        break
+                except:
+                    continue
+
+            # Get conversation URL
+            conv_url = None
+            conv_id = None
+
+            try:
+                # Check if the element itself is a link
+                if conv_element.tag_name == 'a':
+                    conv_url = conv_element.get_attribute('href')
+                else:
+                    # Look for link within the element
+                    link_element = conv_element.find_element(By.TAG_NAME, 'a')
+                    conv_url = link_element.get_attribute('href')
+
+                # Extract conversation ID from URL
+                if conv_url and '/t/' in conv_url:
+                    try:
+                        conv_id = conv_url.split('/t/')[-1].split('/')[0]
+                    except:
+                        pass
+
+            except:
+                # No link found, this might be a different conversation format
+                pass
+
+            conversation_data = {
+                'id': conv_id,
+                'name': conv_name,
+                'url': conv_url,
+                'has_unread': has_unread,
+                'element': conv_element
+            }
+
+            if has_unread:
+                self.logger.info(f"📨 Found unread conversation: {conv_name}")
+            else:
+                self.logger.debug(f"📋 Found conversation: {conv_name}")
+
+            return conversation_data
+
+        except Exception as e:
+            self.logger.debug(f"❌ Error extracting conversation data: {e}")
+            return None
 
     def _extract_conversation_data_robust(self, conv_element) -> Optional[Dict[str, Any]]:
         """

@@ -71,7 +71,7 @@ class Config:
     # ==================== LLAMA AI SETTINGS ====================
     # Llama server configuration
     LLAMA_SERVER_URL = os.getenv("LLAMA_SERVER_URL", "http://localhost:11434")
-    LLAMA_MODEL_NAME = os.getenv("LLAMA_MODEL_NAME", "llama2")
+    LLAMA_MODEL_NAME = os.getenv("LLAMA_MODEL_NAME", "llama3.2")
     LLAMA_API_TIMEOUT = int(os.getenv("LLAMA_API_TIMEOUT", "30"))
 
     # AI generation parameters
@@ -271,7 +271,7 @@ if __name__ == "__main__":
 
     # AI Settings (add to your existing config.py)
     LLAMA_SERVER_URL = os.getenv("LLAMA_SERVER_URL", "http://localhost:11434")
-    LLAMA_MODEL_NAME = os.getenv("LLAMA_MODEL_NAME", "llama2")
+    LLAMA_MODEL_NAME = os.getenv("LLAMA_MODEL_NAME", "llama3.2")
     LLAMA_API_TIMEOUT = int(os.getenv("LLAMA_API_TIMEOUT", "30"))
 
     # AI generation parameters

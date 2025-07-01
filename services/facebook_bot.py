@@ -12,6 +12,7 @@ import json
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import (
@@ -943,6 +944,683 @@ class FacebookBot:
             return False
 
         return True
+
+    """
+    FacebookBot Marketplace Listing Extension
+    Add these methods to your existing services/facebook_bot.py file
+    """
+
+    import time
+    import random
+    from pathlib import Path
+    from typing import List, Optional, Dict, Any
+
+    from selenium.webdriver.common.by import By
+    from selenium.webdriver.support.ui import WebDriverWait, Select
+    from selenium.webdriver.support import expected_conditions as EC
+    from selenium.webdriver.common.keys import Keys
+    from selenium.common.exceptions import (
+        TimeoutException, NoSuchElementException,
+        ElementNotInteractableException
+    )
+
+    from models.product import Product
+    from utils.logger import log_facebook_action
+
+    class FacebookBotMarketplaceExtension:
+        """
+        Extension methods for FacebookBot to handle marketplace listing
+
+        Add these methods to your existing FacebookBot class in services/facebook_bot.py
+        """
+
+        def navigate_to_marketplace(self) -> bool:
+            """
+            Navigate to Facebook Marketplace
+
+            Returns:
+                True if successful, False otherwise
+            """
+            try:
+                self.logger.info("🏪 Navigating to Facebook Marketplace...")
+
+                marketplace_url = "https://www.facebook.com/marketplace"
+
+                if not self.browser.navigate_to(marketplace_url):
+                    return False
+
+                # Wait for marketplace to load
+                wait = WebDriverWait(self.browser.driver, 10)
+
+                # Look for marketplace indicators
+                marketplace_indicators = [
+                    "//h1[contains(text(), 'Marketplace')]",
+                    "//div[@aria-label='Marketplace']",
+                    "//*[contains(text(), 'Browse all')]",
+                    "//div[contains(@class, 'marketplace')]"
+                ]
+
+                for indicator in marketplace_indicators:
+                    try:
+                        element = wait.until(EC.presence_of_element_located((By.XPATH, indicator)))
+                        if element:
+                            self.logger.info("✅ Marketplace loaded successfully")
+                            time.sleep(random.uniform(2, 4))
+                            return True
+                    except TimeoutException:
+                        continue
+
+                self.logger.warning("⚠️ Marketplace page loaded but indicators not found")
+                return True  # Assume success if page loaded
+
+            except Exception as e:
+                self.logger.error(f"❌ Error navigating to marketplace: {e}")
+                return False
+
+        def navigate_to_create_listing(self) -> bool:
+            """
+            Navigate to create new listing page
+
+            Returns:
+                True if successful, False otherwise
+            """
+            try:
+                self.logger.info("➕ Navigating to create listing page...")
+
+                # Try direct URL first
+                create_url = "https://www.facebook.com/marketplace/create"
+                if self.browser.navigate_to(create_url):
+                    time.sleep(random.uniform(3, 5))
+                    return True
+
+                # Fallback: look for create button
+                create_selectors = [
+                    "//div[@role='button'][contains(text(), 'Create new listing')]",
+                    "//a[contains(@href, '/marketplace/create')]",
+                    "//button[contains(text(), 'Sell something')]",
+                    "//*[@aria-label='Create new listing']"
+                ]
+
+                for selector in create_selectors:
+                    try:
+                        button = self.browser.find_element_safe(By.XPATH, selector, timeout=5)
+                        if button and button.is_displayed():
+                            self.browser.click_element_safe(button)
+                            time.sleep(random.uniform(2, 4))
+                            self.logger.info("✅ Clicked create listing button")
+                            return True
+                    except Exception:
+                        continue
+
+                self.logger.error("❌ Could not find create listing button")
+                return False
+
+            except Exception as e:
+                self.logger.error(f"❌ Error navigating to create listing: {e}")
+                return False
+
+        def select_listing_type(self, listing_type: str = "item") -> bool:
+            """
+            Select listing type (Item for Sale, Vehicle, etc.)
+
+            Args:
+                listing_type: Type of listing ("item", "vehicle", "home")
+
+            Returns:
+                True if successful, False otherwise
+            """
+            try:
+                self.logger.info(f"📝 Selecting listing type: {listing_type}")
+
+                # Wait for listing type options to appear
+                wait = WebDriverWait(self.browser.driver, 10)
+
+                type_selectors = {
+                    "item": [
+                        "//div[@role='radio'][contains(text(), 'Item for sale')]",
+                        "//input[@value='ITEM']/../..",
+                        "//*[contains(text(), 'Item for sale')]"
+                    ],
+                    "vehicle": [
+                        "//div[@role='radio'][contains(text(), 'Vehicle')]",
+                        "//input[@value='VEHICLE']/../..",
+                        "//*[contains(text(), 'Vehicle')]"
+                    ],
+                    "home": [
+                        "//div[@role='radio'][contains(text(), 'Home for sale')]",
+                        "//input[@value='HOME']/../..",
+                        "//*[contains(text(), 'Home for sale')]"
+                    ]
+                }
+
+                selectors = type_selectors.get(listing_type, type_selectors["item"])
+
+                for selector in selectors:
+                    try:
+                        option = wait.until(EC.element_to_be_clickable((By.XPATH, selector)))
+                        if option:
+                            self.browser.click_element_safe(option)
+                            time.sleep(random.uniform(1, 2))
+                            self.logger.info(f"✅ Selected {listing_type} listing type")
+                            return True
+                    except TimeoutException:
+                        continue
+                    except Exception as e:
+                        self.logger.debug(f"Selector failed: {selector} - {e}")
+                        continue
+
+                self.logger.error(f"❌ Could not select {listing_type} listing type")
+                return False
+
+            except Exception as e:
+                self.logger.error(f"❌ Error selecting listing type: {e}")
+                return False
+
+        def fill_listing_form(self, product: Product) -> bool:
+            """
+            Fill out the marketplace listing form
+
+            Args:
+                product: Product object with listing details
+
+            Returns:
+                True if successful, False otherwise
+            """
+            try:
+                self.logger.info(f"📝 Filling listing form for: {product.title}")
+
+                # Wait for form to load
+                time.sleep(random.uniform(2, 4))
+
+                # Fill title
+                if not self._fill_form_field("title", product.title, required=True):
+                    return False
+
+                # Fill description
+                if not self._fill_form_field("description", product.description, required=True):
+                    return False
+
+                # Fill price
+                price_str = f"{product.price:.0f}" if product.price == int(product.price) else f"{product.price:.2f}"
+                if not self._fill_form_field("price", price_str, required=True):
+                    return False
+
+                # Fill location (optional)
+                if product.location:
+                    self._fill_form_field("location", product.location, required=False)
+
+                # Select category (optional)
+                if product.category:
+                    self._select_category(product.category)
+
+                # Select condition (optional)
+                if product.condition:
+                    self._select_condition(product.condition)
+
+                self.logger.info("✅ Form filled successfully")
+                return True
+
+            except Exception as e:
+                self.logger.error(f"❌ Error filling listing form: {e}")
+                return False
+
+        def _fill_form_field(self, field_type: str, value: str, required: bool = True) -> bool:
+            """
+            Fill a specific form field with multiple selector fallbacks
+
+            Args:
+                field_type: Type of field (title, description, price, location)
+                value: Value to enter
+                required: Whether field is required
+
+            Returns:
+                True if successful, False if required field fails
+            """
+            try:
+                # Field selector mappings
+                field_selectors = {
+                    "title": [
+                        "//input[@placeholder='What are you selling?']",
+                        "//input[@aria-label*='title']",
+                        "//textarea[@placeholder='What are you selling?']"
+                    ],
+                    "description": [
+                        "//textarea[@placeholder='Describe your item']",
+                        "//textarea[@aria-label*='description']",
+                        "//div[@contenteditable='true'][@aria-label*='description']"
+                    ],
+                    "price": [
+                        "//input[@placeholder='Price']",
+                        "//input[@aria-label*='price']",
+                        "//input[@placeholder*='$']"
+                    ],
+                    "location": [
+                        "//input[@placeholder*='Location']",
+                        "//input[@placeholder*='Neighborhood']",
+                        "//input[@aria-label*='location']"
+                    ]
+                }
+
+                selectors = field_selectors.get(field_type, [])
+
+                for selector in selectors:
+                    try:
+                        field = self.browser.find_element_safe(By.XPATH, selector, timeout=3)
+                        if field and field.is_displayed():
+                            # Clear field
+                            field.clear()
+                            time.sleep(0.5)
+
+                            # Type value with human-like typing
+                            if self.browser.type_text_human(field, value):
+                                self.logger.debug(f"✅ Filled {field_type}: {value[:30]}...")
+                                return True
+                    except Exception as e:
+                        self.logger.debug(f"Selector failed for {field_type}: {selector}")
+                        continue
+
+                # Field not found
+                if required:
+                    self.logger.error(f"❌ Required field '{field_type}' not found")
+                    return False
+                else:
+                    self.logger.warning(f"⚠️ Optional field '{field_type}' not found")
+                    return True
+
+            except Exception as e:
+                self.logger.error(f"❌ Error filling {field_type} field: {e}")
+                return False if required else True
+
+        def _select_category(self, category: str) -> bool:
+            """Select product category"""
+            try:
+                self.logger.debug(f"🏷️ Selecting category: {category}")
+
+                # Look for category dropdown/selector
+                category_selectors = [
+                    "//select[@aria-label*='Category']",
+                    "//div[@role='button'][@aria-label*='category']",
+                    "//*[contains(text(), 'Category')]/..//select"
+                ]
+
+                for selector in category_selectors:
+                    try:
+                        element = self.browser.find_element_safe(By.XPATH, selector, timeout=2)
+                        if element:
+                            if element.tag_name == 'select':
+                                # Handle select dropdown
+                                select = Select(element)
+                                for option in select.options:
+                                    if category.lower() in option.text.lower():
+                                        select.select_by_visible_text(option.text)
+                                        self.logger.debug(f"✅ Selected category: {option.text}")
+                                        return True
+                            else:
+                                # Handle div/button dropdown
+                                self.browser.click_element_safe(element)
+                                time.sleep(1)
+
+                                # Look for category option
+                                option_xpath = f"//*[contains(text(), '{category}')]"
+                                option = self.browser.find_element_safe(By.XPATH, option_xpath, timeout=2)
+                                if option:
+                                    self.browser.click_element_safe(option)
+                                    self.logger.debug(f"✅ Selected category: {category}")
+                                    return True
+                    except Exception:
+                        continue
+
+                self.logger.warning(f"⚠️ Could not select category: {category}")
+                return True  # Not critical
+
+            except Exception as e:
+                self.logger.warning(f"⚠️ Category selection error: {e}")
+                return True  # Not critical
+
+        def _select_condition(self, condition: str) -> bool:
+            """Select product condition"""
+            try:
+                self.logger.debug(f"🔧 Selecting condition: {condition}")
+
+                # Map conditions to Facebook options
+                condition_mapping = {
+                    "new": ["New", "Brand new"],
+                    "like new": ["Like new", "Excellent"],
+                    "good": ["Good", "Very good"],
+                    "fair": ["Fair", "Acceptable"],
+                    "used": ["Used", "Good"]
+                }
+
+                # Get possible condition values
+                possible_conditions = condition_mapping.get(condition.lower(), [condition])
+
+                condition_selectors = [
+                    "//select[@aria-label*='Condition']",
+                    "//div[@role='button'][@aria-label*='condition']",
+                    "//*[contains(text(), 'Condition')]/..//select"
+                ]
+
+                for selector in condition_selectors:
+                    try:
+                        element = self.browser.find_element_safe(By.XPATH, selector, timeout=2)
+                        if element:
+                            if element.tag_name == 'select':
+                                select = Select(element)
+                                for possible_condition in possible_conditions:
+                                    for option in select.options:
+                                        if possible_condition.lower() in option.text.lower():
+                                            select.select_by_visible_text(option.text)
+                                            self.logger.debug(f"✅ Selected condition: {option.text}")
+                                            return True
+                            else:
+                                # Handle div/button dropdown
+                                self.browser.click_element_safe(element)
+                                time.sleep(1)
+
+                                # Look for condition option
+                                for possible_condition in possible_conditions:
+                                    option_xpath = f"//*[contains(text(), '{possible_condition}')]"
+                                    option = self.browser.find_element_safe(By.XPATH, option_xpath, timeout=2)
+                                    if option:
+                                        self.browser.click_element_safe(option)
+                                        self.logger.debug(f"✅ Selected condition: {possible_condition}")
+                                        return True
+                    except Exception:
+                        continue
+
+                self.logger.warning(f"⚠️ Could not select condition: {condition}")
+                return True  # Not critical
+
+            except Exception as e:
+                self.logger.warning(f"⚠️ Condition selection error: {e}")
+                return True  # Not critical
+
+        def upload_product_images(self, product: Product) -> bool:
+            """
+            Upload images for the product listing
+
+            Args:
+                product: Product object with image paths
+
+            Returns:
+                True if successful, False otherwise
+            """
+            try:
+                if not product.images:
+                    self.logger.info("📷 No images to upload")
+                    return True
+
+                self.logger.info(f"📷 Uploading {len(product.images)} images...")
+
+                # Look for file input
+                image_upload_selectors = [
+                    "//input[@type='file'][@accept*='image']",
+                    "//input[@type='file'][@multiple]",
+                    "//*[@data-testid='media_upload_input']"
+                ]
+
+                file_input = None
+                for selector in image_upload_selectors:
+                    try:
+                        file_input = self.browser.find_element_safe(By.XPATH, selector, timeout=3)
+                        if file_input:
+                            break
+                    except Exception:
+                        continue
+
+                if not file_input:
+                    self.logger.warning("⚠️ Could not find image upload input")
+                    return True  # Not critical
+
+                # Prepare image paths
+                valid_images = []
+                for image_path in product.images:
+                    img_path = Path(image_path)
+                    if img_path.exists() and img_path.suffix.lower() in ['.jpg', '.jpeg', '.png', '.gif']:
+                        valid_images.append(str(img_path.absolute()))
+                    else:
+                        self.logger.warning(f"⚠️ Invalid image path: {image_path}")
+
+                if not valid_images:
+                    self.logger.warning("⚠️ No valid images found")
+                    return True
+
+                # Upload images (Facebook supports multiple files)
+                try:
+                    # Join paths with newline for multiple file upload
+                    all_paths = '\n'.join(valid_images)
+                    file_input.send_keys(all_paths)
+
+                    # Wait for upload to complete
+                    time.sleep(random.uniform(3, 6))
+
+                    self.logger.info(f"✅ Uploaded {len(valid_images)} images")
+                    return True
+
+                except Exception as e:
+                    self.logger.error(f"❌ Error uploading images: {e}")
+                    return False
+
+            except Exception as e:
+                self.logger.error(f"❌ Image upload error: {e}")
+                return False
+
+        def publish_listing(self) -> bool:
+            """
+            Publish the marketplace listing
+
+            Returns:
+                True if successful, False otherwise
+            """
+            try:
+                self.logger.info("🚀 Publishing listing...")
+
+                # Look for publish/post button
+                publish_selectors = [
+                    "//button[contains(text(), 'Post')]",
+                    "//button[contains(text(), 'Publish')]",
+                    "//div[@role='button'][contains(text(), 'Post')]",
+                    "//*[@data-testid='marketplace_listing_post_button']"
+                ]
+
+                for selector in publish_selectors:
+                    try:
+                        button = self.browser.find_element_safe(By.XPATH, selector, timeout=5)
+                        if button and button.is_enabled():
+                            # Scroll to button and click
+                            self.browser.driver.execute_script("arguments[0].scrollIntoView(true);", button)
+                            time.sleep(1)
+
+                            self.browser.click_element_safe(button)
+
+                            # Wait for publishing to complete
+                            time.sleep(random.uniform(3, 6))
+
+                            # Check for success indicators
+                            success_indicators = [
+                                "//div[contains(text(), 'Your listing is now live')]",
+                                "//div[contains(text(), 'Posted successfully')]",
+                                "//div[contains(text(), 'Your item has been posted')]"
+                            ]
+
+                            for indicator in success_indicators:
+                                try:
+                                    element = self.browser.find_element_safe(By.XPATH, indicator, timeout=3)
+                                    if element:
+                                        self.logger.info("✅ Listing published successfully!")
+                                        return True
+                                except Exception:
+                                    continue
+
+                            # If no explicit success message, assume success if no error
+                            self.logger.info("✅ Listing appears to be published")
+                            return True
+
+                    except Exception as e:
+                        self.logger.debug(f"Publish button selector failed: {selector}")
+                        continue
+
+                self.logger.error("❌ Could not find publish button")
+                return False
+
+            except Exception as e:
+                self.logger.error(f"❌ Error publishing listing: {e}")
+                return False
+
+        def create_marketplace_listing(self, product: Product) -> bool:
+            """
+            Complete marketplace listing creation workflow
+
+            Args:
+                product: Product object with all listing details
+
+            Returns:
+                True if listing created successfully, False otherwise
+            """
+            try:
+                self.logger.info(f"🏪 Creating marketplace listing for: {product.title}")
+
+                # Step 1: Navigate to marketplace
+                if not self.navigate_to_marketplace():
+                    log_facebook_action("navigate_marketplace", self.account.email, False, "Navigation failed")
+                    return False
+
+                # Step 2: Navigate to create listing
+                if not self.navigate_to_create_listing():
+                    log_facebook_action("navigate_create_listing", self.account.email, False,
+                                        "Create page navigation failed")
+                    return False
+
+                # Step 3: Select listing type
+                if not self.select_listing_type("item"):
+                    log_facebook_action("select_listing_type", self.account.email, False,
+                                        "Listing type selection failed")
+                    return False
+
+                # Step 4: Fill listing form
+                if not self.fill_listing_form(product):
+                    log_facebook_action("fill_listing_form", self.account.email, False, "Form filling failed")
+                    return False
+
+                # Step 5: Upload images
+                if not self.upload_product_images(product):
+                    log_facebook_action("upload_images", self.account.email, False, "Image upload failed")
+                    return False
+
+                # Step 6: Publish listing
+                if not self.publish_listing():
+                    log_facebook_action("publish_listing", self.account.email, False, "Publishing failed")
+                    return False
+
+                self.logger.info("🎉 Marketplace listing created successfully!")
+                log_facebook_action("create_marketplace_listing", self.account.email, True, f"Listed: {product.title}")
+
+                return True
+
+            except Exception as e:
+                self.logger.error(f"❌ Complete listing creation failed: {e}")
+                log_facebook_action("create_marketplace_listing", self.account.email, False, f"Error: {str(e)}")
+                return False
+
+        def verify_listing_published(self, product_title: str, timeout: int = 30) -> bool:
+            """
+            Verify that listing was published successfully
+
+            Args:
+                product_title: Title of the product to verify
+                timeout: Maximum time to wait for verification
+
+            Returns:
+                True if listing verified, False otherwise
+            """
+            try:
+                self.logger.info(f"🔍 Verifying listing publication: {product_title}")
+
+                # Navigate to user's listings/marketplace
+                my_listings_selectors = [
+                    "//a[contains(@href, '/marketplace/you/selling')]",
+                    "//*[contains(text(), 'Your listings')]",
+                    "//div[@role='button'][contains(text(), 'Selling')]"
+                ]
+
+                # Try to find and click "Your listings" or similar
+                for selector in my_listings_selectors:
+                    try:
+                        element = self.browser.find_element_safe(By.XPATH, selector, timeout=3)
+                        if element:
+                            self.browser.click_element_safe(element)
+                            time.sleep(random.uniform(2, 4))
+                            break
+                    except Exception:
+                        continue
+
+                # Look for the specific listing
+                listing_xpath = f"//*[contains(text(), '{product_title}')]"
+
+                wait = WebDriverWait(self.browser.driver, timeout)
+                try:
+                    listing_element = wait.until(EC.presence_of_element_located((By.XPATH, listing_xpath)))
+                    if listing_element:
+                        self.logger.info("✅ Listing verified successfully!")
+                        return True
+                except TimeoutException:
+                    self.logger.warning("⚠️ Could not verify listing publication")
+                    return False
+
+            except Exception as e:
+                self.logger.warning(f"⚠️ Listing verification error: {e}")
+                return False  # Not critical for the main process
+
+        def get_listing_url(self, product_title: str) -> Optional[str]:
+            """
+            Get the URL of a published listing
+
+            Args:
+                product_title: Title of the product listing
+
+            Returns:
+                URL of the listing or None if not found
+            """
+            try:
+                # This would require navigating to the listing and extracting the URL
+                # Implementation depends on Facebook's current structure
+                self.logger.info(f"🔗 Getting listing URL for: {product_title}")
+
+                # Navigate to the specific listing (if verification was successful)
+                if self.verify_listing_published(product_title):
+                    current_url = self.browser.driver.current_url
+                    if "marketplace" in current_url:
+                        self.logger.info(f"📋 Listing URL: {current_url}")
+                        return current_url
+
+                return None
+
+            except Exception as e:
+                self.logger.warning(f"⚠️ Error getting listing URL: {e}")
+                return None
+
+    # Usage example for adding to existing FacebookBot class:
+    """
+    To integrate these methods into your existing FacebookBot class:
+
+    1. Copy the methods above into your services/facebook_bot.py file
+    2. Add them as methods to your existing FacebookBot class
+    3. Import the necessary modules at the top of facebook_bot.py
+    4. The methods are designed to work with your existing browser manager
+
+    Example integration:
+    ```python
+    class FacebookBot:
+        # ... your existing methods ...
+
+        # Add all the methods from FacebookBotMarketplaceExtension above
+        def navigate_to_marketplace(self):
+            # ... method implementation ...
+
+        def create_marketplace_listing(self, product: Product):
+            # ... method implementation ...
+    ```
+    """
 
     def end_session(self):
         """End the Facebook session and cleanup"""

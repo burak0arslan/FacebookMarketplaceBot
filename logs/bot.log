@@ -12224,3 +12224,425 @@ Processing: This is a scam! I want my money back!
 2025-06-26 21:17:06 | __main__             | INFO     | ✅ MessageMonitor tests completed successfully!
 2025-06-26 21:17:06 | __main__             | INFO     | Ready for Phase 4 and Phase 5 implementation
 2025-06-26 21:17:08 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-26 21:30:24 | __main__             | INFO     | Testing MessageMonitor...
+2025-06-26 21:30:24 | services.excel_handler | INFO     | Loaded accounts Excel file: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_accounts.xlsx
+2025-06-26 21:30:24 | services.excel_handler | INFO     | Found 3 rows in accounts file
+2025-06-26 21:30:24 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-26 21:30:24 | __main__             | INFO     | Testing with account: b***************8@gmail.com
+2025-06-26 21:30:24 | utils.browser_utils  | INFO     | BrowserManager initialized
+2025-06-26 21:30:24 | utils.browser_utils  | INFO     | Setting up Chrome WebDriver (profile: default)
+2025-06-26 21:30:24 | utils.browser_utils  | INFO     | Running in headless mode
+2025-06-26 21:30:24 | root                 | INFO     | Chromedriver is already installed.
+2025-06-26 21:30:24 | utils.browser_utils  | INFO     | Using ChromeDriver from: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\venv\Lib\site-packages\chromedriver_autoinstaller\137\chromedriver.exe
+2025-06-26 21:30:25 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-26 21:30:25 | message_monitor_b***************8@gmail.com | INFO     | MessageMonitor initialized for b***************8@gmail.com
+2025-06-26 21:30:25 | __main__             | INFO     | MessageMonitor created successfully
+2025-06-26 21:30:25 | __main__             | INFO     | Note: Real Facebook login required for full message monitoring
+2025-06-26 21:30:25 | __main__             | INFO     | Testing monitor initialization...
+2025-06-26 21:30:25 | __main__             | INFO     | Monitor stats: {'account': 'b***************8@gmail.com', 'is_monitoring': False, 'last_check': None, 'messages_detected': 0, 'messages_processed': 0, 'errors_count': 0, 'queue_size': 0, 'processed_message_ids': 0}
+2025-06-26 21:30:25 | __main__             | INFO     | Testing message processing...
+2025-06-26 21:30:25 | messages             | INFO     | MESSAGE_PROCESSED | Test User 1 | 28chars | question:True | priority:18 | action:processing
+2025-06-26 21:30:25 | __main__             | INFO     | Test processor: Test User 1 - Hi, is this still available?
+2025-06-26 21:30:25 | messages             | INFO     | MESSAGE_PROCESSED | Test User 2 | 23chars | question:True | priority:18 | action:processing
+2025-06-26 21:30:25 | __main__             | INFO     | Test processor: Test User 2 - What's your best price?
+2025-06-26 21:30:25 | __main__             | INFO     | ✅ Processed 2 test messages
+2025-06-26 21:30:25 | __main__             | INFO     | Testing async monitoring fix...
+2025-06-26 21:30:25 | services.excel_handler | INFO     | Loaded accounts Excel file: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_accounts.xlsx
+2025-06-26 21:30:25 | services.excel_handler | INFO     | Found 3 rows in accounts file
+2025-06-26 21:30:25 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-26 21:30:25 | utils.browser_utils  | INFO     | BrowserManager initialized
+2025-06-26 21:30:25 | utils.browser_utils  | INFO     | Setting up Chrome WebDriver (profile: default)
+2025-06-26 21:30:25 | utils.browser_utils  | INFO     | Running in headless mode
+2025-06-26 21:30:26 | root                 | INFO     | Chromedriver is already installed.
+2025-06-26 21:30:26 | utils.browser_utils  | INFO     | Using ChromeDriver from: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\venv\Lib\site-packages\chromedriver_autoinstaller\137\chromedriver.exe
+2025-06-26 21:30:27 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-26 21:30:27 | message_monitor_b***************8@gmail.com | INFO     | MessageMonitor initialized for b***************8@gmail.com
+2025-06-26 21:30:27 | message_monitor_b***************8@gmail.com | INFO     | Starting continuous async monitoring (every 2s)
+2025-06-26 21:30:27 | message_monitor_b***************8@gmail.com | INFO     | 📱 Navigating to messages page...
+2025-06-26 21:30:27 | utils.browser_utils  | INFO     | Navigating to: https://www.facebook.com/messages
+2025-06-26 21:30:29 | utils.browser_utils  | INFO     | Page loaded in 2.36s
+2025-06-26 21:30:37 | message_monitor_b***************8@gmail.com | INFO     | Message monitoring stopped
+2025-06-26 21:30:42 | message_monitor_b***************8@gmail.com | INFO     | Continuous monitoring stopped
+2025-06-26 21:30:42 | urllib3.connectionpool | WARNING  | Connection pool is full, discarding connection: localhost. Connection pool size: 1
+2025-06-26 21:30:43 | utils.browser_utils  | WARNING  | Element not found: css selector=[role="main"] [role="grid"]
+2025-06-26 21:30:44 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-26 21:30:47 | urllib3.connectionpool | WARNING  | Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000018283811190>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/54de33728061ca0184f55621c07788ce/element
+2025-06-26 21:30:51 | urllib3.connectionpool | WARNING  | Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000182834B4D90>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/54de33728061ca0184f55621c07788ce/element
+2025-06-26 21:30:55 | urllib3.connectionpool | WARNING  | Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000182834CFF90>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/54de33728061ca0184f55621c07788ce/element
+2025-06-26 21:30:59 | utils.browser_utils  | ERROR    | Error finding element css selector=[aria-label*="Conversations"] [role="grid"]: HTTPConnectionPool(host='localhost', port=59337): Max retries exceeded with url: /session/54de33728061ca0184f55621c07788ce/element (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000182834CF6D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+2025-06-26 21:30:59 | utils.browser_utils  | ERROR    | Error finding element css selector=div[role="grid"][aria-label*="Conversations"]: 'NoneType' object has no attribute 'find_element'
+2025-06-26 21:30:59 | utils.browser_utils  | ERROR    | Error finding element css selector=[data-pagelet="MessengerConversations"] [role="grid"]: 'NoneType' object has no attribute 'find_element'
+2025-06-26 21:30:59 | utils.browser_utils  | ERROR    | Error finding element css selector=[data-pagelet*="Messenger"] [role="grid"]: 'NoneType' object has no attribute 'find_element'
+2025-06-26 21:30:59 | utils.browser_utils  | ERROR    | Error finding element css selector=[role="navigation"] + div [role="grid"]: 'NoneType' object has no attribute 'find_element'
+2025-06-26 21:30:59 | utils.browser_utils  | ERROR    | Error finding element css selector=div[role="grid"]:has([role="gridcell"]): 'NoneType' object has no attribute 'find_element'
+2025-06-26 21:30:59 | utils.browser_utils  | ERROR    | Error finding element css selector=[data-testid="conversation-list"]: 'NoneType' object has no attribute 'find_element'
+2025-06-26 21:30:59 | utils.browser_utils  | ERROR    | Error finding element css selector=div[role="grid"]: 'NoneType' object has no attribute 'find_element'
+2025-06-26 21:30:59 | utils.browser_utils  | ERROR    | Error finding element css selector=[role="grid"]: 'NoneType' object has no attribute 'find_element'
+2025-06-26 21:30:59 | message_monitor_b***************8@gmail.com | WARNING  | ❌ Could not find conversation list with any selector
+2025-06-26 21:30:59 | message_monitor_b***************8@gmail.com | INFO     | 🔍 Running conversation detection debug...
+2025-06-26 21:30:59 | performance          | INFO     | PERFORMANCE | message_monitoring_cycle | 32.42s
+2025-06-26 21:30:59 | __main__             | INFO     | Async test result: PASSED
+2025-06-26 21:30:59 | __main__             | INFO     | ✅ MessageMonitor tests completed successfully!
+2025-06-26 21:30:59 | __main__             | INFO     | Ready for Phase 4 and Phase 5 implementation
+2025-06-26 21:31:01 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-26 21:37:49 | facebook_bot_b***************8@gmail.com | INFO     | FacebookBot initialized for b***************8@gmail.com
+2025-06-26 21:38:52 | __main__             | INFO     | 🚀 Starting AI-Powered Facebook Marketplace Bot
+2025-06-26 21:38:52 | __main__             | INFO     | ============================================================
+2025-06-26 21:38:52 | services.excel_handler | INFO     | Loaded products Excel file: data\sample_data\sample_products.xlsx
+2025-06-26 21:38:52 | services.excel_handler | INFO     | Found 3 rows in products file
+2025-06-26 21:38:52 | services.excel_handler | INFO     | Successfully loaded 3 products
+2025-06-26 21:38:52 | __main__             | INFO     | 📦 Loaded 3 products for AI context
+2025-06-26 21:38:52 | services.excel_handler | INFO     | Loaded accounts Excel file: data\sample_data\sample_accounts.xlsx
+2025-06-26 21:38:52 | services.excel_handler | INFO     | Found 3 rows in accounts file
+2025-06-26 21:38:52 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-26 21:38:52 | __main__             | INFO     | 👤 Found 2 usable accounts
+2025-06-26 21:38:52 | __main__             | INFO     | 🤖 Creating AI bot for b***************8@gmail.com
+2025-06-26 21:38:52 | facebook_bot_b***************8@gmail.com | INFO     | FacebookBot initialized for b***************8@gmail.com
+2025-06-26 21:38:52 | __main__             | INFO     | 🌐 Starting Facebook session...
+2025-06-26 21:38:52 | facebook_bot_b***************8@gmail.com | INFO     | Starting Facebook session...
+2025-06-26 21:38:52 | utils.browser_utils  | INFO     | BrowserManager initialized
+2025-06-26 21:38:52 | utils.browser_utils  | INFO     | Setting up Chrome WebDriver (profile: fb_burakarslan421638_at_gmail_dot_com)
+2025-06-26 21:38:52 | utils.browser_utils  | INFO     | Using user data directory: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\drivers\profiles\fb_burakarslan421638_at_gmail_dot_com
+2025-06-26 21:38:52 | root                 | INFO     | Chromedriver is already installed.
+2025-06-26 21:38:52 | utils.browser_utils  | INFO     | Using ChromeDriver from: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\venv\Lib\site-packages\chromedriver_autoinstaller\137\chromedriver.exe
+2025-06-26 21:38:53 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-26 21:38:53 | facebook_bot_b***************8@gmail.com | INFO     | Browser setup completed
+2025-06-26 21:38:53 | facebook_bot_b***************8@gmail.com | INFO     | Navigating to Facebook...
+2025-06-26 21:38:53 | utils.browser_utils  | INFO     | Navigating to: https://www.facebook.com/login
+2025-06-26 21:38:55 | utils.browser_utils  | INFO     | Page loaded in 1.98s
+2025-06-26 21:39:09 | utils.browser_utils  | WARNING  | Element not found: css selector=[data-testid="user_menu"]
+2025-06-26 21:39:19 | utils.browser_utils  | WARNING  | Element not found: css selector=[aria-label="Account"]
+2025-06-26 21:39:19 | facebook_bot_b***************8@gmail.com | INFO     | Found login indicator - already logged in
+2025-06-26 21:39:19 | facebook_bot_b***************8@gmail.com | INFO     | Already logged in to Facebook
+2025-06-26 21:39:30 | utils.browser_utils  | WARNING  | Element not found: css selector=[data-testid="user_menu"]
+2025-06-26 21:39:41 | utils.browser_utils  | WARNING  | Element not found: css selector=[aria-label="Account"]
+2025-06-26 21:39:41 | facebook_bot_b***************8@gmail.com | INFO     | Found login indicator - already logged in
+2025-06-26 21:39:41 | facebook_bot_b***************8@gmail.com | INFO     | Login verification successful
+2025-06-26 21:39:41 | performance          | INFO     | PERFORMANCE | facebook_session_start_b***************8@gmail.com | 48.53s
+2025-06-26 21:39:41 | facebook             | INFO     | FB_ACTION | session_start | b***************8@gmail.com | SUCCESS | Session started in 48.53s
+2025-06-26 21:39:41 | facebook_bot_b***************8@gmail.com | INFO     | Facebook session started successfully in 48.53s
+2025-06-26 21:39:41 | __main__             | INFO     | ✅ Successfully logged into Facebook!
+2025-06-26 21:39:51 | utils.browser_utils  | WARNING  | Element not found: css selector=[data-testid="user_menu"]
+2025-06-26 21:40:02 | utils.browser_utils  | WARNING  | Element not found: css selector=[aria-label="Account"]
+2025-06-26 21:40:02 | facebook_bot_b***************8@gmail.com | INFO     | Found login indicator - already logged in
+2025-06-26 21:40:02 | facebook_bot_b***************8@gmail.com | INFO     | Navigating to Facebook Marketplace...
+2025-06-26 21:40:02 | utils.browser_utils  | INFO     | Navigating to: https://www.facebook.com/marketplace
+2025-06-26 21:40:08 | utils.browser_utils  | INFO     | Page loaded in 5.80s
+2025-06-26 21:40:12 | facebook_bot_b***************8@gmail.com | INFO     | Successfully navigated to Marketplace
+2025-06-26 21:40:12 | __main__             | INFO     | ✅ Navigated to Facebook Marketplace!
+2025-06-26 21:40:12 | __main__             | INFO     | 🤖 Starting AI-powered message monitoring...
+2025-06-26 21:40:12 | facebook_bot_b***************8@gmail.com | INFO     | Starting AI-powered message monitoring...
+2025-06-26 21:40:12 | services.llama_ai    | INFO     | LlamaAI initialized - Server: http://localhost:11434, Model: llama2
+2025-06-26 21:40:12 | services.llama_ai    | INFO     | Testing Llama server connection...
+2025-06-26 21:40:14 | services.llama_ai    | INFO     | ✅ Llama server connected successfully
+2025-06-26 21:40:14 | services.llama_ai    | INFO     | Available models: ['llama2:latest']
+2025-06-26 21:40:14 | services.llama_ai    | INFO     | ✅ Model 'llama2' is available
+2025-06-26 21:40:14 | facebook_bot_b***************8@gmail.com | INFO     | ✅ AI service connected
+2025-06-26 21:40:14 | services.ai_message_processor | INFO     | AIMessageProcessor initialized with 3 products
+2025-06-26 21:40:14 | facebook_bot_b***************8@gmail.com | INFO     | ✅ AI processor created with 3 products
+2025-06-26 21:40:14 | facebook_bot_b***************8@gmail.com | INFO     | Starting message monitoring...
+2025-06-26 21:40:14 | message_monitor_b***************8@gmail.com | INFO     | MessageMonitor initialized for b***************8@gmail.com
+2025-06-26 21:40:14 | message_monitor_b***************8@gmail.com | INFO     | Starting message monitoring (check every 30s)
+2025-06-26 21:40:14 | message_monitor_b***************8@gmail.com | INFO     | Navigating to Facebook Messages...
+2025-06-26 21:40:14 | utils.browser_utils  | INFO     | Navigating to: https://www.facebook.com/messages
+2025-06-26 21:40:16 | utils.browser_utils  | INFO     | Page loaded in 1.97s
+2025-06-26 21:40:19 | message_monitor_b***************8@gmail.com | INFO     | Successfully navigated to Messages
+2025-06-26 21:40:19 | message_monitor_b***************8@gmail.com | INFO     | ✅ Message monitoring started successfully
+2025-06-26 21:40:19 | facebook_bot_b***************8@gmail.com | INFO     | ✅ Message monitoring started successfully
+2025-06-26 21:40:19 | facebook_bot_b***************8@gmail.com | INFO     | ✅ AI-powered monitoring started successfully
+2025-06-26 21:40:19 | __main__             | INFO     | 🎉 AI-POWERED BOT IS NOW RUNNING!
+2025-06-26 21:40:19 | __main__             | INFO     | ============================================================
+2025-06-26 21:40:19 | __main__             | INFO     | Your bot will now:
+2025-06-26 21:40:19 | __main__             | INFO     | 🤖 Generate intelligent responses to customer questions
+2025-06-26 21:40:19 | __main__             | INFO     | 🛡️ Escalate problematic messages to humans
+2025-06-26 21:40:19 | __main__             | INFO     | 💬 Remember conversation context
+2025-06-26 21:40:19 | __main__             | INFO     | 📦 Use product knowledge in responses
+2025-06-26 21:40:19 | __main__             | INFO     | ============================================================
+2025-06-26 21:40:19 | __main__             | INFO     | 
+🔄 Monitoring Cycle #1
+2025-06-26 21:40:29 | utils.browser_utils  | WARNING  | Element not found: css selector=[role="main"] [role="grid"]
+2025-06-26 21:40:40 | utils.browser_utils  | WARNING  | Element not found: css selector=[aria-label*="Conversations"] [role="grid"]
+2025-06-26 21:40:50 | utils.browser_utils  | WARNING  | Element not found: css selector=div[role="grid"][aria-label*="Conversations"]
+2025-06-26 21:41:01 | utils.browser_utils  | WARNING  | Element not found: css selector=[data-pagelet="MessengerConversations"] [role="grid"]
+2025-06-26 21:41:04 | __main__             | INFO     | 
+🛑 Stopping bot (Ctrl+C pressed)
+2025-06-26 21:41:04 | __main__             | INFO     | 🧹 Cleaning up...
+2025-06-27 08:58:44 | facebook_bot_b***************8@gmail.com | INFO     | FacebookBot initialized for b***************8@gmail.com
+2025-06-27 09:00:24 | facebook_bot_b***************8@gmail.com | INFO     | FacebookBot initialized for b***************8@gmail.com
+2025-06-27 09:00:24 | facebook_bot_b***************8@gmail.com | INFO     | Starting Facebook session...
+2025-06-27 09:00:24 | utils.browser_utils  | INFO     | BrowserManager initialized
+2025-06-27 09:00:24 | utils.browser_utils  | INFO     | Setting up Chrome WebDriver (profile: fb_burakarslan421638_at_gmail_dot_com)
+2025-06-27 09:00:24 | utils.browser_utils  | INFO     | Running in headless mode
+2025-06-27 09:00:24 | utils.browser_utils  | INFO     | Using user data directory: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\drivers\profiles\fb_burakarslan421638_at_gmail_dot_com
+2025-06-27 09:00:25 | root                 | INFO     | Chromedriver is already installed.
+2025-06-27 09:00:25 | utils.browser_utils  | INFO     | Using ChromeDriver from: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\venv\Lib\site-packages\chromedriver_autoinstaller\137\chromedriver.exe
+2025-06-27 09:00:26 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-27 09:00:26 | facebook_bot_b***************8@gmail.com | INFO     | Browser setup completed
+2025-06-27 09:00:26 | facebook_bot_b***************8@gmail.com | INFO     | Navigating to Facebook...
+2025-06-27 09:00:26 | utils.browser_utils  | INFO     | Navigating to: https://www.facebook.com/login
+2025-06-27 09:00:28 | utils.browser_utils  | INFO     | Page loaded in 2.15s
+2025-06-27 09:00:42 | utils.browser_utils  | WARNING  | Element not found: css selector=[data-testid="user_menu"]
+2025-06-27 09:00:53 | utils.browser_utils  | WARNING  | Element not found: css selector=[aria-label="Account"]
+2025-06-27 09:00:53 | facebook_bot_b***************8@gmail.com | INFO     | Found login indicator - already logged in
+2025-06-27 09:00:53 | facebook_bot_b***************8@gmail.com | INFO     | Already logged in to Facebook
+2025-06-27 09:01:03 | utils.browser_utils  | WARNING  | Element not found: css selector=[data-testid="user_menu"]
+2025-06-27 09:01:14 | utils.browser_utils  | WARNING  | Element not found: css selector=[aria-label="Account"]
+2025-06-27 09:01:14 | facebook_bot_b***************8@gmail.com | INFO     | Found login indicator - already logged in
+2025-06-27 09:01:14 | facebook_bot_b***************8@gmail.com | INFO     | Login verification successful
+2025-06-27 09:01:14 | performance          | INFO     | PERFORMANCE | facebook_session_start_b***************8@gmail.com | 49.57s
+2025-06-27 09:01:14 | facebook             | INFO     | FB_ACTION | session_start | b***************8@gmail.com | SUCCESS | Session started in 49.57s
+2025-06-27 09:01:14 | facebook_bot_b***************8@gmail.com | INFO     | Facebook session started successfully in 49.57s
+2025-06-27 09:01:14 | utils.browser_utils  | INFO     | Navigating to: https://www.facebook.com/messages
+2025-06-27 09:01:15 | utils.browser_utils  | INFO     | Page loaded in 1.29s
+2025-06-27 09:01:23 | message_monitor_b***************8@gmail.com | INFO     | MessageMonitor initialized for b***************8@gmail.com
+2025-06-27 09:01:34 | utils.browser_utils  | WARNING  | Element not found: css selector=[role="main"] [role="grid"]
+2025-06-27 09:01:44 | utils.browser_utils  | WARNING  | Element not found: css selector=[aria-label*="Conversations"] [role="grid"]
+2025-06-27 09:01:55 | utils.browser_utils  | WARNING  | Element not found: css selector=div[role="grid"][aria-label*="Conversations"]
+2025-06-27 09:02:05 | utils.browser_utils  | WARNING  | Element not found: css selector=[data-pagelet="MessengerConversations"] [role="grid"]
+2025-06-27 09:02:16 | utils.browser_utils  | WARNING  | Element not found: css selector=[data-pagelet*="Messenger"] [role="grid"]
+2025-06-27 09:02:27 | utils.browser_utils  | WARNING  | Element not found: css selector=[role="navigation"] + div [role="grid"]
+2025-06-27 09:02:37 | utils.browser_utils  | WARNING  | Element not found: css selector=div[role="grid"]:has([role="gridcell"])
+2025-06-27 09:02:48 | utils.browser_utils  | WARNING  | Element not found: css selector=[data-testid="conversation-list"]
+2025-06-27 09:02:58 | utils.browser_utils  | WARNING  | Element not found: css selector=div[role="grid"]
+2025-06-27 09:03:09 | utils.browser_utils  | WARNING  | Element not found: css selector=[role="grid"]
+2025-06-27 09:03:09 | message_monitor_b***************8@gmail.com | WARNING  | ❌ Could not find conversation list with any selector
+2025-06-27 09:03:09 | message_monitor_b***************8@gmail.com | INFO     | 🔍 Running conversation detection debug...
+2025-06-27 09:03:19 | message_monitor_b***************8@gmail.com | INFO     |    Found 0 elements with role='grid'
+2025-06-27 09:03:19 | message_monitor_b***************8@gmail.com | INFO     |    Found 1 main content areas
+2025-06-27 09:03:29 | message_monitor_b***************8@gmail.com | INFO     |    Found 0 messenger pagelets
+2025-06-27 09:03:29 | message_monitor_b***************8@gmail.com | INFO     |    Page title: Log into Facebook...
+2025-06-27 09:03:29 | message_monitor_b***************8@gmail.com | INFO     |    Current URL: https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Fmessages
+2025-06-27 09:03:29 | message_monitor_b***************8@gmail.com | INFO     | 📄 Debug page source saved to: debug_conversation_detection_20250627_090329.html
+2025-06-27 09:03:41 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-27 09:03:41 | facebook_bot_b***************8@gmail.com | INFO     | Session ended: {'account': 'b***************8@gmail.com', 'is_logged_in': True, 'current_url': '', 'session_duration': 147.176253, 'last_activity': '2025-06-27T09:01:14.483288', 'action_count': 0, 'hourly_actions': 0, 'daily_actions': 0, 'consecutive_errors': 0}
+2025-06-27 09:03:41 | facebook             | INFO     | FB_ACTION | session_end | b***************8@gmail.com | SUCCESS | Actions: 0, Duration: 147.18s
+2025-06-27 09:03:41 | facebook_bot_b***************8@gmail.com | INFO     | Facebook session ended successfully
+2025-06-27 09:08:06 | facebook_bot_b***************8@gmail.com | INFO     | FacebookBot initialized for b***************8@gmail.com
+2025-06-27 09:08:06 | facebook_bot_b***************8@gmail.com | INFO     | Starting Facebook session...
+2025-06-27 09:08:06 | utils.browser_utils  | INFO     | BrowserManager initialized
+2025-06-27 09:08:06 | utils.browser_utils  | INFO     | Setting up Chrome WebDriver (profile: fb_burakarslan421638_at_gmail_dot_com)
+2025-06-27 09:08:06 | utils.browser_utils  | INFO     | Running in headless mode
+2025-06-27 09:08:06 | utils.browser_utils  | INFO     | Using user data directory: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\drivers\profiles\fb_burakarslan421638_at_gmail_dot_com
+2025-06-27 09:08:07 | root                 | INFO     | Chromedriver is already installed.
+2025-06-27 09:08:07 | utils.browser_utils  | INFO     | Using ChromeDriver from: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\venv\Lib\site-packages\chromedriver_autoinstaller\137\chromedriver.exe
+2025-06-27 09:08:08 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-27 09:08:08 | facebook_bot_b***************8@gmail.com | INFO     | Browser setup completed
+2025-06-27 09:08:08 | facebook_bot_b***************8@gmail.com | INFO     | Navigating to Facebook...
+2025-06-27 09:08:08 | utils.browser_utils  | INFO     | Navigating to: https://www.facebook.com/login
+2025-06-27 09:08:09 | utils.browser_utils  | INFO     | Page loaded in 1.50s
+2025-06-27 09:08:24 | utils.browser_utils  | WARNING  | Element not found: css selector=[data-testid="user_menu"]
+2025-06-27 09:08:34 | utils.browser_utils  | WARNING  | Element not found: css selector=[aria-label="Account"]
+2025-06-27 09:08:34 | facebook_bot_b***************8@gmail.com | INFO     | Found login indicator - already logged in
+2025-06-27 09:08:34 | facebook_bot_b***************8@gmail.com | INFO     | Already logged in to Facebook
+2025-06-27 09:08:45 | utils.browser_utils  | WARNING  | Element not found: css selector=[data-testid="user_menu"]
+2025-06-27 09:08:55 | utils.browser_utils  | WARNING  | Element not found: css selector=[aria-label="Account"]
+2025-06-27 09:08:55 | facebook_bot_b***************8@gmail.com | INFO     | Found login indicator - already logged in
+2025-06-27 09:08:55 | facebook_bot_b***************8@gmail.com | INFO     | Login verification successful
+2025-06-27 09:08:55 | performance          | INFO     | PERFORMANCE | facebook_session_start_b***************8@gmail.com | 48.88s
+2025-06-27 09:08:55 | facebook             | INFO     | FB_ACTION | session_start | b***************8@gmail.com | SUCCESS | Session started in 48.88s
+2025-06-27 09:08:55 | facebook_bot_b***************8@gmail.com | INFO     | Facebook session started successfully in 48.88s
+2025-06-27 09:08:55 | utils.browser_utils  | INFO     | Navigating to: https://www.facebook.com
+2025-06-27 09:08:57 | utils.browser_utils  | INFO     | Page loaded in 1.30s
+2025-06-27 09:09:44 | facebook_bot_b***************8@gmail.com | INFO     | FacebookBot initialized for b***************8@gmail.com
+2025-06-27 09:09:44 | facebook_bot_b***************8@gmail.com | INFO     | Starting Facebook session...
+2025-06-27 09:09:44 | utils.browser_utils  | INFO     | BrowserManager initialized
+2025-06-27 09:09:44 | utils.browser_utils  | INFO     | Setting up Chrome WebDriver (profile: fb_burakarslan421638_at_gmail_dot_com)
+2025-06-27 09:09:44 | utils.browser_utils  | INFO     | Running in headless mode
+2025-06-27 09:09:44 | utils.browser_utils  | INFO     | Using user data directory: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\drivers\profiles\fb_burakarslan421638_at_gmail_dot_com
+2025-06-27 09:09:44 | root                 | INFO     | Chromedriver is already installed.
+2025-06-27 09:09:44 | utils.browser_utils  | INFO     | Using ChromeDriver from: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\venv\Lib\site-packages\chromedriver_autoinstaller\137\chromedriver.exe
+2025-06-27 09:09:45 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-27 09:09:45 | facebook_bot_b***************8@gmail.com | INFO     | Browser setup completed
+2025-06-27 09:09:45 | facebook_bot_b***************8@gmail.com | INFO     | Navigating to Facebook...
+2025-06-27 09:09:45 | utils.browser_utils  | INFO     | Navigating to: https://www.facebook.com/login
+2025-06-27 09:09:47 | utils.browser_utils  | INFO     | Page loaded in 1.83s
+2025-06-27 09:10:00 | utils.browser_utils  | WARNING  | Element not found: css selector=[data-testid="user_menu"]
+2025-06-27 09:10:10 | utils.browser_utils  | WARNING  | Element not found: css selector=[aria-label="Account"]
+2025-06-27 09:10:10 | facebook_bot_b***************8@gmail.com | INFO     | Found login indicator - already logged in
+2025-06-27 09:10:10 | facebook_bot_b***************8@gmail.com | INFO     | Already logged in to Facebook
+2025-06-27 09:10:21 | utils.browser_utils  | WARNING  | Element not found: css selector=[data-testid="user_menu"]
+2025-06-27 09:10:31 | utils.browser_utils  | WARNING  | Element not found: css selector=[aria-label="Account"]
+2025-06-27 09:10:31 | facebook_bot_b***************8@gmail.com | INFO     | Found login indicator - already logged in
+2025-06-27 09:10:31 | facebook_bot_b***************8@gmail.com | INFO     | Login verification successful
+2025-06-27 09:10:31 | performance          | INFO     | PERFORMANCE | facebook_session_start_b***************8@gmail.com | 47.81s
+2025-06-27 09:10:31 | facebook             | INFO     | FB_ACTION | session_start | b***************8@gmail.com | SUCCESS | Session started in 47.81s
+2025-06-27 09:10:31 | facebook_bot_b***************8@gmail.com | INFO     | Facebook session started successfully in 47.81s
+2025-06-27 09:10:31 | utils.browser_utils  | INFO     | Navigating to: https://www.facebook.com
+2025-06-27 09:10:33 | utils.browser_utils  | INFO     | Page loaded in 2.08s
+2025-06-27 09:13:36 | facebook_bot_b***************8@gmail.com | INFO     | FacebookBot initialized for b***************8@gmail.com
+2025-06-27 09:13:36 | facebook_bot_b***************8@gmail.com | INFO     | Starting Facebook session...
+2025-06-27 09:13:36 | utils.browser_utils  | INFO     | BrowserManager initialized
+2025-06-27 09:13:36 | utils.browser_utils  | INFO     | Setting up Chrome WebDriver (profile: fb_burakarslan421638_at_gmail_dot_com)
+2025-06-27 09:13:36 | utils.browser_utils  | INFO     | Running in headless mode
+2025-06-27 09:13:36 | utils.browser_utils  | INFO     | Using user data directory: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\drivers\profiles\fb_burakarslan421638_at_gmail_dot_com
+2025-06-27 09:13:36 | root                 | INFO     | Chromedriver is already installed.
+2025-06-27 09:13:36 | utils.browser_utils  | INFO     | Using ChromeDriver from: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\venv\Lib\site-packages\chromedriver_autoinstaller\137\chromedriver.exe
+2025-06-27 09:13:37 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-27 09:13:37 | facebook_bot_b***************8@gmail.com | INFO     | Browser setup completed
+2025-06-27 09:13:37 | facebook_bot_b***************8@gmail.com | INFO     | Navigating to Facebook...
+2025-06-27 09:13:37 | utils.browser_utils  | INFO     | Navigating to: https://www.facebook.com/login
+2025-06-27 09:13:39 | utils.browser_utils  | INFO     | Page loaded in 1.66s
+2025-06-27 09:13:52 | utils.browser_utils  | WARNING  | Element not found: css selector=[data-testid="user_menu"]
+2025-06-27 09:14:02 | utils.browser_utils  | WARNING  | Element not found: css selector=[aria-label="Account"]
+2025-06-27 09:14:02 | facebook_bot_b***************8@gmail.com | INFO     | Found login indicator - already logged in
+2025-06-27 09:14:02 | facebook_bot_b***************8@gmail.com | INFO     | Already logged in to Facebook
+2025-06-27 09:14:13 | utils.browser_utils  | WARNING  | Element not found: css selector=[data-testid="user_menu"]
+2025-06-27 09:14:23 | utils.browser_utils  | WARNING  | Element not found: css selector=[aria-label="Account"]
+2025-06-27 09:14:23 | facebook_bot_b***************8@gmail.com | INFO     | Found login indicator - already logged in
+2025-06-27 09:14:23 | facebook_bot_b***************8@gmail.com | INFO     | Login verification successful
+2025-06-27 09:14:23 | performance          | INFO     | PERFORMANCE | facebook_session_start_b***************8@gmail.com | 47.79s
+2025-06-27 09:14:23 | facebook             | INFO     | FB_ACTION | session_start | b***************8@gmail.com | SUCCESS | Session started in 47.79s
+2025-06-27 09:14:23 | facebook_bot_b***************8@gmail.com | INFO     | Facebook session started successfully in 47.79s
+2025-06-27 09:14:24 | utils.browser_utils  | INFO     | Navigating to: https://www.facebook.com
+2025-06-27 09:14:26 | utils.browser_utils  | INFO     | Page loaded in 2.01s
+2025-06-27 09:14:43 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-06-27 09:14:47 | facebook_bot_b***************8@gmail.com | INFO     | Session ended: {'account': 'b***************8@gmail.com', 'is_logged_in': True, 'current_url': '', 'session_duration': 23.442191, 'last_activity': '2025-06-27T09:14:23.996028', 'action_count': 0, 'hourly_actions': 0, 'daily_actions': 0, 'consecutive_errors': 0}
+2025-06-27 09:14:47 | facebook             | INFO     | FB_ACTION | session_end | b***************8@gmail.com | SUCCESS | Actions: 0, Duration: 23.44s
+2025-06-27 09:14:47 | facebook_bot_b***************8@gmail.com | INFO     | Facebook session ended successfully
+2025-06-27 09:15:48 | facebook_bot_b***************8@gmail.com | INFO     | FacebookBot initialized for b***************8@gmail.com
+2025-06-27 09:15:48 | facebook_bot_b***************8@gmail.com | INFO     | Starting Facebook session...
+2025-06-27 09:15:48 | utils.browser_utils  | INFO     | BrowserManager initialized
+2025-06-27 09:15:48 | utils.browser_utils  | INFO     | Setting up Chrome WebDriver (profile: fb_burakarslan421638_at_gmail_dot_com)
+2025-06-27 09:15:48 | utils.browser_utils  | INFO     | Using user data directory: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\drivers\profiles\fb_burakarslan421638_at_gmail_dot_com
+2025-06-27 09:15:49 | root                 | INFO     | Chromedriver is already installed.
+2025-06-27 09:15:49 | utils.browser_utils  | INFO     | Using ChromeDriver from: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\venv\Lib\site-packages\chromedriver_autoinstaller\137\chromedriver.exe
+2025-06-27 09:15:50 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-06-27 09:15:50 | facebook_bot_b***************8@gmail.com | INFO     | Browser setup completed
+2025-06-27 09:15:50 | facebook_bot_b***************8@gmail.com | INFO     | Navigating to Facebook...
+2025-06-27 09:15:50 | utils.browser_utils  | INFO     | Navigating to: https://www.facebook.com/login
+2025-06-27 09:15:52 | utils.browser_utils  | INFO     | Page loaded in 1.96s
+2025-06-27 09:16:05 | utils.browser_utils  | WARNING  | Element not found: css selector=[data-testid="user_menu"]
+2025-06-27 09:16:26 | utils.browser_utils  | WARNING  | Element not found: css selector=[aria-label="Account"]
+2025-06-27 09:16:36 | utils.browser_utils  | WARNING  | Element not found: css selector=a[href*="/me"]
+2025-06-27 09:16:47 | utils.browser_utils  | WARNING  | Element not found: css selector=[data-testid="left_nav_menu_item"]
+2025-06-27 09:16:57 | utils.browser_utils  | WARNING  | Element not found: css selector=input[name="email"]
+2025-06-27 09:16:57 | facebook_bot_b***************8@gmail.com | ERROR    | Login form not found - may be blocked or different page layout
+2025-06-30 18:55:16 | services.llama_ai    | INFO     | LlamaAI initialized - Server: http://localhost:11434, Model: llama3.2
+2025-06-30 18:55:16 | services.llama_ai    | INFO     | Testing Llama server connection...
+2025-06-30 18:55:18 | services.llama_ai    | INFO     | ✅ Llama server connected successfully
+2025-06-30 18:55:18 | services.llama_ai    | INFO     | Available models: ['llama3.2:latest', 'llama2:latest']
+2025-06-30 18:55:18 | services.llama_ai    | INFO     | ✅ Model 'llama3.2' is available
+2025-06-30 18:58:33 | services.llama_ai    | INFO     | LlamaAI initialized - Server: http://localhost:11434, Model: llama3.2
+2025-06-30 18:58:33 | services.llama_ai    | INFO     | Testing Llama server connection...
+2025-06-30 18:58:35 | services.llama_ai    | INFO     | ✅ Llama server connected successfully
+2025-06-30 18:58:35 | services.llama_ai    | INFO     | Available models: ['llama3.2:latest', 'llama2:latest']
+2025-06-30 18:58:35 | services.llama_ai    | INFO     | ✅ Model 'llama3.2' is available
+2025-06-30 18:58:35 | services.llama_ai    | INFO     | Generating AI response for message from Sarah Johnson
+2025-06-30 18:58:40 | ai                   | INFO     | AI_INTERACTION | prompt:755chars | response:160chars | confidence:0.90 | time:4.78s
+2025-06-30 18:58:40 | services.llama_ai    | INFO     | ✅ AI response generated in 4.78s (confidence: 0.90)
+2025-06-30 18:58:41 | services.llama_ai    | INFO     | Generating AI response for message from Mike Chen
+2025-06-30 18:58:43 | ai                   | INFO     | AI_INTERACTION | prompt:711chars | response:197chars | confidence:0.70 | time:2.56s
+2025-06-30 18:58:43 | services.llama_ai    | INFO     | ✅ AI response generated in 2.56s (confidence: 0.70)
+2025-06-30 18:58:44 | services.llama_ai    | INFO     | Generating AI response for message from Lisa Williams
+2025-06-30 18:58:47 | ai                   | INFO     | AI_INTERACTION | prompt:713chars | response:234chars | confidence:0.70 | time:2.81s
+2025-06-30 18:58:47 | services.llama_ai    | INFO     | ✅ AI response generated in 2.81s (confidence: 0.70)
+2025-06-30 19:24:56 | __main__             | INFO     | 📋 Loading data from Excel files...
+2025-06-30 19:24:56 | services.excel_handler | INFO     | Loaded products Excel file: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_products.xlsx
+2025-06-30 19:24:56 | services.excel_handler | INFO     | Found 3 rows in products file
+2025-06-30 19:24:56 | services.excel_handler | INFO     | Successfully loaded 3 products
+2025-06-30 19:24:56 | services.excel_handler | INFO     | Loaded accounts Excel file: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_accounts.xlsx
+2025-06-30 19:24:56 | services.excel_handler | INFO     | Found 3 rows in accounts file
+2025-06-30 19:24:56 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-30 19:24:56 | __main__             | INFO     | ✅ Loaded 3 products
+2025-06-30 19:24:56 | __main__             | INFO     | ✅ Loaded 3 accounts
+2025-06-30 19:24:56 | __main__             | ERROR    | ❌ Error loading data: 'Account' object has no attribute 'is_active'
+2025-06-30 19:28:22 | __main__             | INFO     | 📋 Loading data from Excel files...
+2025-06-30 19:28:22 | services.excel_handler | INFO     | Loaded products Excel file: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_products.xlsx
+2025-06-30 19:28:22 | services.excel_handler | INFO     | Found 3 rows in products file
+2025-06-30 19:28:22 | services.excel_handler | INFO     | Successfully loaded 3 products
+2025-06-30 19:28:22 | services.excel_handler | INFO     | Loaded accounts Excel file: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_accounts.xlsx
+2025-06-30 19:28:22 | services.excel_handler | INFO     | Found 3 rows in accounts file
+2025-06-30 19:28:22 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-06-30 19:28:22 | __main__             | INFO     | ✅ Loaded 3 products
+2025-06-30 19:28:22 | __main__             | INFO     | ✅ Loaded 3 accounts
+2025-06-30 19:28:22 | __main__             | INFO     | ✅ 2 usable accounts available
+2025-06-30 19:28:22 | __main__             | INFO     | 
+🤖 Testing AI Integration...
+2025-06-30 19:28:22 | services.llama_ai    | INFO     | LlamaAI initialized - Server: http://localhost:11434, Model: llama3.2
+2025-06-30 19:28:22 | services.llama_ai    | INFO     | Testing Llama server connection...
+2025-06-30 19:28:24 | services.llama_ai    | INFO     | ✅ Llama server connected successfully
+2025-06-30 19:28:24 | services.llama_ai    | INFO     | Available models: ['llama3.2:latest', 'llama2:latest']
+2025-06-30 19:28:24 | services.llama_ai    | INFO     | ✅ Model 'llama3.2' is available
+2025-06-30 19:28:24 | services.llama_ai    | INFO     | Generating AI response for message from Test Customer
+2025-06-30 19:28:29 | ai                   | INFO     | AI_INTERACTION | prompt:772chars | response:175chars | confidence:0.90 | time:5.08s
+2025-06-30 19:28:29 | services.llama_ai    | INFO     | ✅ AI response generated in 5.08s (confidence: 0.90)
+2025-06-30 19:28:29 | __main__             | INFO     | ✅ AI Response: Yes, the iPhone 13 Pro is still available for purchase. My best price is $650, but I'm open to reasonable offers - let me know if you're interested and we can discuss further!
+2025-06-30 19:28:29 | __main__             | INFO     | ✅ AI integration working! Listings will have intelligent responses.
+2025-07-01 19:16:17 | __main__             | INFO     | 🚀 Starting bulk listing process...
+2025-07-01 19:16:17 | __main__             | INFO     | 📋 Will attempt to list 3 products
+2025-07-01 19:16:17 | __main__             | INFO     | 👥 Using 2 active accounts
+2025-07-01 19:16:17 | utils.browser_utils  | INFO     | BrowserManager initialized
+2025-07-01 19:16:17 | utils.browser_utils  | INFO     | Setting up Chrome WebDriver (profile: default)
+2025-07-01 19:16:18 | root                 | INFO     | Chromedriver is already installed.
+2025-07-01 19:16:18 | utils.browser_utils  | INFO     | Using ChromeDriver from: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\venv\Lib\site-packages\chromedriver_autoinstaller\137\chromedriver.exe
+2025-07-01 19:16:21 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-07-01 19:16:21 | __main__             | INFO     | 🌐 Browser initialized
+2025-07-01 19:16:21 | __main__             | INFO     | 
+📱 Listing 1/3
+2025-07-01 19:16:21 | __main__             | INFO     | 📱 Creating listing: iPhone 13 Pro - Excellent Condition
+2025-07-01 19:16:21 | __main__             | INFO     | 👤 Using account: b***************8@gmail.com
+2025-07-01 19:16:21 | facebook_bot_b***************8@gmail.com | INFO     | FacebookBot initialized for b***************8@gmail.com
+2025-07-01 19:16:21 | __main__             | INFO     | 🔄 DRY RUN MODE - Simulating listing creation...
+2025-07-01 19:16:21 | __main__             | INFO     |   ✓ Navigating to Facebook Marketplace
+2025-07-01 19:16:22 | __main__             | INFO     |   ✓ Clicking 'Create New Listing'
+2025-07-01 19:16:23 | __main__             | INFO     |   ✓ Selecting 'Item for Sale'
+2025-07-01 19:16:24 | __main__             | INFO     |   ✓ Entering title: 'iPhone 13 Pro - Excellent Condition'
+2025-07-01 19:16:25 | __main__             | INFO     |   ✓ Entering description: 'Barely used iPhone 13 Pro in excellent condition. ...'
+2025-07-01 19:16:27 | __main__             | INFO     |   ✓ Setting price: $650.0
+2025-07-01 19:16:27 | __main__             | INFO     |   ✓ Setting category: 'Electronics'
+2025-07-01 19:16:28 | __main__             | INFO     |   ✓ Setting condition: 'Used - Like New'
+2025-07-01 19:16:29 | __main__             | INFO     |   ✓ Uploading images (simulated)
+2025-07-01 19:16:30 | __main__             | INFO     |   ✓ Publishing listing
+2025-07-01 19:16:30 | __main__             | INFO     | ✅ Listing created successfully (simulated)
+2025-07-01 19:16:30 | __main__             | INFO     | ✅ Listing successful
+2025-07-01 19:16:30 | __main__             | INFO     | ⏸️ Waiting 49.4s before next listing...
+2025-07-01 19:17:20 | __main__             | INFO     | 
+📱 Listing 2/3
+2025-07-01 19:17:20 | __main__             | INFO     | 📱 Creating listing: MacBook Air M1 - 256GB
+2025-07-01 19:17:20 | __main__             | INFO     | 👤 Using account: t*********7@gmail.com
+2025-07-01 19:17:20 | facebook_bot_t*********7@gmail.com | INFO     | FacebookBot initialized for t*********7@gmail.com
+2025-07-01 19:17:20 | __main__             | INFO     | 🔄 DRY RUN MODE - Simulating listing creation...
+2025-07-01 19:17:20 | __main__             | INFO     |   ✓ Navigating to Facebook Marketplace
+2025-07-01 19:17:20 | __main__             | INFO     |   ✓ Clicking 'Create New Listing'
+2025-07-01 19:17:21 | __main__             | INFO     |   ✓ Selecting 'Item for Sale'
+2025-07-01 19:17:22 | __main__             | INFO     |   ✓ Entering title: 'MacBook Air M1 - 256GB'
+2025-07-01 19:17:23 | __main__             | INFO     |   ✓ Entering description: 'Apple MacBook Air with M1 chip, 8GB RAM, 256GB SSD...'
+2025-07-01 19:17:24 | __main__             | INFO     |   ✓ Setting price: $800.0
+2025-07-01 19:17:26 | __main__             | INFO     |   ✓ Setting category: 'Electronics'
+2025-07-01 19:17:26 | __main__             | INFO     |   ✓ Setting condition: 'Used - Good'
+2025-07-01 19:17:27 | __main__             | INFO     |   ✓ Uploading images (simulated)
+2025-07-01 19:17:28 | __main__             | INFO     |   ✓ Publishing listing
+2025-07-01 19:17:29 | __main__             | INFO     | ✅ Listing created successfully (simulated)
+2025-07-01 19:17:29 | __main__             | INFO     | ✅ Listing successful
+2025-07-01 19:17:29 | __main__             | INFO     | ⏸️ Waiting 51.3s before next listing...
+2025-07-01 19:18:20 | __main__             | INFO     | 
+📱 Listing 3/3
+2025-07-01 19:18:20 | __main__             | INFO     | 📱 Creating listing: Nike Air Jordan 1 - Size 10
+2025-07-01 19:18:20 | __main__             | INFO     | 👤 Using account: b***************8@gmail.com
+2025-07-01 19:18:20 | facebook_bot_b***************8@gmail.com | INFO     | FacebookBot initialized for b***************8@gmail.com
+2025-07-01 19:18:20 | __main__             | INFO     | 🔄 DRY RUN MODE - Simulating listing creation...
+2025-07-01 19:18:20 | __main__             | INFO     |   ✓ Navigating to Facebook Marketplace
+2025-07-01 19:18:21 | __main__             | INFO     |   ✓ Clicking 'Create New Listing'
+2025-07-01 19:18:22 | __main__             | INFO     |   ✓ Selecting 'Item for Sale'
+2025-07-01 19:18:23 | __main__             | INFO     |   ✓ Entering title: 'Nike Air Jordan 1 - Size 10'
+2025-07-01 19:18:24 | __main__             | INFO     |   ✓ Entering description: 'Classic Nike Air Jordan 1 sneakers in size 10. Gre...'
+2025-07-01 19:18:25 | __main__             | INFO     |   ✓ Setting price: $150.0
+2025-07-01 19:18:27 | __main__             | INFO     |   ✓ Setting category: 'Clothing & Accessories'
+2025-07-01 19:18:27 | __main__             | INFO     |   ✓ Setting condition: 'Used - Good'
+2025-07-01 19:18:28 | __main__             | INFO     |   ✓ Uploading images (simulated)
+2025-07-01 19:18:29 | __main__             | INFO     |   ✓ Publishing listing
+2025-07-01 19:18:30 | __main__             | INFO     | ✅ Listing created successfully (simulated)
+2025-07-01 19:18:30 | __main__             | INFO     | ✅ Listing successful
+2025-07-01 19:18:33 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-07-01 19:18:37 | __main__             | INFO     | 
+📊 LISTING STATISTICS
+2025-07-01 19:18:37 | __main__             | INFO     | ==================================================
+2025-07-01 19:18:37 | __main__             | INFO     | 📋 Total Attempted: 3
+2025-07-01 19:18:37 | __main__             | INFO     | ✅ Successful: 3
+2025-07-01 19:18:37 | __main__             | INFO     | ❌ Failed: 0
+2025-07-01 19:18:37 | __main__             | INFO     | 📈 Success Rate: 100.0%
+2025-07-01 19:18:37 | __main__             | INFO     | ⏱️ Duration: 0:02:19.333379
+2025-07-01 19:18:37 | __main__             | INFO     | 
+👥 Account Performance:
+2025-07-01 19:18:37 | __main__             | INFO     |   bur*********************com: 2/2 successful
+2025-07-01 19:18:37 | __main__             | INFO     |   tom***************com: 1/1 successful
