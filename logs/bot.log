@@ -12646,3 +12646,85 @@ Processing: This is a scam! I want my money back!
 👥 Account Performance:
 2025-07-01 19:18:37 | __main__             | INFO     |   bur*********************com: 2/2 successful
 2025-07-01 19:18:37 | __main__             | INFO     |   tom***************com: 1/1 successful
+2025-07-01 20:02:01 | services.llama_ai    | INFO     | LlamaAI initialized - Server: http://localhost:11434, Model: llama3.2
+2025-07-01 20:02:01 | __main__             | INFO     | 📋 Loading data for message monitoring...
+2025-07-01 20:02:01 | services.excel_handler | INFO     | Loaded products Excel file: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_products.xlsx
+2025-07-01 20:02:01 | services.excel_handler | INFO     | Found 3 rows in products file
+2025-07-01 20:02:01 | services.excel_handler | INFO     | Successfully loaded 3 products
+2025-07-01 20:02:01 | __main__             | INFO     | ✅ Loaded 3 products for AI context
+2025-07-01 20:02:01 | services.excel_handler | INFO     | Loaded accounts Excel file: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_accounts.xlsx
+2025-07-01 20:02:01 | services.excel_handler | INFO     | Found 3 rows in accounts file
+2025-07-01 20:02:01 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-07-01 20:02:01 | __main__             | INFO     | ✅ Found 2 accounts ready for monitoring
+2025-07-01 20:02:01 | __main__             | INFO     | 🤖 Testing AI service connection...
+2025-07-01 20:02:01 | services.llama_ai    | INFO     | Testing Llama server connection...
+2025-07-01 20:02:03 | services.llama_ai    | INFO     | ✅ Llama server connected successfully
+2025-07-01 20:02:03 | services.llama_ai    | INFO     | Available models: ['llama3.2:latest', 'llama2:latest']
+2025-07-01 20:02:03 | services.llama_ai    | INFO     | ✅ Model 'llama3.2' is available
+2025-07-01 20:02:03 | services.llama_ai    | INFO     | Generating AI response for message from Test Customer
+2025-07-01 20:02:20 | ai                   | INFO     | AI_INTERACTION | prompt:752chars | response:92chars | confidence:0.80 | time:16.95s
+2025-07-01 20:02:20 | services.llama_ai    | INFO     | ✅ AI response generated in 16.95s (confidence: 0.80)
+2025-07-01 20:02:20 | __main__             | INFO     | ✅ AI Response Test: Yes, it's still available. Would you like to come ...
+2025-07-01 20:02:20 | __main__             | INFO     | 🤖 Initializing Facebook bots...
+2025-07-01 20:02:20 | __main__             | INFO     | 🔄 Setting up bot for b***************8@gmail.com
+2025-07-01 20:02:20 | facebook_bot_b***************8@gmail.com | INFO     | FacebookBot initialized for b***************8@gmail.com
+2025-07-01 20:02:20 | __main__             | INFO     | ✅ Bot ready for b***************8@gmail.com
+2025-07-01 20:02:20 | __main__             | INFO     | 🔄 Setting up bot for t*********7@gmail.com
+2025-07-01 20:02:20 | facebook_bot_t*********7@gmail.com | INFO     | FacebookBot initialized for t*********7@gmail.com
+2025-07-01 20:02:20 | __main__             | INFO     | ✅ Bot ready for t*********7@gmail.com
+2025-07-01 20:02:20 | __main__             | INFO     | ✅ 2 bots ready for monitoring
+2025-07-01 20:02:59 | __main__             | INFO     | 🚀 Starting continuous monitoring for 1 minutes...
+2025-07-01 20:02:59 | __main__             | INFO     | 
+📊 Monitoring Cycle 1
+2025-07-01 20:02:59 | __main__             | INFO     | ========================================
+2025-07-01 20:02:59 | __main__             | INFO     | 🔄 Starting monitoring cycle...
+2025-07-01 20:02:59 | __main__             | INFO     | 📱 Checking messages for b***************8@gmail.com
+2025-07-01 20:02:59 | __main__             | INFO     | 📭 No new messages
+2025-07-01 20:02:59 | __main__             | INFO     | 📱 Checking messages for t*********7@gmail.com
+2025-07-01 20:02:59 | __main__             | INFO     | 📭 No new messages
+2025-07-01 20:02:59 | __main__             | INFO     | 📊 Cycle Results:
+2025-07-01 20:02:59 | __main__             | INFO     |    📩 Messages found: 0
+2025-07-01 20:02:59 | __main__             | INFO     |    ✅ Messages processed: 0
+2025-07-01 20:02:59 | __main__             | INFO     |    📤 Responses sent: 0
+2025-07-01 20:02:59 | __main__             | INFO     |    ❌ Errors: 0
+2025-07-01 20:02:59 | __main__             | INFO     | ⏸️ Waiting 30s before next cycle...
+2025-07-01 20:03:29 | __main__             | INFO     | 
+📊 Monitoring Cycle 2
+2025-07-01 20:03:29 | __main__             | INFO     | ========================================
+2025-07-01 20:03:29 | __main__             | INFO     | 🔄 Starting monitoring cycle...
+2025-07-01 20:03:29 | __main__             | INFO     | 📱 Checking messages for b***************8@gmail.com
+2025-07-01 20:03:29 | __main__             | INFO     | 📭 No new messages
+2025-07-01 20:03:29 | __main__             | INFO     | 📱 Checking messages for t*********7@gmail.com
+2025-07-01 20:03:29 | __main__             | INFO     | 📩 New message detected: Is this the final price? from Customer_7529
+2025-07-01 20:03:29 | __main__             | INFO     | 📩 Found 1 new messages
+2025-07-01 20:03:29 | __main__             | INFO     | 🔄 Processing message from Customer_7529
+2025-07-01 20:03:29 | services.llama_ai    | INFO     | Generating AI response for message from Customer_7529
+2025-07-01 20:03:34 | ai                   | INFO     | AI_INTERACTION | prompt:748chars | response:137chars | confidence:0.90 | time:5.34s
+2025-07-01 20:03:34 | services.llama_ai    | INFO     | ✅ AI response generated in 5.34s (confidence: 0.90)
+2025-07-01 20:03:34 | __main__             | INFO     | 🤖 AI Response: Yes, $650 is the final price for the iPhone 13 Pro...
+2025-07-01 20:03:34 | __main__             | INFO     | 📤 Sending response to Customer_7529
+2025-07-01 20:03:34 | __main__             | INFO     |     Message: Yes, $650 is the final price for the iPhone 13 Pro. If you have any other questions or would like to make a purchase, please let me know!
+2025-07-01 20:03:34 | __main__             | INFO     | ⏸️ Waiting 19.2s before sending (human-like delay)...
+2025-07-01 20:03:53 | __main__             | INFO     | ✅ Response sent successfully
+2025-07-01 20:03:53 | __main__             | INFO     | ✅ Message processed and responded
+2025-07-01 20:03:53 | __main__             | INFO     | 📊 Cycle Results:
+2025-07-01 20:03:53 | __main__             | INFO     |    📩 Messages found: 1
+2025-07-01 20:03:53 | __main__             | INFO     |    ✅ Messages processed: 1
+2025-07-01 20:03:53 | __main__             | INFO     |    📤 Responses sent: 1
+2025-07-01 20:03:53 | __main__             | INFO     |    ❌ Errors: 0
+2025-07-01 20:03:53 | __main__             | INFO     | ⏸️ Waiting 30s before next cycle...
+2025-07-01 20:04:23 | __main__             | INFO     | 
+🏁 Monitoring session completed
+2025-07-01 20:04:23 | __main__             | INFO     | 
+📊 MESSAGE MONITORING STATISTICS
+2025-07-01 20:04:23 | __main__             | INFO     | ==================================================
+2025-07-01 20:04:23 | __main__             | INFO     | 📅 Duration: 1.4 minutes
+2025-07-01 20:04:23 | __main__             | INFO     | 👥 Accounts monitored: 2
+2025-07-01 20:04:23 | __main__             | INFO     | 📩 Messages processed: 1
+2025-07-01 20:04:23 | __main__             | INFO     | 📤 Responses sent: 1
+2025-07-01 20:04:23 | __main__             | INFO     | ⚠️ Escalations: 0
+2025-07-01 20:04:23 | __main__             | INFO     | 📈 Response rate: 100.0%
+2025-07-01 20:04:23 | __main__             | INFO     | 📊 Messages per hour: 42.6
+2025-07-01 20:04:23 | __main__             | INFO     | 
+💬 Active conversations: 1
+2025-07-01 20:04:23 | __main__             | INFO     |    conv_tomvissani7@gmail.com_577: 2 messages

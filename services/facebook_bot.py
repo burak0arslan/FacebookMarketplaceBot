@@ -1622,45 +1622,682 @@ class FacebookBot:
     ```
     """
 
-    def end_session(self):
-        """End the Facebook session and cleanup"""
+    def navigate_to_messages(self) -> bool:
+        """
+        Navigate to Facebook Messages/Messenger
+
+        Returns:
+            True if successful, False otherwise
+        """
         try:
-            if self.browser:
-                # Take final screenshot if enabled
-                if Config.TAKE_SCREENSHOTS and self.is_logged_in:
-                    self.browser.take_screenshot("session_end")
+            self.logger.info("💬 Navigating to Facebook Messages...")
 
-                # Cleanup browser
-                self.browser.cleanup()
-                self.browser = None
+            # Try direct URL first
+            messages_url = "https://www.facebook.com/messages"
+            if self.browser.navigate_to(messages_url):
+                time.sleep(random.uniform(3, 5))
 
-            # Log session info
-            session_info = self.get_session_info()
-            self.logger.info(f"Session ended: {session_info}")
+                # Wait for messages interface to load
+                wait = WebDriverWait(self.browser.driver, 15)
 
-            log_facebook_action("session_end", self.account.get_masked_email(), True,
-                               f"Actions: {self.action_count}, Duration: {session_info.get('session_duration', 0):.2f}s")
+                # Look for messages interface indicators
+                message_indicators = [
+                    "//div[@aria-label='Chats']",
+                    "//div[contains(@class, 'messenger')]",
+                    "//*[contains(text(), 'Messages')]",
+                    "//div[@role='main']//div[contains(@aria-label, 'conversation')]"
+                ]
 
-            # Reset state
-            self.is_logged_in = False
-            self.current_url = ""
-            self.session_start_time = None
+                for indicator in message_indicators:
+                    try:
+                        element = wait.until(EC.presence_of_element_located((By.XPATH, indicator)))
+                        if element:
+                            self.logger.info("✅ Messages interface loaded")
+                            return True
+                    except TimeoutException:
+                        continue
 
-            self.logger.info("Facebook session ended successfully")
+                # If direct indicators not found, assume success if page loaded
+                self.logger.info("✅ Messages page loaded")
+                return True
+
+            return False
 
         except Exception as e:
-            self.logger.error(f"Session cleanup error: {e}")
+            self.logger.error(f"❌ Error navigating to messages: {e}")
+            return False
 
-    def __enter__(self):
-        """Context manager entry"""
-        if self.start_session():
-            return self
-        else:
-            raise Exception("Failed to start Facebook session")
+    def get_unread_conversations(self) -> List[Dict]:
+        """
+        Get list of unread conversations
 
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        """Context manager exit"""
-        self.end_session()
+        Returns:
+            List of conversation data dictionaries
+        """
+        try:
+            self.logger.info("📋 Scanning for unread conversations...")
+
+            conversations = []
+
+            # Look for unread message indicators
+            unread_selectors = [
+                "//div[contains(@class, 'unread')]",
+                "//div[@aria-label='Mark as read']",
+                "//*[contains(@class, 'notification')]//ancestor::div[contains(@role, 'listitem')]",
+                "//div[contains(@style, 'font-weight: bold')]//ancestor::div[@role='listitem']"
+            ]
+
+            for selector in unread_selectors:
+                try:
+                    unread_elements = self.browser.driver.find_elements(By.XPATH, selector)
+
+                    for element in unread_elements[:10]:  # Limit to first 10
+                        try:
+                            # Extract conversation info
+                            conv_data = self._extract_conversation_data(element)
+                            if conv_data:
+                                conversations.append(conv_data)
+                        except Exception as e:
+                            self.logger.debug(f"Error extracting conversation: {e}")
+                            continue
+
+                    if conversations:
+                        break  # Found conversations with this selector
+
+                except Exception as e:
+                    self.logger.debug(f"Selector failed: {selector}")
+                    continue
+
+            self.logger.info(f"📊 Found {len(conversations)} unread conversations")
+            return conversations
+
+        except Exception as e:
+            self.logger.error(f"❌ Error getting unread conversations: {e}")
+            return []
+
+    def _extract_conversation_data(self, conversation_element) -> Optional[Dict]:
+        """Extract data from a conversation element"""
+        try:
+            conv_data = {
+                'conversation_id': '',
+                'sender_name': '',
+                'last_message': '',
+                'timestamp': datetime.now(),
+                'unread_count': 1,
+                'element': conversation_element
+            }
+
+            # Try to extract sender name
+            name_selectors = [
+                ".//div[@role='gridcell']//span",
+                ".//div[contains(@class, 'name')]",
+                ".//strong",
+                ".//h3"
+            ]
+
+            for selector in name_selectors:
+                try:
+                    name_element = conversation_element.find_element(By.XPATH, selector)
+                    if name_element and name_element.text.strip():
+                        conv_data['sender_name'] = name_element.text.strip()
+                        break
+                except:
+                    continue
+
+            # Try to extract last message preview
+            message_selectors = [
+                ".//div[@role='gridcell'][last()]//span",
+                ".//div[contains(@class, 'preview')]",
+                ".//div[contains(@class, 'snippet')]"
+            ]
+
+            for selector in message_selectors:
+                try:
+                    message_element = conversation_element.find_element(By.XPATH, selector)
+                    if message_element and message_element.text.strip():
+                        conv_data['last_message'] = message_element.text.strip()
+                        break
+                except:
+                    continue
+
+            # Generate conversation ID
+            conv_data[
+                'conversation_id'] = f"conv_{conv_data['sender_name'].replace(' ', '_').lower()}_{int(time.time())}"
+
+            if conv_data['sender_name']:
+                return conv_data
+
+            return None
+
+        except Exception as e:
+            self.logger.debug(f"Error extracting conversation data: {e}")
+            return None
+
+    def open_conversation(self, conversation_data: Dict) -> bool:
+        """
+        Open a specific conversation
+
+        Args:
+            conversation_data: Conversation data from get_unread_conversations()
+
+        Returns:
+            True if successful, False otherwise
+        """
+        try:
+            self.logger.info(f"📱 Opening conversation with {conversation_data['sender_name']}")
+
+            # Click on the conversation element
+            conv_element = conversation_data['element']
+            self.browser.click_element_safe(conv_element)
+
+            # Wait for conversation to open
+            time.sleep(random.uniform(2, 4))
+
+            # Look for conversation interface
+            wait = WebDriverWait(self.browser.driver, 10)
+            conversation_indicators = [
+                "//div[@role='textbox'][@aria-label='Message']",
+                "//div[contains(@class, 'message-composer')]",
+                "//textarea[@placeholder*='message']",
+                "//div[@role='main']//div[contains(@class, 'conversation')]"
+            ]
+
+            for indicator in conversation_indicators:
+                try:
+                    element = wait.until(EC.presence_of_element_located((By.XPATH, indicator)))
+                    if element:
+                        self.logger.info("✅ Conversation opened successfully")
+                        return True
+                except TimeoutException:
+                    continue
+
+            self.logger.warning("⚠️ Conversation opened but interface not detected")
+            return True  # Assume success
+
+        except Exception as e:
+            self.logger.error(f"❌ Error opening conversation: {e}")
+            return False
+
+    def get_conversation_messages(self, limit: int = 10) -> List[Message]:
+        """
+        Extract messages from the currently open conversation
+
+        Args:
+            limit: Maximum number of messages to extract
+
+        Returns:
+            List of Message objects
+        """
+        try:
+            self.logger.info(f"📩 Extracting last {limit} messages from conversation...")
+
+            messages = []
+
+            # Look for message containers
+            message_selectors = [
+                "//div[@role='row']//div[contains(@class, 'message')]",
+                "//div[contains(@class, 'conversation')]//div[contains(@class, 'message')]",
+                "//div[@data-testid='message']",
+                "//div[contains(@class, 'msg')]"
+            ]
+
+            message_elements = []
+            for selector in message_selectors:
+                try:
+                    elements = self.browser.driver.find_elements(By.XPATH, selector)
+                    if elements:
+                        message_elements = elements
+                        break
+                except:
+                    continue
+
+            if not message_elements:
+                self.logger.warning("⚠️ No message elements found")
+                return []
+
+            # Process last N messages
+            recent_messages = message_elements[-limit:] if len(message_elements) > limit else message_elements
+
+            for msg_element in recent_messages:
+                try:
+                    message_data = self._extract_message_data(msg_element)
+                    if message_data:
+                        messages.append(message_data)
+                except Exception as e:
+                    self.logger.debug(f"Error extracting message: {e}")
+                    continue
+
+            self.logger.info(f"📊 Extracted {len(messages)} messages")
+            return messages
+
+        except Exception as e:
+            self.logger.error(f"❌ Error getting conversation messages: {e}")
+            return []
+
+    def _extract_message_data(self, message_element) -> Optional[Message]:
+        """Extract message data from a message element"""
+        try:
+            # Try to determine if message is from customer or us
+            is_customer_message = self._is_customer_message(message_element)
+
+            if not is_customer_message:
+                return None  # Skip our own messages
+
+            # Extract message text
+            text_selectors = [
+                ".//span[contains(@dir, 'auto')]",
+                ".//div[contains(@class, 'text')]",
+                ".//span[not(@aria-hidden)]",
+                ".//div[text()]"
+            ]
+
+            message_text = ""
+            for selector in text_selectors:
+                try:
+                    text_elements = message_element.find_elements(By.XPATH, selector)
+                    for text_elem in text_elements:
+                        if text_elem.text.strip() and len(text_elem.text.strip()) > 3:
+                            message_text = text_elem.text.strip()
+                            break
+                    if message_text:
+                        break
+                except:
+                    continue
+
+            if not message_text:
+                return None
+
+            # Extract sender name (try multiple approaches)
+            sender_name = self._extract_sender_name(message_element)
+
+            # Create Message object
+            message = Message.create_customer_message(
+                content=message_text,
+                sender_name=sender_name or "Unknown Customer",
+                conversation_id=f"conv_{int(time.time())}",
+                account_email=self.account.email
+            )
+
+            return message
+
+        except Exception as e:
+            self.logger.debug(f"Error extracting message data: {e}")
+            return None
+
+    def _is_customer_message(self, message_element) -> bool:
+        """Determine if message is from customer (not from us)"""
+        try:
+            # Look for indicators that this is our message vs customer message
+            our_message_indicators = [
+                "sent by you",
+                "data-testid='message_sent'",
+                "class*='right'",
+                "class*='outgoing'",
+                "aria-label*='You sent'"
+            ]
+
+            element_html = message_element.get_attribute('outerHTML').lower()
+
+            for indicator in our_message_indicators:
+                if indicator.lower() in element_html:
+                    return False  # This is our message
+
+            return True  # Assume customer message
+
+        except:
+            return True  # Default to customer message
+
+    def _extract_sender_name(self, message_element) -> Optional[str]:
+        """Extract sender name from message element"""
+        try:
+            # Try to find sender name in various places
+            name_selectors = [
+                ".//preceding-sibling::*//strong",
+                ".//ancestor::*[@role='row']//strong",
+                ".//ancestor::*[contains(@class, 'message')]//h4",
+                ".//preceding::*[contains(@class, 'name')][1]"
+            ]
+
+            for selector in name_selectors:
+                try:
+                    name_element = message_element.find_element(By.XPATH, selector)
+                    if name_element and name_element.text.strip():
+                        return name_element.text.strip()
+                except:
+                    continue
+
+            return None
+
+        except:
+            return None
+
+    def send_message(self, message_text: str) -> bool:
+        """
+        Send a message in the currently open conversation
+
+        Args:
+            message_text: Text to send
+
+        Returns:
+            True if successful, False otherwise
+        """
+        try:
+            self.logger.info(f"📤 Sending message: {message_text[:50]}...")
+
+            # Find message input field
+            input_selectors = [
+                "//div[@role='textbox'][@aria-label='Message']",
+                "//div[@role='textbox'][@data-testid='message-text']",
+                "//textarea[@placeholder*='message']",
+                "//div[contains(@class, 'composer')]//div[@contenteditable='true']"
+            ]
+
+            message_input = None
+            for selector in input_selectors:
+                try:
+                    message_input = self.browser.find_element_safe(By.XPATH, selector, timeout=5)
+                    if message_input:
+                        break
+                except:
+                    continue
+
+            if not message_input:
+                self.logger.error("❌ Could not find message input field")
+                return False
+
+            # Clear input and type message
+            message_input.click()
+            time.sleep(0.5)
+
+            # Clear any existing text
+            message_input.send_keys(Keys.CONTROL + "a")
+            time.sleep(0.2)
+
+            # Type message with human-like typing
+            if self.browser.type_text_human(message_input, message_text):
+                time.sleep(random.uniform(1, 2))
+
+                # Send message (Enter key)
+                message_input.send_keys(Keys.RETURN)
+                time.sleep(random.uniform(1, 3))
+
+                self.logger.info("✅ Message sent successfully")
+                log_facebook_action("send_message", self.account.email, True, f"Sent: {message_text[:30]}...")
+                return True
+            else:
+                self.logger.error("❌ Failed to type message")
+                return False
+
+        except Exception as e:
+            self.logger.error(f"❌ Error sending message: {e}")
+            log_facebook_action("send_message", self.account.email, False, f"Error: {str(e)}")
+            return False
+
+    def mark_conversation_as_read(self) -> bool:
+        """Mark the current conversation as read"""
+        try:
+            # Look for mark as read options
+            read_selectors = [
+                "//div[@aria-label='Mark as read']",
+                "//button[contains(text(), 'Mark as read')]",
+                "//*[@data-testid='mark_read']"
+            ]
+
+            for selector in read_selectors:
+                try:
+                    read_button = self.browser.find_element_safe(By.XPATH, selector, timeout=2)
+                    if read_button:
+                        self.browser.click_element_safe(read_button)
+                        self.logger.debug("✅ Marked conversation as read")
+                        return True
+                except:
+                    continue
+
+            # If no explicit button, conversation is likely already marked as read
+            return True
+
+        except Exception as e:
+            self.logger.debug(f"Mark as read error: {e}")
+            return True  # Not critical
+
+    def run_message_monitoring_cycle(self, process_callback=None) -> Dict[str, int]:
+        """
+        Run one complete cycle of message monitoring
+
+        Args:
+            process_callback: Optional callback function to process each message
+
+        Returns:
+            Dictionary with monitoring statistics
+        """
+        cycle_stats = {
+            'conversations_checked': 0,
+            'messages_found': 0,
+            'messages_processed': 0,
+            'responses_sent': 0,
+            'errors': 0
+        }
+
+        try:
+            self.logger.info("🔄 Starting message monitoring cycle...")
+
+            # Navigate to messages
+            if not self.navigate_to_messages():
+                cycle_stats['errors'] += 1
+                return cycle_stats
+
+            # Get unread conversations
+            conversations = self.get_unread_conversations()
+            cycle_stats['conversations_checked'] = len(conversations)
+
+            if not conversations:
+                self.logger.info("📭 No unread conversations found")
+                return cycle_stats
+
+            self.logger.info(f"📩 Processing {len(conversations)} unread conversations")
+
+            for conv_data in conversations:
+                try:
+                    # Open conversation
+                    if not self.open_conversation(conv_data):
+                        cycle_stats['errors'] += 1
+                        continue
+
+                    # Get messages from conversation
+                    messages = self.get_conversation_messages(limit=5)
+                    cycle_stats['messages_found'] += len(messages)
+
+                    if not messages:
+                        continue
+
+                    # Process each message
+                    for message in messages:
+                        try:
+                            # Use callback if provided, otherwise use default processing
+                            if process_callback:
+                                if process_callback(message):
+                                    cycle_stats['messages_processed'] += 1
+                            else:
+                                self.logger.info(f"📩 New message: {message.get_short_content()}")
+                                cycle_stats['messages_processed'] += 1
+
+                        except Exception as e:
+                            self.logger.error(f"Error processing message: {e}")
+                            cycle_stats['errors'] += 1
+
+                    # Mark conversation as read
+                    self.mark_conversation_as_read()
+
+                    # Small delay between conversations
+                    time.sleep(random.uniform(1, 3))
+
+                except Exception as e:
+                    self.logger.error(f"Error processing conversation: {e}")
+                    cycle_stats['errors'] += 1
+                    continue
+
+            return cycle_stats
+
+        except Exception as e:
+            self.logger.error(f"❌ Error in monitoring cycle: {e}")
+            cycle_stats['errors'] += 1
+            return cycle_stats
+
+    def start_automated_customer_service(self, ai_service, products: List = None, duration_minutes: int = 30):
+        """
+        Start automated customer service with AI responses
+
+        Args:
+            ai_service: LlamaAI instance for generating responses
+            products: List of products for context
+            duration_minutes: How long to run monitoring
+        """
+        try:
+            self.logger.info(f"🤖 Starting automated customer service for {duration_minutes} minutes...")
+
+            end_time = datetime.now() + timedelta(minutes=duration_minutes)
+            cycle_count = 0
+            total_responses = 0
+
+            def ai_response_processor(message: Message) -> bool:
+                """Process messages with AI responses"""
+                nonlocal total_responses
+
+                try:
+                    self.logger.info(f"🤖 Processing message: {message.get_short_content()}")
+
+                    # Check if requires human attention
+                    if message.requires_human_attention:
+                        self.logger.warning("⚠️ Message escalated to human operator")
+                        return True
+
+                    # Find relevant product for context
+                    relevant_product = None
+                    if products:
+                        for product in products:
+                            if any(word in message.content.lower() for word in product.title.lower().split()):
+                                relevant_product = product
+                                break
+
+                        if not relevant_product:
+                            relevant_product = products[0]  # Use first product as fallback
+
+                    # Generate AI response
+                    response = ai_service.generate_response(message, relevant_product)
+
+                    if response:
+                        # Send response
+                        if self.send_message(response):
+                            total_responses += 1
+                            self.logger.info("✅ AI response sent successfully")
+                            return True
+                        else:
+                            self.logger.error("❌ Failed to send AI response")
+                            return False
+                    else:
+                        self.logger.warning("⚠️ Could not generate AI response")
+                        return False
+
+                except Exception as e:
+                    self.logger.error(f"Error in AI processor: {e}")
+                    return False
+
+            while datetime.now() < end_time:
+                cycle_count += 1
+                self.logger.info(f"\n🔄 Customer Service Cycle {cycle_count}")
+
+                # Run monitoring with AI processor
+                stats = self.run_message_monitoring_cycle(ai_response_processor)
+
+                self.logger.info(f"📊 Cycle {cycle_count} Results:")
+                self.logger.info(f"   📱 Conversations: {stats['conversations_checked']}")
+                self.logger.info(f"   📩 Messages: {stats['messages_found']}")
+                self.logger.info(f"   ✅ Processed: {stats['messages_processed']}")
+                self.logger.info(f"   🤖 AI Responses: {total_responses}")
+
+                # Wait before next cycle (30 seconds default)
+                if datetime.now() < end_time:
+                    wait_time = getattr(Config, 'MESSAGE_CHECK_INTERVAL', 30)
+                    self.logger.info(f"⏸️ Waiting {wait_time}s before next cycle...")
+                    time.sleep(wait_time)
+
+            self.logger.info(f"\n🎉 Automated customer service completed!")
+            self.logger.info(f"📊 Total AI responses sent: {total_responses}")
+
+        except KeyboardInterrupt:
+            self.logger.info("\n⏹️ Customer service stopped by user")
+        except Exception as e:
+            self.logger.error(f"❌ Error in automated customer service: {e}")
+
+
+# Usage instructions for integrating with FacebookBot:
+"""
+To integrate these methods into your existing FacebookBot class:
+
+1. Copy all the methods above into your services/facebook_bot.py file
+2. Add them as methods to your existing FacebookBot class
+3. The methods will work with your existing browser manager
+
+Example usage:
+```python
+# Initialize bot
+bot = FacebookBot(account)
+
+# Start browser session
+with create_browser_manager() as browser:
+    bot.browser = browser
+
+    if bot.login():
+        # Option 1: Manual monitoring cycle
+        stats = bot.run_message_monitoring_cycle()
+        print(f"Found {stats['messages_found']} messages")
+
+        # Option 2: Automated AI customer service
+        ai_service = LlamaAI()
+        products = load_products()
+        bot.start_automated_customer_service(ai_service, products, duration_minutes=30)
+```
+"""
+
+def end_session(self):
+    """End the Facebook session and cleanup"""
+    try:
+        if self.browser:
+            # Take final screenshot if enabled
+            if Config.TAKE_SCREENSHOTS and self.is_logged_in:
+                self.browser.take_screenshot("session_end")
+
+            # Cleanup browser
+            self.browser.cleanup()
+            self.browser = None
+
+        # Log session info
+        session_info = self.get_session_info()
+        self.logger.info(f"Session ended: {session_info}")
+
+        log_facebook_action("session_end", self.account.get_masked_email(), True,
+                           f"Actions: {self.action_count}, Duration: {session_info.get('session_duration', 0):.2f}s")
+
+        # Reset state
+        self.is_logged_in = False
+        self.current_url = ""
+        self.session_start_time = None
+
+        self.logger.info("Facebook session ended successfully")
+
+    except Exception as e:
+        self.logger.error(f"Session cleanup error: {e}")
+
+def __enter__(self):
+    """Context manager entry"""
+    if self.start_session():
+        return self
+    else:
+        raise Exception("Failed to start Facebook session")
+
+def __exit__(self, exc_type, exc_val, exc_tb):
+    """Context manager exit"""
+    self.end_session()
 
 
 # Convenience functions for easy usage
