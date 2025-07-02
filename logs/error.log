@@ -8006,3 +8006,5 @@ Stacktrace:
 2025-06-26 21:30:59 | utils.browser_utils  | ERROR    | find_element_safe:292 | Error finding element css selector=[role="grid"]: 'NoneType' object has no attribute 'find_element'
 2025-06-27 09:16:57 | facebook_bot_b***************8@gmail.com | ERROR    | _navigate_to_facebook:196 | Login form not found - may be blocked or different page layout
 2025-06-30 19:24:56 | __main__             | ERROR    | load_data:102 | ❌ Error loading data: 'Account' object has no attribute 'is_active'
+2025-07-01 21:34:10 | __main__             | ERROR    | check_account_health:155 | ❌ Health check error: 'FacebookBot' object has no attribute 'login'
+2025-07-01 21:34:26 | __main__             | ERROR    | check_account_health:155 | ❌ Health check error: 'FacebookBot' object has no attribute 'login'

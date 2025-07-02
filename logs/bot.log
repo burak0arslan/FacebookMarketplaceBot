@@ -12728,3 +12728,387 @@ Processing: This is a scam! I want my money back!
 2025-07-01 20:04:23 | __main__             | INFO     | 
 💬 Active conversations: 1
 2025-07-01 20:04:23 | __main__             | INFO     |    conv_tomvissani7@gmail.com_577: 2 messages
+2025-07-01 21:24:08 | services.llama_ai    | INFO     | LlamaAI initialized - Server: http://localhost:11434, Model: llama3.2
+2025-07-01 21:29:48 | services.llama_ai    | INFO     | LlamaAI initialized - Server: http://localhost:11434, Model: llama3.2
+2025-07-01 21:29:48 | __main__             | INFO     | 📋 Loading data for message monitoring...
+2025-07-01 21:29:48 | services.excel_handler | INFO     | Loaded products Excel file: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_products.xlsx
+2025-07-01 21:29:48 | services.excel_handler | INFO     | Found 3 rows in products file
+2025-07-01 21:29:48 | services.excel_handler | INFO     | Successfully loaded 3 products
+2025-07-01 21:29:48 | __main__             | INFO     | ✅ Loaded 3 products for AI context
+2025-07-01 21:29:48 | services.excel_handler | INFO     | Loaded accounts Excel file: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_accounts.xlsx
+2025-07-01 21:29:48 | services.excel_handler | INFO     | Found 3 rows in accounts file
+2025-07-01 21:29:48 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-07-01 21:29:48 | __main__             | INFO     | ✅ Found 2 accounts ready for monitoring
+2025-07-01 21:29:48 | __main__             | INFO     | 🤖 Testing AI service connection...
+2025-07-01 21:29:48 | services.llama_ai    | INFO     | Testing Llama server connection...
+2025-07-01 21:29:50 | services.llama_ai    | INFO     | ✅ Llama server connected successfully
+2025-07-01 21:29:50 | services.llama_ai    | INFO     | Available models: ['llama3.2:latest', 'llama2:latest']
+2025-07-01 21:29:50 | services.llama_ai    | INFO     | ✅ Model 'llama3.2' is available
+2025-07-01 21:29:50 | services.llama_ai    | INFO     | Generating AI response for message from Test Customer
+2025-07-01 21:30:01 | ai                   | INFO     | AI_INTERACTION | prompt:752chars | response:146chars | confidence:0.80 | time:10.63s
+2025-07-01 21:30:01 | services.llama_ai    | INFO     | ✅ AI response generated in 10.63s (confidence: 0.80)
+2025-07-01 21:30:01 | __main__             | INFO     | ✅ AI Response Test: Yes, the iPhone 13 Pro is still available for purc...
+2025-07-01 21:30:01 | __main__             | INFO     | 🤖 Initializing Facebook bots...
+2025-07-01 21:30:01 | __main__             | INFO     | 🔄 Setting up bot for b***************8@gmail.com
+2025-07-01 21:30:01 | facebook_bot_b***************8@gmail.com | INFO     | FacebookBot initialized for b***************8@gmail.com
+2025-07-01 21:30:01 | __main__             | INFO     | ✅ Bot ready for b***************8@gmail.com
+2025-07-01 21:30:01 | __main__             | INFO     | 🔄 Setting up bot for t*********7@gmail.com
+2025-07-01 21:30:01 | facebook_bot_t*********7@gmail.com | INFO     | FacebookBot initialized for t*********7@gmail.com
+2025-07-01 21:30:01 | __main__             | INFO     | ✅ Bot ready for t*********7@gmail.com
+2025-07-01 21:30:01 | __main__             | INFO     | ✅ 2 bots ready for monitoring
+2025-07-01 21:30:25 | __main__             | INFO     | 🚀 Starting continuous monitoring for 1 minutes...
+2025-07-01 21:30:25 | __main__             | INFO     | 
+📊 Monitoring Cycle 1
+2025-07-01 21:30:25 | __main__             | INFO     | ========================================
+2025-07-01 21:30:25 | __main__             | INFO     | 🔄 Starting monitoring cycle...
+2025-07-01 21:30:25 | __main__             | INFO     | 📱 Checking messages for b***************8@gmail.com
+2025-07-01 21:30:25 | __main__             | INFO     | 📩 New message detected: Still for sale? from Customer_5591
+2025-07-01 21:30:25 | __main__             | INFO     | 📩 New message detected: What's your best price? from Customer_4150
+2025-07-01 21:30:25 | __main__             | INFO     | 📩 Found 2 new messages
+2025-07-01 21:30:25 | __main__             | INFO     | 🔄 Processing message from Customer_5591
+2025-07-01 21:30:25 | services.llama_ai    | INFO     | Generating AI response for message from Customer_5591
+2025-07-01 21:30:28 | ai                   | INFO     | AI_INTERACTION | prompt:739chars | response:147chars | confidence:0.80 | time:2.76s
+2025-07-01 21:30:28 | services.llama_ai    | INFO     | ✅ AI response generated in 2.76s (confidence: 0.80)
+2025-07-01 21:30:28 | __main__             | INFO     | 🤖 AI Response: Yes, this listing is still available. I'm happy to...
+2025-07-01 21:30:28 | __main__             | INFO     | 📤 Sending response to Customer_5591
+2025-07-01 21:30:28 | __main__             | INFO     |     Message: Yes, this listing is still available. I'm happy to answer any other questions you may have about the phone before making an offer or purchasing it.
+2025-07-01 21:30:28 | __main__             | INFO     | ⏸️ Waiting 54.9s before sending (human-like delay)...
+2025-07-01 21:31:23 | __main__             | INFO     | ✅ Response sent successfully
+2025-07-01 21:31:23 | __main__             | INFO     | ✅ Message processed and responded
+2025-07-01 21:31:23 | __main__             | INFO     | 🔄 Processing message from Customer_4150
+2025-07-01 21:31:23 | services.llama_ai    | INFO     | Generating AI response for message from Customer_4150
+2025-07-01 21:31:26 | ai                   | INFO     | AI_INTERACTION | prompt:706chars | response:151chars | confidence:0.90 | time:2.69s
+2025-07-01 21:31:26 | services.llama_ai    | INFO     | ✅ AI response generated in 2.69s (confidence: 0.90)
+2025-07-01 21:31:26 | __main__             | INFO     | 🤖 AI Response: I'm open to negotiations! Considering the conditio...
+2025-07-01 21:31:26 | __main__             | INFO     | 📤 Sending response to Customer_4150
+2025-07-01 21:31:26 | __main__             | INFO     |     Message: I'm open to negotiations! Considering the condition is good and it's a popular model, I can offer some flexibility - would you like me to meet at $750?
+2025-07-01 21:31:26 | __main__             | INFO     | ⏸️ Waiting 114.6s before sending (human-like delay)...
+2025-07-01 21:33:20 | __main__             | INFO     | ✅ Response sent successfully
+2025-07-01 21:33:20 | __main__             | INFO     | ✅ Message processed and responded
+2025-07-01 21:33:20 | __main__             | INFO     | 📱 Checking messages for t*********7@gmail.com
+2025-07-01 21:33:20 | __main__             | INFO     | 📩 New message detected: Hi! Is this still available? from Customer_5320
+2025-07-01 21:33:20 | __main__             | INFO     | 📩 Found 1 new messages
+2025-07-01 21:33:20 | __main__             | INFO     | 🔄 Processing message from Customer_5320
+2025-07-01 21:33:20 | services.llama_ai    | INFO     | Generating AI response for message from Customer_5320
+2025-07-01 21:33:23 | ai                   | INFO     | AI_INTERACTION | prompt:711chars | response:152chars | confidence:0.80 | time:2.76s
+2025-07-01 21:33:23 | services.llama_ai    | INFO     | ✅ AI response generated in 2.76s (confidence: 0.80)
+2025-07-01 21:33:23 | __main__             | INFO     | 🤖 AI Response: Yes, the MacBook Air is still available. It's wait...
+2025-07-01 21:33:23 | __main__             | INFO     | 📤 Sending response to Customer_5320
+2025-07-01 21:33:23 | __main__             | INFO     |     Message: Yes, the MacBook Air is still available. It's waiting for a new home in LA. Would you like to schedule a time to pick it up or have me arrange shipping?
+2025-07-01 21:33:23 | __main__             | INFO     | ⏸️ Waiting 37.0s before sending (human-like delay)...
+2025-07-01 21:33:58 | services.excel_handler | INFO     | Loaded accounts Excel file: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_accounts.xlsx
+2025-07-01 21:33:58 | services.excel_handler | INFO     | Found 3 rows in accounts file
+2025-07-01 21:33:58 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-07-01 21:33:58 | __main__             | INFO     | ✅ Loaded 2 accounts for monitoring
+2025-07-01 21:33:58 | __main__             | INFO     | 🏥 Starting full account health check...
+2025-07-01 21:33:58 | __main__             | INFO     | 🔍 Checking health for b***************8@gmail.com
+2025-07-01 21:33:58 | utils.browser_utils  | INFO     | BrowserManager initialized
+2025-07-01 21:33:58 | utils.browser_utils  | INFO     | Setting up Chrome WebDriver (profile: default)
+2025-07-01 21:33:58 | utils.browser_utils  | INFO     | Running in headless mode
+2025-07-01 21:33:58 | root                 | INFO     | Chromedriver is already installed.
+2025-07-01 21:33:58 | utils.browser_utils  | INFO     | Using ChromeDriver from: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\venv\Lib\site-packages\chromedriver_autoinstaller\137\chromedriver.exe
+2025-07-01 21:33:59 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-07-01 21:33:59 | facebook_bot_b***************8@gmail.com | INFO     | FacebookBot initialized for b***************8@gmail.com
+2025-07-01 21:33:59 | utils.browser_utils  | INFO     | Navigating to: https://www.facebook.com
+2025-07-01 21:34:00 | __main__             | INFO     | ✅ Response sent successfully
+2025-07-01 21:34:00 | __main__             | INFO     | ✅ Message processed and responded
+2025-07-01 21:34:00 | __main__             | INFO     | 📊 Cycle Results:
+2025-07-01 21:34:00 | __main__             | INFO     |    📩 Messages found: 3
+2025-07-01 21:34:00 | __main__             | INFO     |    ✅ Messages processed: 3
+2025-07-01 21:34:00 | __main__             | INFO     |    📤 Responses sent: 3
+2025-07-01 21:34:00 | __main__             | INFO     |    ❌ Errors: 0
+2025-07-01 21:34:00 | __main__             | INFO     | 
+🏁 Monitoring session completed
+2025-07-01 21:34:00 | __main__             | INFO     | 
+📊 MESSAGE MONITORING STATISTICS
+2025-07-01 21:34:00 | __main__             | INFO     | ==================================================
+2025-07-01 21:34:00 | __main__             | INFO     | 📅 Duration: 3.6 minutes
+2025-07-01 21:34:00 | __main__             | INFO     | 👥 Accounts monitored: 2
+2025-07-01 21:34:00 | __main__             | INFO     | 📩 Messages processed: 3
+2025-07-01 21:34:00 | __main__             | INFO     | 📤 Responses sent: 3
+2025-07-01 21:34:00 | __main__             | INFO     | ⚠️ Escalations: 0
+2025-07-01 21:34:00 | __main__             | INFO     | 📈 Response rate: 100.0%
+2025-07-01 21:34:00 | __main__             | INFO     | 📊 Messages per hour: 50.3
+2025-07-01 21:34:00 | __main__             | INFO     | 
+💬 Active conversations: 3
+2025-07-01 21:34:00 | __main__             | INFO     |    conv_burakarslan421638@gmail.com_345: 2 messages
+2025-07-01 21:34:00 | __main__             | INFO     |    conv_burakarslan421638@gmail.com_851: 2 messages
+2025-07-01 21:34:00 | __main__             | INFO     |    conv_tomvissani7@gmail.com_507: 2 messages
+2025-07-01 21:34:01 | utils.browser_utils  | INFO     | Page loaded in 2.10s
+2025-07-01 21:34:06 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-07-01 21:34:10 | __main__             | ERROR    | ❌ Health check error: 'FacebookBot' object has no attribute 'login'
+2025-07-01 21:34:15 | __main__             | INFO     | 🔍 Checking health for t*********7@gmail.com
+2025-07-01 21:34:15 | utils.browser_utils  | INFO     | BrowserManager initialized
+2025-07-01 21:34:15 | utils.browser_utils  | INFO     | Setting up Chrome WebDriver (profile: default)
+2025-07-01 21:34:15 | utils.browser_utils  | INFO     | Running in headless mode
+2025-07-01 21:34:15 | root                 | INFO     | Chromedriver is already installed.
+2025-07-01 21:34:15 | utils.browser_utils  | INFO     | Using ChromeDriver from: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\venv\Lib\site-packages\chromedriver_autoinstaller\137\chromedriver.exe
+2025-07-01 21:34:16 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-07-01 21:34:16 | facebook_bot_t*********7@gmail.com | INFO     | FacebookBot initialized for t*********7@gmail.com
+2025-07-01 21:34:16 | utils.browser_utils  | INFO     | Navigating to: https://www.facebook.com
+2025-07-01 21:34:17 | utils.browser_utils  | INFO     | Page loaded in 1.57s
+2025-07-01 21:34:22 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-07-01 21:34:26 | __main__             | ERROR    | ❌ Health check error: 'FacebookBot' object has no attribute 'login'
+2025-07-01 21:36:57 | services.excel_handler | INFO     | Loaded accounts Excel file: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_accounts.xlsx
+2025-07-01 21:36:57 | services.excel_handler | INFO     | Found 3 rows in accounts file
+2025-07-01 21:36:57 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-07-01 21:36:57 | __main__             | INFO     | ✅ Loaded 2 accounts for monitoring
+2025-07-01 21:36:57 | __main__             | INFO     | 🏥 Starting full account health check...
+2025-07-01 21:36:57 | __main__             | INFO     | 🔍 Checking health for b***************8@gmail.com
+2025-07-01 21:36:57 | utils.browser_utils  | INFO     | BrowserManager initialized
+2025-07-01 21:36:57 | utils.browser_utils  | INFO     | Setting up Chrome WebDriver (profile: default)
+2025-07-01 21:36:57 | utils.browser_utils  | INFO     | Running in headless mode
+2025-07-01 21:36:57 | root                 | INFO     | Chromedriver is already installed.
+2025-07-01 21:36:57 | utils.browser_utils  | INFO     | Using ChromeDriver from: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\venv\Lib\site-packages\chromedriver_autoinstaller\137\chromedriver.exe
+2025-07-01 21:36:58 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-07-01 21:36:58 | facebook_bot_b***************8@gmail.com | INFO     | FacebookBot initialized for b***************8@gmail.com
+2025-07-01 21:36:58 | utils.browser_utils  | INFO     | Navigating to: https://www.facebook.com
+2025-07-01 21:37:00 | utils.browser_utils  | INFO     | Page loaded in 2.16s
+2025-07-01 21:37:02 | facebook_bot_b***************8@gmail.com | INFO     | Starting Facebook session...
+2025-07-01 21:37:02 | utils.browser_utils  | INFO     | BrowserManager initialized
+2025-07-01 21:37:02 | utils.browser_utils  | INFO     | Setting up Chrome WebDriver (profile: fb_burakarslan421638_at_gmail_dot_com)
+2025-07-01 21:37:02 | utils.browser_utils  | INFO     | Running in headless mode
+2025-07-01 21:37:02 | utils.browser_utils  | INFO     | Using user data directory: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\drivers\profiles\fb_burakarslan421638_at_gmail_dot_com
+2025-07-01 21:37:03 | root                 | INFO     | Chromedriver is already installed.
+2025-07-01 21:37:03 | utils.browser_utils  | INFO     | Using ChromeDriver from: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\venv\Lib\site-packages\chromedriver_autoinstaller\137\chromedriver.exe
+2025-07-01 21:37:04 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-07-01 21:37:04 | facebook_bot_b***************8@gmail.com | INFO     | Browser setup completed
+2025-07-01 21:37:04 | facebook_bot_b***************8@gmail.com | INFO     | Navigating to Facebook...
+2025-07-01 21:37:04 | utils.browser_utils  | INFO     | Navigating to: https://www.facebook.com/login
+2025-07-01 21:37:07 | utils.browser_utils  | INFO     | Page loaded in 3.84s
+2025-07-01 21:37:21 | utils.browser_utils  | WARNING  | Element not found: css selector=[data-testid="user_menu"]
+2025-07-01 21:37:32 | utils.browser_utils  | WARNING  | Element not found: css selector=[aria-label="Account"]
+2025-07-01 21:37:32 | facebook_bot_b***************8@gmail.com | INFO     | Found login indicator - already logged in
+2025-07-01 21:37:32 | facebook_bot_b***************8@gmail.com | INFO     | Already logged in to Facebook
+2025-07-01 21:37:42 | utils.browser_utils  | WARNING  | Element not found: css selector=[data-testid="user_menu"]
+2025-07-01 21:37:53 | utils.browser_utils  | WARNING  | Element not found: css selector=[aria-label="Account"]
+2025-07-01 21:37:53 | facebook_bot_b***************8@gmail.com | INFO     | Found login indicator - already logged in
+2025-07-01 21:37:53 | facebook_bot_b***************8@gmail.com | INFO     | Login verification successful
+2025-07-01 21:37:53 | performance          | INFO     | PERFORMANCE | facebook_session_start_b***************8@gmail.com | 50.23s
+2025-07-01 21:37:53 | facebook             | INFO     | FB_ACTION | session_start | b***************8@gmail.com | SUCCESS | Session started in 50.23s
+2025-07-01 21:37:53 | facebook_bot_b***************8@gmail.com | INFO     | Facebook session started successfully in 50.23s
+2025-07-01 21:37:53 | __main__             | INFO     | ✅ Login successful
+2025-07-01 21:38:03 | utils.browser_utils  | WARNING  | Element not found: css selector=[data-testid="user_menu"]
+2025-07-01 21:38:14 | utils.browser_utils  | WARNING  | Element not found: css selector=[aria-label="Account"]
+2025-07-01 21:38:14 | facebook_bot_b***************8@gmail.com | INFO     | Found login indicator - already logged in
+2025-07-01 21:38:14 | facebook_bot_b***************8@gmail.com | INFO     | Navigating to Facebook Marketplace...
+2025-07-01 21:38:14 | utils.browser_utils  | INFO     | Navigating to: https://www.facebook.com/marketplace
+2025-07-01 21:38:24 | utils.browser_utils  | INFO     | Page loaded in 10.24s
+2025-07-01 21:38:28 | facebook_bot_b***************8@gmail.com | INFO     | Successfully navigated to Marketplace
+2025-07-01 21:38:28 | __main__             | INFO     | ✅ Marketplace access confirmed
+2025-07-01 21:38:28 | facebook_bot_b***************8@gmail.com | INFO     | 💬 Navigating to Facebook Messages...
+2025-07-01 21:38:28 | utils.browser_utils  | INFO     | Navigating to: https://www.facebook.com/messages
+2025-07-01 21:38:32 | utils.browser_utils  | INFO     | Page loaded in 4.09s
+2025-07-01 21:38:36 | facebook_bot_b***************8@gmail.com | INFO     | ✅ Messages interface loaded
+2025-07-01 21:38:36 | __main__             | INFO     | ✅ Messages access confirmed
+2025-07-01 21:38:38 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-07-01 21:38:42 | facebook_bot_b***************8@gmail.com | INFO     | Session ended: {'account': 'b***************8@gmail.com', 'is_logged_in': True, 'current_url': '', 'session_duration': 49.744637, 'last_activity': '2025-07-01T21:38:28.094696', 'action_count': 1, 'hourly_actions': 1, 'daily_actions': 1, 'consecutive_errors': 0}
+2025-07-01 21:38:42 | facebook             | INFO     | FB_ACTION | session_end | b***************8@gmail.com | SUCCESS | Actions: 1, Duration: 49.74s
+2025-07-01 21:38:42 | facebook_bot_b***************8@gmail.com | INFO     | Facebook session ended successfully
+2025-07-01 21:38:45 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-07-01 21:38:54 | __main__             | INFO     | 🔍 Checking health for t*********7@gmail.com
+2025-07-01 21:38:54 | utils.browser_utils  | INFO     | BrowserManager initialized
+2025-07-01 21:38:54 | utils.browser_utils  | INFO     | Setting up Chrome WebDriver (profile: default)
+2025-07-01 21:38:54 | utils.browser_utils  | INFO     | Running in headless mode
+2025-07-01 21:38:54 | root                 | INFO     | Chromedriver is already installed.
+2025-07-01 21:38:54 | utils.browser_utils  | INFO     | Using ChromeDriver from: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\venv\Lib\site-packages\chromedriver_autoinstaller\137\chromedriver.exe
+2025-07-01 21:38:55 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-07-01 21:38:55 | facebook_bot_t*********7@gmail.com | INFO     | FacebookBot initialized for t*********7@gmail.com
+2025-07-01 21:38:55 | utils.browser_utils  | INFO     | Navigating to: https://www.facebook.com
+2025-07-01 21:38:57 | utils.browser_utils  | INFO     | Page loaded in 2.17s
+2025-07-01 21:38:59 | facebook_bot_t*********7@gmail.com | INFO     | Starting Facebook session...
+2025-07-01 21:38:59 | utils.browser_utils  | INFO     | BrowserManager initialized
+2025-07-01 21:38:59 | utils.browser_utils  | INFO     | Setting up Chrome WebDriver (profile: fb_tomvissani7_at_gmail_dot_com)
+2025-07-01 21:38:59 | utils.browser_utils  | INFO     | Running in headless mode
+2025-07-01 21:38:59 | utils.browser_utils  | INFO     | Using user data directory: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\drivers\profiles\fb_tomvissani7_at_gmail_dot_com
+2025-07-01 21:38:59 | root                 | INFO     | Chromedriver is already installed.
+2025-07-01 21:38:59 | utils.browser_utils  | INFO     | Using ChromeDriver from: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\venv\Lib\site-packages\chromedriver_autoinstaller\137\chromedriver.exe
+2025-07-01 21:39:00 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-07-01 21:39:00 | facebook_bot_t*********7@gmail.com | INFO     | Browser setup completed
+2025-07-01 21:39:00 | facebook_bot_t*********7@gmail.com | INFO     | Navigating to Facebook...
+2025-07-01 21:39:00 | utils.browser_utils  | INFO     | Navigating to: https://www.facebook.com/login
+2025-07-01 21:39:02 | utils.browser_utils  | INFO     | Page loaded in 1.87s
+2025-07-01 21:39:16 | utils.browser_utils  | WARNING  | Element not found: css selector=[data-testid="user_menu"]
+2025-07-01 21:39:27 | utils.browser_utils  | WARNING  | Element not found: css selector=[aria-label="Account"]
+2025-07-01 21:39:27 | facebook_bot_t*********7@gmail.com | INFO     | Found login indicator - already logged in
+2025-07-01 21:39:27 | facebook_bot_t*********7@gmail.com | INFO     | Already logged in to Facebook
+2025-07-01 21:39:37 | utils.browser_utils  | WARNING  | Element not found: css selector=[data-testid="user_menu"]
+2025-07-01 21:39:48 | utils.browser_utils  | WARNING  | Element not found: css selector=[aria-label="Account"]
+2025-07-01 21:39:48 | facebook_bot_t*********7@gmail.com | INFO     | Found login indicator - already logged in
+2025-07-01 21:39:48 | facebook_bot_t*********7@gmail.com | INFO     | Login verification successful
+2025-07-01 21:39:48 | performance          | INFO     | PERFORMANCE | facebook_session_start_t*********7@gmail.com | 48.60s
+2025-07-01 21:39:48 | facebook             | INFO     | FB_ACTION | session_start | t*********7@gmail.com | SUCCESS | Session started in 48.60s
+2025-07-01 21:39:48 | facebook_bot_t*********7@gmail.com | INFO     | Facebook session started successfully in 48.60s
+2025-07-01 21:39:48 | __main__             | INFO     | ✅ Login successful
+2025-07-01 21:39:58 | utils.browser_utils  | WARNING  | Element not found: css selector=[data-testid="user_menu"]
+2025-07-01 21:40:09 | utils.browser_utils  | WARNING  | Element not found: css selector=[aria-label="Account"]
+2025-07-01 21:40:09 | facebook_bot_t*********7@gmail.com | INFO     | Found login indicator - already logged in
+2025-07-01 21:40:09 | facebook_bot_t*********7@gmail.com | INFO     | Navigating to Facebook Marketplace...
+2025-07-01 21:40:09 | utils.browser_utils  | INFO     | Navigating to: https://www.facebook.com/marketplace
+2025-07-01 21:40:16 | utils.browser_utils  | INFO     | Page loaded in 7.52s
+2025-07-01 21:40:20 | facebook_bot_t*********7@gmail.com | INFO     | Successfully navigated to Marketplace
+2025-07-01 21:40:20 | __main__             | INFO     | ✅ Marketplace access confirmed
+2025-07-01 21:40:20 | facebook_bot_t*********7@gmail.com | INFO     | 💬 Navigating to Facebook Messages...
+2025-07-01 21:40:20 | utils.browser_utils  | INFO     | Navigating to: https://www.facebook.com/messages
+2025-07-01 21:40:21 | utils.browser_utils  | INFO     | Page loaded in 1.67s
+2025-07-01 21:41:49 | facebook_bot_t*********7@gmail.com | INFO     | ✅ Messages page loaded
+2025-07-01 21:41:49 | __main__             | INFO     | ✅ Messages access confirmed
+2025-07-01 21:41:51 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-07-01 21:41:55 | facebook_bot_t*********7@gmail.com | INFO     | Session ended: {'account': 't*********7@gmail.com', 'is_logged_in': True, 'current_url': '', 'session_duration': 127.474348, 'last_activity': '2025-07-01T21:40:20.274430', 'action_count': 1, 'hourly_actions': 1, 'daily_actions': 1, 'consecutive_errors': 0}
+2025-07-01 21:41:55 | facebook             | INFO     | FB_ACTION | session_end | t*********7@gmail.com | SUCCESS | Actions: 1, Duration: 127.47s
+2025-07-01 21:41:55 | facebook_bot_t*********7@gmail.com | INFO     | Facebook session ended successfully
+2025-07-01 21:41:57 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-07-01 21:45:02 | services.llama_ai    | INFO     | LlamaAI initialized - Server: http://localhost:11434, Model: llama3.2
+2025-07-01 21:49:10 | services.llama_ai    | INFO     | LlamaAI initialized - Server: http://localhost:11434, Model: llama3.2
+2025-07-01 21:49:10 | __main__             | INFO     | 📋 Loading data for message monitoring...
+2025-07-01 21:49:10 | services.excel_handler | INFO     | Loaded products Excel file: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_products.xlsx
+2025-07-01 21:49:10 | services.excel_handler | INFO     | Found 3 rows in products file
+2025-07-01 21:49:10 | services.excel_handler | INFO     | Successfully loaded 3 products
+2025-07-01 21:49:10 | __main__             | INFO     | ✅ Loaded 3 products for AI context
+2025-07-01 21:49:10 | services.excel_handler | INFO     | Loaded accounts Excel file: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_accounts.xlsx
+2025-07-01 21:49:10 | services.excel_handler | INFO     | Found 3 rows in accounts file
+2025-07-01 21:49:10 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-07-01 21:49:10 | __main__             | INFO     | ✅ Found 2 accounts ready for monitoring
+2025-07-01 21:49:10 | __main__             | INFO     | 🤖 Testing AI service connection...
+2025-07-01 21:49:10 | services.llama_ai    | INFO     | Testing Llama server connection...
+2025-07-01 21:49:12 | services.llama_ai    | INFO     | ✅ Llama server connected successfully
+2025-07-01 21:49:12 | services.llama_ai    | INFO     | Available models: ['llama3.2:latest', 'llama2:latest']
+2025-07-01 21:49:12 | services.llama_ai    | INFO     | ✅ Model 'llama3.2' is available
+2025-07-01 21:49:12 | services.llama_ai    | INFO     | Generating AI response for message from Test Customer
+2025-07-01 21:49:17 | ai                   | INFO     | AI_INTERACTION | prompt:752chars | response:201chars | confidence:0.70 | time:5.36s
+2025-07-01 21:49:17 | services.llama_ai    | INFO     | ✅ AI response generated in 5.36s (confidence: 0.70)
+2025-07-01 21:49:17 | __main__             | INFO     | ✅ AI Response Test: Yes, the iPhone 13 Pro is still available. I'll be...
+2025-07-01 21:49:17 | __main__             | INFO     | 🤖 Initializing Facebook bots...
+2025-07-01 21:49:17 | __main__             | INFO     | 🔄 Setting up bot for b***************8@gmail.com
+2025-07-01 21:49:17 | facebook_bot_b***************8@gmail.com | INFO     | FacebookBot initialized for b***************8@gmail.com
+2025-07-01 21:49:17 | __main__             | INFO     | ✅ Bot ready for b***************8@gmail.com
+2025-07-01 21:49:17 | __main__             | INFO     | 🔄 Setting up bot for t*********7@gmail.com
+2025-07-01 21:49:17 | facebook_bot_t*********7@gmail.com | INFO     | FacebookBot initialized for t*********7@gmail.com
+2025-07-01 21:49:17 | __main__             | INFO     | ✅ Bot ready for t*********7@gmail.com
+2025-07-01 21:49:17 | __main__             | INFO     | ✅ 2 bots ready for monitoring
+2025-07-01 21:49:31 | __main__             | INFO     | 🚀 Starting continuous monitoring for 1 minutes...
+2025-07-01 21:49:31 | __main__             | INFO     | 
+📊 Monitoring Cycle 1
+2025-07-01 21:49:31 | __main__             | INFO     | ========================================
+2025-07-01 21:49:31 | __main__             | INFO     | 🔄 Starting monitoring cycle...
+2025-07-01 21:49:31 | __main__             | INFO     | 📱 Checking messages for b***************8@gmail.com
+2025-07-01 21:49:31 | __main__             | INFO     | 📭 No new messages
+2025-07-01 21:49:31 | __main__             | INFO     | 📱 Checking messages for t*********7@gmail.com
+2025-07-01 21:49:31 | __main__             | INFO     | 📩 New message detected: Does it come with original box? from Customer_3153
+2025-07-01 21:49:31 | __main__             | INFO     | 📩 New message detected: Still for sale? from Customer_6017
+2025-07-01 21:49:31 | __main__             | INFO     | 📩 Found 2 new messages
+2025-07-01 21:49:31 | __main__             | INFO     | 🔄 Processing message from Customer_3153
+2025-07-01 21:49:31 | services.llama_ai    | INFO     | Generating AI response for message from Customer_3153
+2025-07-01 21:49:34 | ai                   | INFO     | AI_INTERACTION | prompt:755chars | response:197chars | confidence:0.80 | time:2.83s
+2025-07-01 21:49:34 | services.llama_ai    | INFO     | ✅ AI response generated in 2.83s (confidence: 0.80)
+2025-07-01 21:49:34 | __main__             | INFO     | 🤖 AI Response: Yes, the iPhone 13 Pro comes with its original box...
+2025-07-01 21:49:34 | __main__             | INFO     | 📤 Sending response to Customer_3153
+2025-07-01 21:49:34 | __main__             | INFO     |     Message: Yes, the iPhone 13 Pro comes with its original box and packaging. I've made sure to include everything as described in the listing. Would you like me to confirm the authenticity of any other items?
+2025-07-01 21:49:34 | __main__             | INFO     | ⏸️ Waiting 111.9s before sending (human-like delay)...
+2025-07-01 21:51:26 | __main__             | INFO     | ✅ Response sent successfully
+2025-07-01 21:51:26 | __main__             | INFO     | ✅ Message processed and responded
+2025-07-01 21:51:26 | __main__             | INFO     | 🔄 Processing message from Customer_6017
+2025-07-01 21:51:26 | services.llama_ai    | INFO     | Generating AI response for message from Customer_6017
+2025-07-01 21:51:29 | ai                   | INFO     | AI_INTERACTION | prompt:696chars | response:119chars | confidence:0.80 | time:2.61s
+2025-07-01 21:51:29 | services.llama_ai    | INFO     | ✅ AI response generated in 2.61s (confidence: 0.80)
+2025-07-01 21:51:29 | __main__             | INFO     | 🤖 AI Response: Yes, I'm still selling the Nike Air Jordan 1s - fe...
+2025-07-01 21:51:29 | __main__             | INFO     | 📤 Sending response to Customer_6017
+2025-07-01 21:51:29 | __main__             | INFO     |     Message: Yes, I'm still selling the Nike Air Jordan 1s - feel free to make an offer or ask me any questions you have about them!
+2025-07-01 21:51:29 | __main__             | INFO     | ⏸️ Waiting 31.9s before sending (human-like delay)...
+2025-07-01 21:52:01 | __main__             | INFO     | ✅ Response sent successfully
+2025-07-01 21:52:01 | __main__             | INFO     | ✅ Message processed and responded
+2025-07-01 21:52:01 | __main__             | INFO     | 📊 Cycle Results:
+2025-07-01 21:52:01 | __main__             | INFO     |    📩 Messages found: 2
+2025-07-01 21:52:01 | __main__             | INFO     |    ✅ Messages processed: 2
+2025-07-01 21:52:01 | __main__             | INFO     |    📤 Responses sent: 2
+2025-07-01 21:52:01 | __main__             | INFO     |    ❌ Errors: 0
+2025-07-01 21:52:01 | __main__             | INFO     | 
+🏁 Monitoring session completed
+2025-07-01 21:52:01 | __main__             | INFO     | 
+📊 MESSAGE MONITORING STATISTICS
+2025-07-01 21:52:01 | __main__             | INFO     | ==================================================
+2025-07-01 21:52:01 | __main__             | INFO     | 📅 Duration: 2.5 minutes
+2025-07-01 21:52:01 | __main__             | INFO     | 👥 Accounts monitored: 2
+2025-07-01 21:52:01 | __main__             | INFO     | 📩 Messages processed: 2
+2025-07-01 21:52:01 | __main__             | INFO     | 📤 Responses sent: 2
+2025-07-01 21:52:01 | __main__             | INFO     | ⚠️ Escalations: 0
+2025-07-01 21:52:01 | __main__             | INFO     | 📈 Response rate: 100.0%
+2025-07-01 21:52:01 | __main__             | INFO     | 📊 Messages per hour: 48.2
+2025-07-01 21:52:01 | __main__             | INFO     | 
+💬 Active conversations: 2
+2025-07-01 21:52:01 | __main__             | INFO     |    conv_tomvissani7@gmail.com_162: 2 messages
+2025-07-01 21:52:01 | __main__             | INFO     |    conv_tomvissani7@gmail.com_341: 2 messages
+2025-07-01 21:54:17 | services.llama_ai    | INFO     | LlamaAI initialized - Server: http://localhost:11434, Model: llama3.2
+2025-07-01 21:54:36 | services.llama_ai    | INFO     | LlamaAI initialized - Server: http://localhost:11434, Model: llama3.2
+2025-07-01 21:57:45 | services.llama_ai    | INFO     | LlamaAI initialized - Server: http://localhost:11434, Model: llama3.2
+2025-07-01 21:57:59 | services.llama_ai    | INFO     | LlamaAI initialized - Server: http://localhost:11434, Model: llama3.2
+2025-07-01 22:06:30 | services.llama_ai    | INFO     | LlamaAI initialized - Server: http://localhost:11434, Model: llama3.2
+2025-07-01 22:06:30 | __main__             | INFO     | 📋 Loading data for message monitoring...
+2025-07-01 22:06:30 | services.excel_handler | INFO     | Loaded products Excel file: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_products.xlsx
+2025-07-01 22:06:30 | services.excel_handler | INFO     | Found 3 rows in products file
+2025-07-01 22:06:30 | services.excel_handler | INFO     | Successfully loaded 3 products
+2025-07-01 22:06:30 | __main__             | INFO     | ✅ Loaded 3 products for AI context
+2025-07-01 22:06:30 | services.excel_handler | INFO     | Loaded accounts Excel file: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_accounts.xlsx
+2025-07-01 22:06:30 | services.excel_handler | INFO     | Found 3 rows in accounts file
+2025-07-01 22:06:30 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-07-01 22:06:30 | __main__             | INFO     | ✅ Found 2 accounts ready for monitoring
+2025-07-01 22:06:30 | __main__             | INFO     | 🤖 Testing AI service connection...
+2025-07-01 22:06:30 | services.llama_ai    | INFO     | Testing Llama server connection...
+2025-07-01 22:06:32 | services.llama_ai    | INFO     | ✅ Llama server connected successfully
+2025-07-01 22:06:32 | services.llama_ai    | INFO     | Available models: ['llama3.2:latest', 'llama2:latest']
+2025-07-01 22:06:32 | services.llama_ai    | INFO     | ✅ Model 'llama3.2' is available
+2025-07-01 22:06:32 | services.llama_ai    | INFO     | Generating AI response for message from Test Customer
+2025-07-01 22:06:37 | ai                   | INFO     | AI_INTERACTION | prompt:752chars | response:116chars | confidence:0.80 | time:4.83s
+2025-07-01 22:06:37 | services.llama_ai    | INFO     | ✅ AI response generated in 4.83s (confidence: 0.80)
+2025-07-01 22:06:37 | __main__             | INFO     | ✅ AI Response Test: Yes, the iPhone 13 Pro is still available for purc...
+2025-07-01 22:06:37 | __main__             | INFO     | 🤖 Initializing Facebook bots...
+2025-07-01 22:06:37 | __main__             | INFO     | 🔄 Setting up bot for b***************8@gmail.com
+2025-07-01 22:06:37 | facebook_bot_b***************8@gmail.com | INFO     | FacebookBot initialized for b***************8@gmail.com
+2025-07-01 22:06:37 | __main__             | INFO     | ✅ Bot ready for b***************8@gmail.com
+2025-07-01 22:06:37 | __main__             | INFO     | 🔄 Setting up bot for t*********7@gmail.com
+2025-07-01 22:06:37 | facebook_bot_t*********7@gmail.com | INFO     | FacebookBot initialized for t*********7@gmail.com
+2025-07-01 22:06:37 | __main__             | INFO     | ✅ Bot ready for t*********7@gmail.com
+2025-07-01 22:06:37 | __main__             | INFO     | ✅ 2 bots ready for monitoring
+2025-07-01 22:06:51 | __main__             | INFO     | 🚀 Starting continuous monitoring for 5 minutes...
+2025-07-01 22:06:51 | __main__             | INFO     | 
+📊 Monitoring Cycle 1
+2025-07-01 22:06:51 | __main__             | INFO     | ========================================
+2025-07-01 22:06:51 | __main__             | INFO     | 🔄 Starting monitoring cycle...
+2025-07-01 22:06:51 | __main__             | INFO     | 📱 Checking messages for b***************8@gmail.com
+2025-07-01 22:06:51 | __main__             | INFO     | 📭 No new messages
+2025-07-01 22:06:51 | __main__             | INFO     | 📱 Checking messages for t*********7@gmail.com
+2025-07-01 22:06:51 | __main__             | INFO     | 📭 No new messages
+2025-07-01 22:06:51 | __main__             | INFO     | 📊 Cycle Results:
+2025-07-01 22:06:51 | __main__             | INFO     |    📩 Messages found: 0
+2025-07-01 22:06:51 | __main__             | INFO     |    ✅ Messages processed: 0
+2025-07-01 22:06:51 | __main__             | INFO     |    📤 Responses sent: 0
+2025-07-01 22:06:51 | __main__             | INFO     |    ❌ Errors: 0
+2025-07-01 22:06:51 | __main__             | INFO     | ⏸️ Waiting 60s before next cycle...
+2025-07-01 22:07:51 | __main__             | INFO     | 
+📊 Monitoring Cycle 2
+2025-07-01 22:07:51 | __main__             | INFO     | ========================================
+2025-07-01 22:07:51 | __main__             | INFO     | 🔄 Starting monitoring cycle...
+2025-07-01 22:07:51 | __main__             | INFO     | 📱 Checking messages for b***************8@gmail.com
+2025-07-01 22:07:51 | __main__             | INFO     | 📭 No new messages
+2025-07-01 22:07:51 | __main__             | INFO     | 📱 Checking messages for t*********7@gmail.com
+2025-07-01 22:07:51 | __main__             | INFO     | 📩 New message detected: Does it come with original box? from Customer_1136
+2025-07-01 22:07:51 | __main__             | INFO     | 📩 New message detected: What's your best price? from Customer_7770
+2025-07-01 22:07:51 | __main__             | INFO     | 📩 Found 2 new messages
+2025-07-01 22:07:51 | __main__             | INFO     | 🔄 Processing message from Customer_1136
+2025-07-01 22:07:51 | services.llama_ai    | INFO     | Generating AI response for message from Customer_1136
+2025-07-01 22:07:54 | ai                   | INFO     | AI_INTERACTION | prompt:714chars | response:229chars | confidence:0.70 | time:2.78s
+2025-07-01 22:07:54 | services.llama_ai    | INFO     | ✅ AI response generated in 2.78s (confidence: 0.70)
+2025-07-01 22:07:54 | __main__             | INFO     | 🤖 AI Response: Yes, the MacBook Air comes with the original box, ...
+2025-07-01 22:07:54 | __main__             | INFO     | 📤 Sending response to Customer_1136
+2025-07-01 22:07:54 | __main__             | INFO     |     Message: Yes, the MacBook Air comes with the original box, as well as a power adapter and documentation. It's in good condition, just as described in my listing. If you have any other questions or would like more photos, feel free to ask!
+2025-07-01 22:07:54 | __main__             | INFO     | ⏸️ Waiting 46.3s before sending (human-like delay)...
+2025-07-01 22:08:40 | __main__             | INFO     | ✅ Response sent successfully
+2025-07-01 22:08:40 | __main__             | INFO     | ✅ Message processed and responded
+2025-07-01 22:08:40 | __main__             | INFO     | 🔄 Processing message from Customer_7770
+2025-07-01 22:08:40 | services.llama_ai    | INFO     | Generating AI response for message from Customer_7770
+2025-07-01 22:08:43 | ai                   | INFO     | AI_INTERACTION | prompt:747chars | response:138chars | confidence:0.90 | time:2.65s
+2025-07-01 22:08:43 | services.llama_ai    | INFO     | ✅ AI response generated in 2.65s (confidence: 0.90)
+2025-07-01 22:08:43 | __main__             | INFO     | 🤖 AI Response: We're flexible on the price, but I'm willing to ne...
+2025-07-01 22:08:43 | __main__             | INFO     | 📤 Sending response to Customer_7770
+2025-07-01 22:08:43 | __main__             | INFO     |     Message: We're flexible on the price, but I'm willing to negotiate. Would you like me to consider a discount of $50 from the original asking price?
+2025-07-01 22:08:43 | __main__             | INFO     | ⏸️ Waiting 82.5s before sending (human-like delay)...

@@ -626,3 +626,85 @@ Stacktrace:
 2025-07-01 20:03:53 | __main__             | INFO     | ✅ Response sent successfully
 2025-07-01 20:04:23 | __main__             | INFO     | 
 🏁 Monitoring session completed
+2025-07-01 21:29:48 | services.excel_handler | INFO     | Loaded products Excel file: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_products.xlsx
+2025-07-01 21:29:48 | services.excel_handler | INFO     | Successfully loaded 3 products
+2025-07-01 21:29:48 | __main__             | INFO     | ✅ Loaded 3 products for AI context
+2025-07-01 21:29:48 | services.excel_handler | INFO     | Loaded accounts Excel file: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_accounts.xlsx
+2025-07-01 21:29:48 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-07-01 21:29:50 | services.llama_ai    | INFO     | ✅ Llama server connected successfully
+2025-07-01 21:31:23 | __main__             | INFO     | ✅ Response sent successfully
+2025-07-01 21:33:20 | __main__             | INFO     | ✅ Response sent successfully
+2025-07-01 21:33:58 | services.excel_handler | INFO     | Loaded accounts Excel file: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_accounts.xlsx
+2025-07-01 21:33:58 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-07-01 21:33:58 | __main__             | INFO     | ✅ Loaded 2 accounts for monitoring
+2025-07-01 21:33:59 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-07-01 21:34:00 | __main__             | INFO     | ✅ Response sent successfully
+2025-07-01 21:34:00 | __main__             | INFO     | 
+🏁 Monitoring session completed
+2025-07-01 21:34:01 | utils.browser_utils  | INFO     | Page loaded in 2.10s
+2025-07-01 21:34:06 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-07-01 21:34:16 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-07-01 21:34:17 | utils.browser_utils  | INFO     | Page loaded in 1.57s
+2025-07-01 21:34:22 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-07-01 21:36:57 | services.excel_handler | INFO     | Loaded accounts Excel file: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_accounts.xlsx
+2025-07-01 21:36:57 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-07-01 21:36:57 | __main__             | INFO     | ✅ Loaded 2 accounts for monitoring
+2025-07-01 21:36:58 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-07-01 21:37:00 | utils.browser_utils  | INFO     | Page loaded in 2.16s
+2025-07-01 21:37:04 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-07-01 21:37:04 | facebook_bot_b***************8@gmail.com | INFO     | Browser setup completed
+2025-07-01 21:37:07 | utils.browser_utils  | INFO     | Page loaded in 3.84s
+2025-07-01 21:37:32 | facebook_bot_b***************8@gmail.com | INFO     | Found login indicator - already logged in
+2025-07-01 21:37:32 | facebook_bot_b***************8@gmail.com | INFO     | Already logged in to Facebook
+2025-07-01 21:37:53 | facebook_bot_b***************8@gmail.com | INFO     | Found login indicator - already logged in
+2025-07-01 21:37:53 | facebook_bot_b***************8@gmail.com | INFO     | Login verification successful
+2025-07-01 21:37:53 | facebook             | INFO     | FB_ACTION | session_start | b***************8@gmail.com | SUCCESS | Session started in 50.23s
+2025-07-01 21:37:53 | facebook_bot_b***************8@gmail.com | INFO     | Facebook session started successfully in 50.23s
+2025-07-01 21:37:53 | __main__             | INFO     | ✅ Login successful
+2025-07-01 21:38:14 | facebook_bot_b***************8@gmail.com | INFO     | Found login indicator - already logged in
+2025-07-01 21:38:24 | utils.browser_utils  | INFO     | Page loaded in 10.24s
+2025-07-01 21:38:28 | facebook_bot_b***************8@gmail.com | INFO     | Successfully navigated to Marketplace
+2025-07-01 21:38:32 | utils.browser_utils  | INFO     | Page loaded in 4.09s
+2025-07-01 21:38:36 | facebook_bot_b***************8@gmail.com | INFO     | ✅ Messages interface loaded
+2025-07-01 21:38:38 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-07-01 21:38:42 | facebook             | INFO     | FB_ACTION | session_end | b***************8@gmail.com | SUCCESS | Actions: 1, Duration: 49.74s
+2025-07-01 21:38:42 | facebook_bot_b***************8@gmail.com | INFO     | Facebook session ended successfully
+2025-07-01 21:38:45 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-07-01 21:38:55 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-07-01 21:38:57 | utils.browser_utils  | INFO     | Page loaded in 2.17s
+2025-07-01 21:39:00 | utils.browser_utils  | INFO     | Chrome WebDriver setup successful
+2025-07-01 21:39:00 | facebook_bot_t*********7@gmail.com | INFO     | Browser setup completed
+2025-07-01 21:39:02 | utils.browser_utils  | INFO     | Page loaded in 1.87s
+2025-07-01 21:39:27 | facebook_bot_t*********7@gmail.com | INFO     | Found login indicator - already logged in
+2025-07-01 21:39:27 | facebook_bot_t*********7@gmail.com | INFO     | Already logged in to Facebook
+2025-07-01 21:39:48 | facebook_bot_t*********7@gmail.com | INFO     | Found login indicator - already logged in
+2025-07-01 21:39:48 | facebook_bot_t*********7@gmail.com | INFO     | Login verification successful
+2025-07-01 21:39:48 | facebook             | INFO     | FB_ACTION | session_start | t*********7@gmail.com | SUCCESS | Session started in 48.60s
+2025-07-01 21:39:48 | facebook_bot_t*********7@gmail.com | INFO     | Facebook session started successfully in 48.60s
+2025-07-01 21:39:48 | __main__             | INFO     | ✅ Login successful
+2025-07-01 21:40:09 | facebook_bot_t*********7@gmail.com | INFO     | Found login indicator - already logged in
+2025-07-01 21:40:16 | utils.browser_utils  | INFO     | Page loaded in 7.52s
+2025-07-01 21:40:20 | facebook_bot_t*********7@gmail.com | INFO     | Successfully navigated to Marketplace
+2025-07-01 21:40:21 | utils.browser_utils  | INFO     | Page loaded in 1.67s
+2025-07-01 21:41:49 | facebook_bot_t*********7@gmail.com | INFO     | ✅ Messages page loaded
+2025-07-01 21:41:51 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-07-01 21:41:55 | facebook             | INFO     | FB_ACTION | session_end | t*********7@gmail.com | SUCCESS | Actions: 1, Duration: 127.47s
+2025-07-01 21:41:55 | facebook_bot_t*********7@gmail.com | INFO     | Facebook session ended successfully
+2025-07-01 21:41:57 | utils.browser_utils  | INFO     | Browser cleanup completed
+2025-07-01 21:49:10 | services.excel_handler | INFO     | Loaded products Excel file: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_products.xlsx
+2025-07-01 21:49:10 | services.excel_handler | INFO     | Successfully loaded 3 products
+2025-07-01 21:49:10 | __main__             | INFO     | ✅ Loaded 3 products for AI context
+2025-07-01 21:49:10 | services.excel_handler | INFO     | Loaded accounts Excel file: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_accounts.xlsx
+2025-07-01 21:49:10 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-07-01 21:49:12 | services.llama_ai    | INFO     | ✅ Llama server connected successfully
+2025-07-01 21:51:26 | __main__             | INFO     | ✅ Response sent successfully
+2025-07-01 21:52:01 | __main__             | INFO     | ✅ Response sent successfully
+2025-07-01 21:52:01 | __main__             | INFO     | 
+🏁 Monitoring session completed
+2025-07-01 22:06:30 | services.excel_handler | INFO     | Loaded products Excel file: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_products.xlsx
+2025-07-01 22:06:30 | services.excel_handler | INFO     | Successfully loaded 3 products
+2025-07-01 22:06:30 | __main__             | INFO     | ✅ Loaded 3 products for AI context
+2025-07-01 22:06:30 | services.excel_handler | INFO     | Loaded accounts Excel file: C:\Users\burak\PycharmProjects\FacebookMarketplaceBot\data\sample_data\sample_accounts.xlsx
+2025-07-01 22:06:30 | services.excel_handler | INFO     | Successfully loaded 3 accounts
+2025-07-01 22:06:32 | services.llama_ai    | INFO     | ✅ Llama server connected successfully
+2025-07-01 22:08:40 | __main__             | INFO     | ✅ Response sent successfully
