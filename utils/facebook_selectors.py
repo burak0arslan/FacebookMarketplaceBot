@@ -1,196 +1,229 @@
 """
-Robust Facebook Element Selectors
-Updated selectors that work with current Facebook layout
+Facebook Selectors for Playwright
+CSS selectors for various Facebook elements (more reliable than XPath)
 """
 
-from selenium.webdriver.common.by import By
 from typing import List, Tuple
 
 
 class FacebookSelectors:
     """
-    Robust Facebook element selectors with fallback options
+    Collection of CSS selectors for Facebook elements
+    Playwright works better with CSS selectors than XPath
     """
 
-    @staticmethod
-    def get_email_selectors() -> List[Tuple[str, str]]:
-        """Get multiple selector options for email field"""
-        return [
-            (By.CSS_SELECTOR, 'input[name="email"]'),
-            (By.CSS_SELECTOR, 'input[type="email"]'),
-            (By.CSS_SELECTOR, 'input[placeholder*="email"]'),
-            (By.CSS_SELECTOR, 'input[placeholder*="Email"]'),
-            (By.CSS_SELECTOR, 'input[aria-label*="email"]'),
-            (By.CSS_SELECTOR, 'input[aria-label*="Email"]'),
-            (By.CSS_SELECTOR, 'input[data-testid*="email"]'),
-            (By.ID, 'email'),
-            (By.XPATH, '//input[@name="email"]'),
-            (By.XPATH, '//input[@type="email"]'),
-            (By.XPATH, '//input[contains(@placeholder, "email") or contains(@placeholder, "Email")]')
-        ]
+    # Login Page Selectors
+    LOGIN_EMAIL_SELECTORS = [
+        'input[name="email"]',
+        'input[id="email"]',
+        'input[type="email"]',
+        'input[placeholder*="email" i]',
+        'input[placeholder*="Email" i]',
+        'input[aria-label*="email" i]'
+    ]
+
+    LOGIN_PASSWORD_SELECTORS = [
+        'input[name="pass"]',
+        'input[name="password"]',
+        'input[id="pass"]',
+        'input[id="password"]',
+        'input[type="password"]',
+        'input[placeholder*="password" i]',
+        'input[aria-label*="password" i]'
+    ]
+
+    LOGIN_BUTTON_SELECTORS = [
+        'button[name="login"]',
+        'button[type="submit"]',
+        'input[type="submit"]',
+        'button[data-testid="royal_login_button"]',
+        'button[value="Log In"]',
+        'button:has-text("Log in")',
+        'button:has-text("Log In")',
+        'input[value="Log In"]',
+        'input[value="Log in"]'
+    ]
+
+    # Navigation Selectors
+    MARKETPLACE_SELECTORS = [
+        'a[href*="/marketplace"]',
+        'a[aria-label*="Marketplace" i]',
+        'a:has-text("Marketplace")',
+        '[data-testid*="marketplace"]',
+        'div[role="button"]:has-text("Marketplace")'
+    ]
+
+    MESSAGES_SELECTORS = [
+        'a[href*="/messages"]',
+        'a[aria-label*="Messenger" i]',
+        'a[aria-label*="Messages" i]',
+        'a:has-text("Messages")',
+        '[data-testid*="messages"]',
+        '[data-testid*="messenger"]'
+    ]
+
+    # Marketplace Selectors
+    MARKETPLACE_SEARCH_SELECTORS = [
+        'input[placeholder*="Search Marketplace" i]',
+        'input[aria-label*="Search Marketplace" i]',
+        'input[name="query"]',
+        '[role="searchbox"]'
+    ]
+
+    PRODUCT_LISTINGS_SELECTORS = [
+        '[role="main"] a[href*="/marketplace/item/"]',
+        'div[data-testid*="marketplace-item"]',
+        'a[aria-label*="$"]',  # Product listings often have price in aria-label
+        '.marketplace-item',
+        '[data-testid="marketplace-product-item"]'
+    ]
+
+    # Messages/Chat Selectors
+    MESSAGE_THREAD_SELECTORS = [
+        '[role="grid"] div[role="row"]',
+        '[data-testid="message-thread"]',
+        '.conversation-item',
+        'div[aria-label*="Conversation with"]'
+    ]
+
+    MESSAGE_INPUT_SELECTORS = [
+        'div[role="textbox"]',
+        'div[contenteditable="true"]',
+        'textarea[placeholder*="Aa"]',
+        'div[aria-label*="Message"]',
+        'div[data-testid="message-input"]'
+    ]
+
+    SEND_BUTTON_SELECTORS = [
+        'div[role="button"][aria-label*="Send" i]',
+        'button[aria-label*="Send" i]',
+        '[data-testid="send-button"]',
+        'div[role="button"]:has-text("Send")'
+    ]
+
+    # CAPTCHA and Security
+    CAPTCHA_SELECTORS = [
+        '.captcha',
+        '[data-testid="captcha"]',
+        'iframe[src*="captcha"]',
+        'div:has-text("Security Check")',
+        'div:has-text("Please complete the security check")'
+    ]
+
+    TWO_FACTOR_SELECTORS = [
+        'input[name="approvals_code"]',
+        'input[placeholder*="confirmation code" i]',
+        'input[aria-label*="confirmation code" i]',
+        '[data-testid="two-factor-input"]'
+    ]
+
+    # Profile and Account
+    PROFILE_MENU_SELECTORS = [
+        '[data-testid="blue_bar_profile_link"]',
+        'div[role="button"][aria-label*="Account" i]',
+        'div[role="button"][aria-label*="Profile" i]',
+        'img[alt*="profile" i]'
+    ]
+
+    LOGOUT_SELECTORS = [
+        'div[role="menuitem"]:has-text("Log Out")',
+        'a:has-text("Log Out")',
+        'span:has-text("Log Out")',
+        '[data-testid="logout"]'
+    ]
+
+    # Error and Status Messages
+    ERROR_MESSAGE_SELECTORS = [
+        '.error',
+        '[role="alert"]',
+        '.errorMessage',
+        'div:has-text("error")',
+        'div:has-text("Error")',
+        '.validation-error'
+    ]
+
+    SUCCESS_MESSAGE_SELECTORS = [
+        '.success',
+        '.successMessage',
+        'div:has-text("success")',
+        'div:has-text("Success")'
+    ]
 
     @staticmethod
-    def get_password_selectors() -> List[Tuple[str, str]]:
-        """Get multiple selector options for password field"""
-        return [
-            (By.CSS_SELECTOR, 'input[name="pass"]'),
-            (By.CSS_SELECTOR, 'input[name="password"]'),
-            (By.CSS_SELECTOR, 'input[type="password"]'),
-            (By.CSS_SELECTOR, 'input[placeholder*="password"]'),
-            (By.CSS_SELECTOR, 'input[placeholder*="Password"]'),
-            (By.CSS_SELECTOR, 'input[aria-label*="password"]'),
-            (By.CSS_SELECTOR, 'input[aria-label*="Password"]'),
-            (By.ID, 'pass'),
-            (By.ID, 'password'),
-            (By.XPATH, '//input[@name="pass"]'),
-            (By.XPATH, '//input[@type="password"]')
-        ]
+    def get_login_email_selectors() -> List[str]:
+        """Get multiple selector options for email input"""
+        return FacebookSelectors.LOGIN_EMAIL_SELECTORS
 
     @staticmethod
-    def get_login_button_selectors() -> List[Tuple[str, str]]:
+    def get_login_password_selectors() -> List[str]:
+        """Get multiple selector options for password input"""
+        return FacebookSelectors.LOGIN_PASSWORD_SELECTORS
+
+    @staticmethod
+    def get_login_button_selectors() -> List[str]:
         """Get multiple selector options for login button"""
-        return [
-            (By.CSS_SELECTOR, 'button[name="login"]'),
-            (By.CSS_SELECTOR, 'button[type="submit"]'),
-            (By.CSS_SELECTOR, 'input[type="submit"]'),
-            (By.CSS_SELECTOR, 'button[data-testid="royal_login_button"]'),
-            (By.CSS_SELECTOR, 'button[value="Log In"]'),
-            (By.XPATH, '//button[@name="login"]'),
-            (By.XPATH, '//button[@type="submit"]'),
-            (By.XPATH, '//input[@type="submit"]'),
-            (By.XPATH, '//button[contains(text(), "Log in") or contains(text(), "Log In")]'),
-            (By.XPATH, '//input[@value="Log In" or @value="Log in"]')
-        ]
+        return FacebookSelectors.LOGIN_BUTTON_SELECTORS
+
+    @staticmethod
+    def get_marketplace_selectors() -> List[str]:
+        """Get multiple selector options for marketplace navigation"""
+        return FacebookSelectors.MARKETPLACE_SELECTORS
+
+    @staticmethod
+    def get_messages_selectors() -> List[str]:
+        """Get multiple selector options for messages navigation"""
+        return FacebookSelectors.MESSAGES_SELECTORS
+
+    @staticmethod
+    def get_captcha_selectors() -> List[str]:
+        """Get multiple selector options for CAPTCHA detection"""
+        return FacebookSelectors.CAPTCHA_SELECTORS
+
+    @staticmethod
+    def get_error_selectors() -> List[str]:
+        """Get multiple selector options for error messages"""
+        return FacebookSelectors.ERROR_MESSAGE_SELECTORS
 
 
-def find_element_robust(driver, selectors: List[Tuple[str, str]], timeout: int = 5):
+def find_element_with_fallback(page, selectors: List[str], timeout: int = 5000):
     """
-    Try multiple selectors to find an element
+    Try multiple selectors to find an element with Playwright
 
     Args:
-        driver: WebDriver instance
-        selectors: List of (By.TYPE, selector_string) tuples
+        page: Playwright page object
+        selectors: List of CSS selectors to try
         timeout: Timeout for each selector attempt
 
     Returns:
-        WebElement if found, None otherwise
+        Element if found, None otherwise
     """
-    from selenium.webdriver.support.ui import WebDriverWait
-    from selenium.webdriver.support import expected_conditions as EC
-    from selenium.common.exceptions import TimeoutException
-
-    for by_type, selector in selectors:
+    for selector in selectors:
         try:
-            element = WebDriverWait(driver, timeout).until(
-                EC.presence_of_element_located((by_type, selector))
-            )
+            element = page.wait_for_selector(selector, timeout=timeout)
             if element:
                 return element
-        except TimeoutException:
-            continue
         except Exception:
             continue
-
     return None
 
 
-# Updated browser utilities function
-def find_element_safe_robust(browser_manager, element_type: str, timeout: int = 5):
+async def find_element_with_fallback_async(page, selectors: List[str], timeout: int = 5000):
     """
-    Find Facebook elements using robust selectors
+    Try multiple selectors to find an element with Playwright (async)
 
     Args:
-        browser_manager: BrowserManager instance
-        element_type: 'email', 'password', or 'login_button'
-        timeout: Timeout for search
+        page: Playwright page object
+        selectors: List of CSS selectors to try
+        timeout: Timeout for each selector attempt
 
     Returns:
-        WebElement if found, None otherwise
+        Element if found, None otherwise
     """
-    selectors_map = {
-        'email': FacebookSelectors.get_email_selectors(),
-        'password': FacebookSelectors.get_password_selectors(),
-        'login_button': FacebookSelectors.get_login_button_selectors()
-    }
-
-    if element_type not in selectors_map:
-        return None
-
-    selectors = selectors_map[element_type]
-    return find_element_robust(browser_manager.driver, selectors, timeout)
-
-
-# Test function to verify selectors work
-def test_facebook_selectors(browser_manager):
-    """
-    Test Facebook selectors on current page
-
-    Args:
-        browser_manager: BrowserManager instance
-
-    Returns:
-        Dict with test results
-    """
-    results = {
-        'email_field': False,
-        'password_field': False,
-        'login_button': False,
-        'page_loaded': False
-    }
-
-    try:
-        # Check if we're on Facebook
-        current_url = browser_manager.driver.current_url
-        results['page_loaded'] = 'facebook.com' in current_url
-
-        # Test email field
-        email_element = find_element_safe_robust(browser_manager, 'email', timeout=3)
-        results['email_field'] = email_element is not None
-
-        # Test password field
-        password_element = find_element_safe_robust(browser_manager, 'password', timeout=3)
-        results['password_field'] = password_element is not None
-
-        # Test login button
-        login_element = find_element_safe_robust(browser_manager, 'login_button', timeout=3)
-        results['login_button'] = login_element is not None
-
-    except Exception as e:
-        results['error'] = str(e)
-
-    return results
-
-
-# Example usage
-if __name__ == "__main__":
-    from utils.browser_utils import create_browser_manager
-    from utils.logger import setup_logging, get_logger
-
-    setup_logging()
-    logger = get_logger(__name__)
-
-    logger.info("Testing robust Facebook selectors...")
-
-    try:
-        with create_browser_manager(headless=False) as browser:
-            # Navigate to Facebook
-            if browser.navigate_to("https://www.facebook.com"):
-                logger.info("Navigated to Facebook")
-
-                # Test selectors
-                results = test_facebook_selectors(browser)
-
-                logger.info("Selector test results:")
-                for element_type, found in results.items():
-                    status = "✅" if found else "❌"
-                    logger.info(f"  {element_type}: {status}")
-
-                # Try to find email field with robust method
-                email_field = find_element_safe_robust(browser, 'email')
-                if email_field:
-                    logger.info("✅ Successfully found email field with robust selectors")
-                else:
-                    logger.warning("⚠️ Email field not found - Facebook may have changed layout")
-
-    except Exception as e:
-        logger.error(f"Test error: {e}")
+    for selector in selectors:
+        try:
+            element = await page.wait_for_selector(selector, timeout=timeout)
+            if element:
+                return element
+        except Exception:
+            continue
+    return None
