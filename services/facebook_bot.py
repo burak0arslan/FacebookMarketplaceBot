@@ -475,12 +475,12 @@ class FacebookBot:
 
     def create_marketplace_listing(self, product: Product) -> bool:
         """Create a marketplace listing"""
-        if not self.logged_in or not self.current_account:
+        if not self.logged_in or not self.is_logged_in:  # ← FIXED LINE
             self.logger.error("Must be logged in to create listings")
             return False
 
         from services.marketplace_listing import MarketplaceListing
-        listing_service = MarketplaceListing(self.browser, self.current_account)
+        listing_service = MarketplaceListing(self.browser, self.account)  # ← FIXED
         return listing_service.create_listing(product)
 
     def navigate_to_messages(self) -> bool:
