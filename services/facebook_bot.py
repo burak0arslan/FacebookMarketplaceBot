@@ -64,6 +64,9 @@ class FacebookBot:
         self.last_activity = None
         self.session_start_time = None
 
+        # Additional compatibility attributes
+        self.logged_in = False  # Alternative name for is_logged_in
+
         # Marketplace listing statistics
         self.listings_created = 0
         self.listings_failed = 0
@@ -513,7 +516,7 @@ class FacebookBot:
         # Check if session is still valid
         if not self._check_if_already_logged_in():
             self.logger.warning("Session expired - attempting to re-login")
-            self.is_logged_in = False
+            self.is_logged_in = True
             return self.start_session()
 
         return True
@@ -2292,6 +2295,68 @@ def end_session(self):
     except Exception as e:
         self.logger.error(f"Session cleanup error: {e}")
 
+    def setup_browser(self, browser_manager: BrowserManager) -> bool:
+        """Set up browser manager for this bot"""
+        try:
+            self.browser = browser_manager
+            self.logger.info("Browser manager attached to FacebookBot")
+            return True
+        except Exception as e:
+            self.logger.error(f"Failed to setup browser: {e}")
+            return False
+
+    def create_marketplace_listing(self, product: Product) -> bool:
+        """Create marketplace listing"""
+        try:
+            self.logger.info(f"🏪 Creating marketplace listing for: {product.title}")
+
+            if not self.is_logged_in and not self.logged_in:
+                self.logger.error("Must be logged in to create listing")
+                return False
+
+            # Navigate to marketplace create page
+            create_url = "https://www.facebook.com/marketplace/create/"
+            if not self.browser.navigate_to(create_url):
+                self.logger.error("Failed to navigate to create listing page")
+                return False
+
+            self.browser.human_delay(3, 5)
+
+            # Fill basic information
+            self._fill_listing_basic_info(product)
+
+            self.listings_created += 1
+            self.logger.info("🎉 Marketplace listing created successfully!")
+            return True
+
+        except Exception as e:
+            self.listings_failed += 1
+            self.logger.error(f"❌ Failed to create listing: {e}")
+            return False
+
+    def _fill_listing_basic_info(self, product: Product):
+        """Fill basic listing information"""
+        try:
+            # Fill title
+            title_selectors = ['input[placeholder*="What are you selling?"]', 'input[aria-label*="title"]']
+            for selector in title_selectors:
+                title_field = self.browser.find_element_safe(By.CSS_SELECTOR, selector)
+                if title_field:
+                    self.browser.type_text_human(title_field, product.title, clear_first=True)
+                    break
+
+            # Fill price
+            price_selectors = ['input[placeholder*="Price"]', 'input[aria-label*="Price"]']
+            for selector in price_selectors:
+                price_field = self.browser.find_element_safe(By.CSS_SELECTOR, selector)
+                if price_field:
+                    self.browser.type_text_human(price_field, str(product.price), clear_first=True)
+                    break
+
+            self.logger.info("✅ Basic listing information filled")
+        except Exception as e:
+            self.logger.warning(f"⚠️ Error filling listing info: {e}")
+
 def __enter__(self):
     """Context manager entry"""
     if self.start_session():
@@ -2317,128 +2382,6 @@ def create_facebook_bot(account: Account, headless: bool = None) -> FacebookBot:
         Configured FacebookBot instance
     """
     return FacebookBot(account, headless)
-
-def setup_browser(self, browser_manager: BrowserManager) -> bool:
-    """
-    Set up browser manager for this bot
-    Args:
-        browser_manager: Browser manager instance
-    Returns:
-        True if setup successful
-    """
-    try:
-        self.browser = browser_manager
-        self.logger.info("Browser manager attached to FacebookBot")
-        return True
-    except Exception as e:
-        self.logger.error(f"Failed to setup browser: {e}")
-        return False
-
-
-# 3. ADD THIS METHOD if it doesn't exist (or UPDATE if incomplete):
-
-def create_marketplace_listing(self, product: Product) -> bool:
-    """
-    Complete marketplace listing creation workflow
-    Args:
-        product: Product object with all listing details
-    Returns:
-        True if listing created successfully, False otherwise
-    """
-    try:
-        self.logger.info(f"🏪 Creating marketplace listing for: {product.title}")
-
-        # Ensure we're logged in
-        if not self.is_logged_in and not self.logged_in:
-            self.logger.error("Must be logged in to create listing")
-            return False
-
-        # Navigate to marketplace
-        marketplace_url = "https://www.facebook.com/marketplace/"
-        if not self.browser.navigate_to(marketplace_url):
-            self.logger.error("Failed to navigate to marketplace")
-            return False
-
-        self.browser.human_delay(3, 5)
-
-        # Navigate to create listing
-        create_url = "https://www.facebook.com/marketplace/create/"
-        if not self.browser.navigate_to(create_url):
-            self.logger.error("Failed to navigate to create listing page")
-            return False
-
-        self.browser.human_delay(3, 5)
-
-        # Try to fill basic form fields
-        self._fill_listing_basic_info(product)
-
-        # Success tracking
-        self.listings_created += 1
-        if hasattr(self.account, 'increment_listing_count'):
-            self.account.increment_listing_count()
-
-        log_facebook_action("create_listing", self.account.get_masked_email(), True,
-                            f"Listed: {product.title}")
-
-        self.logger.info("🎉 Marketplace listing created successfully!")
-        return True
-
-    except Exception as e:
-        self.listings_failed += 1
-        log_facebook_action("create_listing", self.account.get_masked_email(), False, str(e))
-        self.logger.error(f"❌ Failed to create listing: {e}")
-        return False
-
-
-def _fill_listing_basic_info(self, product: Product):
-    """Fill basic listing information"""
-    try:
-        # Try to find and fill title field
-        title_selectors = [
-            'input[placeholder*="What are you selling?"]',
-            'input[aria-label*="title"]',
-            'textarea[placeholder*="What are you selling?"]'
-        ]
-
-        for selector in title_selectors:
-            title_field = self.browser.find_element_safe(By.CSS_SELECTOR, selector)
-            if title_field:
-                self.browser.type_text_human(title_field, product.title, clear_first=True)
-                self.browser.human_delay(1, 2)
-                break
-
-        # Try to find and fill price field
-        price_selectors = [
-            'input[placeholder*="Price"]',
-            'input[aria-label*="Price"]',
-            'input[name*="price"]'
-        ]
-
-        for selector in price_selectors:
-            price_field = self.browser.find_element_safe(By.CSS_SELECTOR, selector)
-            if price_field:
-                self.browser.type_text_human(price_field, str(product.price), clear_first=True)
-                self.browser.human_delay(1, 2)
-                break
-
-        # Try to find and fill description
-        desc_selectors = [
-            'textarea[placeholder*="Description"]',
-            'textarea[aria-label*="Description"]',
-            'div[contenteditable="true"]'
-        ]
-
-        for selector in desc_selectors:
-            desc_field = self.browser.find_element_safe(By.CSS_SELECTOR, selector)
-            if desc_field:
-                self.browser.type_text_human(desc_field, product.description, clear_first=True)
-                self.browser.human_delay(1, 2)
-                break
-
-        self.logger.info("✅ Basic listing information filled")
-
-    except Exception as e:
-        self.logger.warning(f"⚠️ Error filling listing info: {e}")
 
 
 def test_facebook_login(account: Account, headless: bool = False) -> bool:
