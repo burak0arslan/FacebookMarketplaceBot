@@ -2358,15 +2358,15 @@ def _fill_listing_basic_info(self, product: Product):
         self.logger.warning(f"⚠️ Error filling listing info: {e}")
 
     def __enter__(self):
-    """Context manager entry"""
-    if self.start_session():
-        return self
-    else:
-        raise Exception("Failed to start Facebook session")
+        """Context manager entry"""
+        if self.start_session():
+            return self
+        else:
+            raise Exception("Failed to start Facebook session")
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-    """Context manager exit"""
-    self.end_session()
+        """Context manager exit"""
+        self.end_session()
 
 
 # Convenience functions for easy usage
