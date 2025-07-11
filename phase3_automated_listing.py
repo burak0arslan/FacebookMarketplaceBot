@@ -57,7 +57,7 @@ class AutomatedListingManager:
         self.account_stats = {}
 
         # Runtime settings
-        self.dry_run = True  # Set to False for real listing creation
+        self.dry_run = False  # Set to False for real listing creation
         self.max_listings_per_account = 3  # Limit for safety
         self.delay_between_listings = (30, 60)  # seconds
 
